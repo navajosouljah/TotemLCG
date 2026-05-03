@@ -1,0 +1,2553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Totem LCG — Strategic Wireframe — For Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1A3A52;
+    --navy-deep: #0F2638;
+    --gold: #B8941F;
+    --gold-bright: #D4AF37;
+    --gold-soft: #FAF1D8;
+    --ivory: #F5F3F0;
+    --platinum: #E8E8E8;
+    --slate: #3D7BA8;
+    --forest: #2D5F4F;
+    --ink: #0E1A24;
+    --ink-soft: #2C3E50;
+    --muted: #6B7B8C;
+    --line: #D9D5CC;
+    --line-soft: #E8E4DA;
+    --white: #FFFFFF;
+    --serif-display: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--ivory);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ============= LAYOUT ============= */
+  .site {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: 100vh;
+  }
+
+  /* ============= SIDEBAR ============= */
+  .sidebar {
+    background: var(--navy);
+    color: var(--white);
+    padding: 40px 28px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid var(--navy-deep);
+  }
+
+  .brand {
+    margin-bottom: 48px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .brand-mark {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .brand-mark svg { width: 36px; height: 42px; }
+
+  .brand-name {
+    font-family: var(--serif-display);
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .brand-tag {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gold-bright);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  .doc-meta {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+  }
+
+  .doc-meta strong {
+    color: var(--gold-bright);
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .nav {
+    list-style: none;
+  }
+
+  .nav-section-label {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 28px;
+    margin-bottom: 12px;
+  }
+
+  .nav li {
+    margin-bottom: 2px;
+  }
+
+  .nav a {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 10px 12px;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .nav a:hover {
+    background: rgba(255,255,255,0.04);
+    color: var(--white);
+    border-left-color: var(--gold);
+  }
+
+  .nav a.active {
+    background: rgba(184,148,31,0.08);
+    color: var(--white);
+    border-left-color: var(--gold-bright);
+    font-weight: 500;
+  }
+
+  .nav-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    flex-shrink: 0;
+    width: 18px;
+  }
+
+  .nav a.active .nav-num {
+    color: var(--gold-bright);
+  }
+
+  .sidebar-foot {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.6;
+  }
+
+  .sidebar-foot strong {
+    color: var(--gold-bright);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+  }
+
+  /* ============= MAIN CONTENT ============= */
+  main {
+    background: var(--ivory);
+    min-height: 100vh;
+  }
+
+  .page {
+    display: none;
+    animation: pageIn 0.5s ease;
+  }
+
+  .page.active { display: block; }
+
+  @keyframes pageIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 80px 60px;
+  }
+
+  .container-wide {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 80px 60px;
+  }
+
+  /* ============= TYPOGRAPHY ============= */
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  h1.display {
+    font-family: var(--serif-display);
+    font-size: 84px;
+    line-height: 0.95;
+    letter-spacing: -1.5px;
+    color: var(--navy);
+    font-weight: 500;
+    margin-bottom: 32px;
+  }
+
+  h1 {
+    font-family: var(--serif-display);
+    font-size: 56px;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    color: var(--navy);
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  h2 {
+    font-family: var(--serif-display);
+    font-size: 36px;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    color: var(--navy);
+    font-weight: 500;
+    margin-top: 64px;
+    margin-bottom: 20px;
+  }
+
+  h2:first-child, h2.first { margin-top: 0; }
+
+  h3 {
+    font-family: var(--sans);
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 40px;
+    margin-bottom: 16px;
+  }
+
+  h4 {
+    font-family: var(--serif-display);
+    font-size: 24px;
+    line-height: 1.2;
+    color: var(--navy);
+    font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+
+  p.lead {
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--navy);
+    font-weight: 400;
+    margin-bottom: 28px;
+    font-family: var(--serif-display);
+    font-style: italic;
+    letter-spacing: 0;
+  }
+
+  .small {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  strong { color: var(--navy); font-weight: 600; }
+  em { color: var(--navy); font-style: italic; }
+
+  a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(184,148,31,0.3); transition: all 0.2s; }
+  a:hover { color: var(--navy); border-bottom-color: var(--navy); }
+
+  /* ============= LANDING / PAGE 0 ============= */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px;
+    position: relative;
+    background: linear-gradient(135deg, var(--ivory) 0%, #FBF9F4 100%);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(184,148,31,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1100px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-stamp {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-stamp::after {
+    content: "";
+    width: 80px; height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: var(--serif-display);
+    font-size: 96px;
+    line-height: 0.95;
+    letter-spacing: -2.5px;
+    color: var(--navy);
+    font-weight: 500;
+    margin-bottom: 36px;
+    max-width: 14ch;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  .hero-sub {
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 56ch;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .hero-sub strong {
+    color: var(--navy);
+    font-weight: 500;
+  }
+
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 32px;
+    max-width: 1000px;
+  }
+
+  .hero-meta-item {
+    padding-right: 24px;
+    border-right: 1px solid var(--line);
+  }
+
+  .hero-meta-item:last-child { border-right: 0; }
+
+  .hero-meta-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .hero-meta-value {
+    font-family: var(--serif-display);
+    font-size: 22px;
+    color: var(--navy);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .hero-cta {
+    margin-top: 64px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    color: var(--muted);
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .hero-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 32px;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    text-decoration: none;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .hero-cta-btn:hover {
+    background: var(--gold);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px -8px rgba(184,148,31,0.4);
+    border-bottom: none;
+  }
+
+  .hero-cta-btn .arrow { transition: transform 0.3s; }
+  .hero-cta-btn:hover .arrow { transform: translateX(4px); }
+
+  /* ============= MARKET TICKER ============= */
+  .ticker {
+    background: var(--navy);
+    color: var(--white);
+    padding: 20px 60px;
+    overflow: hidden;
+    border-top: 1px solid var(--gold);
+  }
+
+  .ticker-inner {
+    display: flex;
+    gap: 60px;
+    animation: ticker 60s linear infinite;
+    white-space: nowrap;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .ticker-item {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.7);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .ticker-item strong { color: var(--gold-bright); font-weight: 500; }
+  .ticker-item .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); }
+
+  /* ============= PULL QUOTE ============= */
+  .pull-quote {
+    margin: 64px 0;
+    padding: 0 0 0 32px;
+    border-left: 3px solid var(--gold);
+    font-family: var(--serif-display);
+    font-size: 32px;
+    line-height: 1.3;
+    color: var(--navy);
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+  }
+
+  .pull-quote .attribution {
+    display: block;
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-style: normal;
+    font-weight: 500;
+    margin-top: 16px;
+  }
+
+  /* ============= STAT BLOCKS ============= */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    margin: 48px 0;
+    border: 1px solid var(--line);
+    background: var(--white);
+  }
+
+  .stat-grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .stat-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+  .stat-cell {
+    padding: 32px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .stat-cell:nth-child(2n) { border-right: 0; }
+  .stat-grid-3 .stat-cell:nth-child(3n) { border-right: 0; }
+  .stat-grid-3 .stat-cell:nth-child(2n) { border-right: 1px solid var(--line); }
+  .stat-grid-4 .stat-cell:nth-child(2n) { border-right: 1px solid var(--line); }
+  .stat-grid-4 .stat-cell:nth-child(4n) { border-right: 0; }
+
+  .stat-num {
+    font-family: var(--serif-display);
+    font-size: 56px;
+    line-height: 1;
+    color: var(--navy);
+    font-weight: 500;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+  }
+
+  .stat-num em {
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  .stat-num-small {
+    font-size: 36px;
+  }
+
+  .stat-label {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  .stat-source {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 12px;
+  }
+
+  /* ============= CALLOUT ============= */
+  .callout {
+    background: var(--navy);
+    color: var(--white);
+    padding: 48px 56px;
+    margin: 64px 0;
+    position: relative;
+  }
+
+  .callout-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold-bright);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .callout h2 {
+    color: var(--white);
+    font-size: 32px;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+  }
+
+  .callout p {
+    color: rgba(255,255,255,0.85);
+    font-size: 17px;
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  .callout p:last-child { margin-bottom: 0; }
+  .callout strong { color: var(--gold-bright); font-weight: 600; }
+
+  .callout-gold {
+    background: var(--gold-soft);
+    color: var(--ink);
+  }
+  .callout-gold .callout-eyebrow { color: var(--gold); }
+  .callout-gold h2 { color: var(--navy); }
+  .callout-gold p { color: var(--ink-soft); }
+  .callout-gold strong { color: var(--navy); }
+
+  /* ============= COMPARE TABLE ============= */
+  .table-wrap {
+    margin: 32px 0;
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    background: var(--white);
+  }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  table.cmp thead {
+    background: var(--navy);
+  }
+
+  table.cmp th {
+    padding: 14px 16px;
+    text-align: left;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    vertical-align: middle;
+  }
+
+  table.cmp th:last-child { border-right: 0; }
+
+  table.cmp td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--line-soft);
+    border-right: 1px solid var(--line-soft);
+    vertical-align: top;
+    line-height: 1.45;
+    color: var(--ink-soft);
+  }
+
+  table.cmp td:last-child { border-right: 0; }
+  table.cmp tr:last-child td { border-bottom: 0; }
+
+  table.cmp tr.cat-header td {
+    background: var(--ivory);
+    font-family: var(--serif-display);
+    font-size: 16px;
+    color: var(--navy);
+    font-weight: 600;
+    padding: 16px;
+    letter-spacing: 0;
+    border-top: 2px solid var(--navy);
+    border-bottom: 1px solid var(--line);
+  }
+
+  table.cmp tr.totem-row td {
+    background: var(--gold-soft);
+    color: var(--ink);
+    font-weight: 500;
+    border-top: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+  }
+
+  table.cmp tr.totem-row td:first-child {
+    border-left: 4px solid var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  table.cmp .yes { color: var(--forest); font-weight: 600; }
+  table.cmp .no { color: #B8201F; font-weight: 600; }
+  table.cmp .partial { color: var(--gold); font-weight: 600; }
+
+  td.first { font-weight: 600; color: var(--navy); width: 18%; }
+
+  /* ============= 100 INSURANCE TABLE ============= */
+  table.insurance-tbl {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    background: var(--white);
+    border: 1px solid var(--line);
+    font-size: 14px;
+  }
+
+  table.insurance-tbl thead { background: var(--navy); color: var(--white); }
+  table.insurance-tbl th {
+    padding: 16px;
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  table.insurance-tbl th:nth-child(2),
+  table.insurance-tbl th:nth-child(3) {
+    text-align: center;
+    width: 18%;
+  }
+
+  table.insurance-tbl td {
+    padding: 16px;
+    border-bottom: 1px solid var(--line-soft);
+    vertical-align: middle;
+    line-height: 1.4;
+  }
+
+  table.insurance-tbl td.center { text-align: center; }
+  table.insurance-tbl tr:last-child td { border-bottom: 0; }
+  table.insurance-tbl tr.totem td {
+    background: var(--gold-soft);
+    border-top: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+  }
+  table.insurance-tbl tr.totem td:first-child {
+    border-left: 4px solid var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+  }
+  table.insurance-tbl .check { color: var(--forest); font-size: 22px; font-weight: 700; }
+  table.insurance-tbl .cross { color: #B8201F; font-size: 22px; font-weight: 700; }
+  table.insurance-tbl .partial-x {
+    color: var(--gold);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  /* ============= BIG QUESTION ============= */
+  .big-question {
+    margin: 80px 0;
+    text-align: center;
+    padding: 64px 32px;
+    background: var(--white);
+    border-top: 4px solid var(--gold);
+    border-bottom: 4px solid var(--gold);
+  }
+
+  .big-question .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .big-question .q {
+    font-family: var(--serif-display);
+    font-size: 44px;
+    line-height: 1.2;
+    color: var(--navy);
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: -0.5px;
+    max-width: 24ch;
+    margin: 0 auto;
+  }
+
+  .big-question .answer {
+    margin-top: 32px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .big-question .answer strong {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* ============= PROOF CARDS ============= */
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin: 48px 0;
+  }
+
+  .proof-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    padding: 32px;
+    border-top: 3px solid var(--gold);
+  }
+
+  .proof-card .pc-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .proof-card h4 {
+    font-family: var(--serif-display);
+    font-size: 22px;
+    color: var(--navy);
+    margin: 0 0 12px 0;
+    line-height: 1.25;
+    font-weight: 600;
+  }
+
+  .proof-card p {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-bottom: 0;
+  }
+
+  /* ============= ROADMAP ============= */
+  .roadmap {
+    margin: 48px 0;
+    border-left: 2px solid var(--line);
+    padding-left: 0;
+  }
+
+  .roadmap-item {
+    position: relative;
+    padding: 24px 0 24px 32px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .roadmap-item:last-child { border-bottom: 0; }
+
+  .roadmap-item::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 32px;
+    width: 12px; height: 12px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 3px solid var(--ivory);
+  }
+
+  .roadmap-item .phase {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .roadmap-item h4 {
+    font-family: var(--serif-display);
+    font-size: 22px;
+    color: var(--navy);
+    margin: 0 0 8px 0;
+    font-weight: 600;
+  }
+
+  .roadmap-item p {
+    font-size: 15px;
+    margin-bottom: 0;
+    color: var(--ink-soft);
+  }
+
+  /* ============= CATEGORY DEEP TABLE ============= */
+  .universe {
+    margin: 48px 0;
+  }
+
+  .universe-cat {
+    background: var(--white);
+    margin-bottom: 24px;
+    border: 1px solid var(--line);
+  }
+
+  .universe-cat-header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .universe-cat-header:hover { background: var(--navy-deep); }
+
+  .universe-cat-header .cat-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold-bright);
+    letter-spacing: 2px;
+    margin-right: 16px;
+  }
+
+  .universe-cat-header .cat-name {
+    font-family: var(--serif-display);
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .universe-cat-header .cat-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 1.5px;
+  }
+
+  .universe-cat-body {
+    padding: 0;
+  }
+
+  .universe-cat-body table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .universe-cat-body th {
+    background: var(--ivory);
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    border-bottom: 1px solid var(--line);
+    border-right: 1px solid var(--line-soft);
+  }
+  .universe-cat-body th:last-child { border-right: 0; }
+
+  .universe-cat-body td {
+    padding: 14px;
+    border-bottom: 1px solid var(--line-soft);
+    border-right: 1px solid var(--line-soft);
+    vertical-align: top;
+    line-height: 1.45;
+    color: var(--ink-soft);
+  }
+  .universe-cat-body td:last-child { border-right: 0; }
+  .universe-cat-body tr:last-child td { border-bottom: 0; }
+
+  .universe-cat-body td:first-child {
+    font-weight: 600;
+    color: var(--navy);
+    width: 18%;
+  }
+
+  .universe-cat-body tr.totem-line td {
+    background: var(--gold-soft);
+    border-top: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    font-weight: 500;
+  }
+
+  .universe-cat-body tr.totem-line td:first-child {
+    border-left: 4px solid var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  /* ============= TOTEM POSITION CALLOUT ============= */
+  .position {
+    background: var(--ivory);
+    padding: 16px 24px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  .position strong {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 11px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+    font-family: var(--mono);
+  }
+
+  /* ============= BLUEPRINT ============= */
+  .blueprint {
+    background: var(--white);
+    padding: 48px;
+    margin: 48px 0;
+    border: 1px solid var(--line);
+  }
+
+  .blueprint-q {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .blueprint-q:last-child { border-bottom: 0; }
+
+  .blueprint-q .num {
+    font-family: var(--serif-display);
+    font-size: 48px;
+    color: var(--gold);
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .blueprint-q h4 {
+    font-family: var(--serif-display);
+    font-size: 24px;
+    color: var(--navy);
+    margin: 0 0 8px 0;
+    font-weight: 600;
+  }
+
+  .blueprint-q p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  /* ============= NEXT BUTTONS ============= */
+  .page-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 48px 60px;
+    border-top: 1px solid var(--line);
+    margin-top: 80px;
+    background: var(--white);
+  }
+
+  .page-nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 28px;
+    color: var(--navy);
+    border: 1px solid var(--line);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: var(--white);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: var(--sans);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .page-nav-btn:hover {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+
+  .page-nav-btn.next {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+
+  .page-nav-btn.next:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
+  .page-nav-spacer { flex: 1; }
+
+  /* ============= PARTNER ASK ============= */
+  .partner-ask {
+    background: var(--navy-deep);
+    color: var(--white);
+    padding: 64px 56px;
+    margin: 48px 0;
+    position: relative;
+  }
+
+  .partner-ask h2 {
+    color: var(--white);
+    margin-top: 0;
+  }
+
+  .partner-ask p {
+    color: rgba(255,255,255,0.8);
+    font-size: 17px;
+  }
+
+  .partner-ask .sig {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+  }
+
+  .partner-ask .sig-block .name {
+    font-family: var(--serif-display);
+    font-size: 28px;
+    color: var(--gold-bright);
+    font-weight: 500;
+  }
+
+  .partner-ask .sig-block .role {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* ============= FOOTER ============= */
+  footer.site-foot {
+    background: var(--navy-deep);
+    color: rgba(255,255,255,0.5);
+    padding: 32px 60px;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  footer.site-foot .row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  footer.site-foot strong {
+    color: var(--gold-bright);
+    font-weight: 500;
+  }
+
+  /* ============= RESPONSIVE ============= */
+  @media (max-width: 1100px) {
+    .site { grid-template-columns: 1fr; }
+    .sidebar { position: relative; height: auto; }
+    .container, .container-wide, .hero { padding: 60px 32px; }
+    h1.display, .hero-title { font-size: 56px; }
+    h1 { font-size: 40px; }
+    h2 { font-size: 28px; }
+    .stat-grid, .stat-grid-3, .stat-grid-4 { grid-template-columns: 1fr; }
+    .proof-grid { grid-template-columns: 1fr; }
+    .hero-meta { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* Selection */
+  ::selection { background: var(--gold); color: var(--white); }
+
+</style>
+</head>
+<body>
+
+<div class="site">
+
+  <!-- ============= SIDEBAR ============= -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 70 80" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gd" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#D4AF37"/>
+              <stop offset="100%" stop-color="#B8941F"/>
+            </linearGradient>
+          </defs>
+          <path d="M 35 2 L 65 12 L 65 45 Q 65 65 35 78 Q 5 65 5 45 L 5 12 Z" fill="#0F2638" stroke="#D4AF37" stroke-width="1.5"/>
+          <path d="M 35 12 L 55 20 L 55 42 Q 55 58 35 68 Q 15 58 15 42 L 15 20 Z" fill="none" stroke="url(#gd)" stroke-width="1.5"/>
+          <rect x="32" y="22" width="6" height="38" fill="url(#gd)"/>
+          <rect x="28" y="20" width="14" height="4" fill="url(#gd)"/>
+          <rect x="30" y="58" width="10" height="3" fill="url(#gd)"/>
+        </svg>
+        <div>
+          <div class="brand-name">TOTEM LCG</div>
+          <div class="brand-tag">Strategic Wireframe</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-meta">
+      <strong>FOR PARTNERS</strong>
+      Zak · David · Justus<br><br>
+      <strong>FROM</strong>
+      JJ Gilmore<br><br>
+      <strong>STATUS</strong>
+      Internal preview
+    </div>
+
+    <div class="nav-section-label">Document</div>
+    <ul class="nav" id="nav">
+      <li><a href="#" data-page="0" class="active"><span class="nav-num">00</span>Cover</a></li>
+      <li><a href="#" data-page="1"><span class="nav-num">01</span>Thesis</a></li>
+      <li><a href="#" data-page="2"><span class="nav-num">02</span>The Reframe</a></li>
+      <li><a href="#" data-page="3"><span class="nav-num">03</span>Proof Stack</a></li>
+      <li><a href="#" data-page="4"><span class="nav-num">04</span>Competitive Landscape</a></li>
+      <li><a href="#" data-page="5"><span class="nav-num">05</span>Wealth Preservation Blueprint</a></li>
+      <li><a href="#" data-page="6"><span class="nav-num">06</span>The Story Engine</a></li>
+      <li><a href="#" data-page="7"><span class="nav-num">07</span>What I Need From You</a></li>
+    </ul>
+
+    <div class="sidebar-foot">
+      <strong>WIREFRAME v1</strong>
+      May 2026<br>
+      Internal use only.<br>
+      Not for distribution.
+    </div>
+  </aside>
+
+  <!-- ============= MAIN ============= -->
+  <main>
+
+    <!-- ============= PAGE 0: COVER ============= -->
+    <section class="page active" id="page-0">
+      <div class="hero">
+        <div class="hero-inner">
+          <div class="hero-stamp">Internal · For Partners · May 2026</div>
+
+          <h1 class="hero-title">
+            What I've been<br>
+            building <em>quietly.</em>
+          </h1>
+
+          <p class="hero-sub">
+            Six months of research, fact-checking, and category construction. A strategic wireframe for the next 12 months at Totem LCG. <strong>This is the work, the direction, and the entrance into a market we will create.</strong>
+          </p>
+
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <div class="hero-meta-label">For</div>
+              <div class="hero-meta-value">Zak<br>David<br>Justus</div>
+            </div>
+            <div class="hero-meta-item">
+              <div class="hero-meta-label">Scope</div>
+              <div class="hero-meta-value">12-month<br>build plan</div>
+            </div>
+            <div class="hero-meta-item">
+              <div class="hero-meta-label">Output</div>
+              <div class="hero-meta-value">A new asset<br>category</div>
+            </div>
+            <div class="hero-meta-item">
+              <div class="hero-meta-label">Status</div>
+              <div class="hero-meta-value">Foundation<br>complete</div>
+            </div>
+          </div>
+
+          <div class="hero-cta">
+            <button class="hero-cta-btn" onclick="goPage(1)">
+              Read the thesis
+              <span class="arrow">→</span>
+            </button>
+            <span>Approximately 25 minutes end to end</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ticker">
+        <div class="ticker-inner">
+          <span class="ticker-item">BUFFETT INDICATOR <strong>230%</strong> <span class="dot"></span></span>
+          <span class="ticker-item">SHILLER CAPE <strong>36.48</strong> <span class="dot"></span></span>
+          <span class="ticker-item">M2 GROWTH <strong>+77.2% (10Y)</strong> <span class="dot"></span></span>
+          <span class="ticker-item">S&amp;P 500 <strong>+211.3% (10Y)</strong> <span class="dot"></span></span>
+          <span class="ticker-item">TOTEM TRANSACTIONS <strong>2,000+</strong> <span class="dot"></span></span>
+          <span class="ticker-item">TOTEM DEFAULT RATE <strong>0.00%</strong> <span class="dot"></span></span>
+          <span class="ticker-item">CYCLE <strong>90 TO 100 DAYS</strong> <span class="dot"></span></span>
+          <span class="ticker-item">ALLIANZ COVERAGE <strong>$4M AMAZON</strong> <span class="dot"></span></span>
+          <span class="ticker-item">BUFFETT INDICATOR <strong>230%</strong> <span class="dot"></span></span>
+          <span class="ticker-item">SHILLER CAPE <strong>36.48</strong> <span class="dot"></span></span>
+          <span class="ticker-item">M2 GROWTH <strong>+77.2% (10Y)</strong> <span class="dot"></span></span>
+          <span class="ticker-item">S&amp;P 500 <strong>+211.3% (10Y)</strong> <span class="dot"></span></span>
+          <span class="ticker-item">TOTEM TRANSACTIONS <strong>2,000+</strong> <span class="dot"></span></span>
+          <span class="ticker-item">TOTEM DEFAULT RATE <strong>0.00%</strong> <span class="dot"></span></span>
+          <span class="ticker-item">CYCLE <strong>90 TO 100 DAYS</strong> <span class="dot"></span></span>
+          <span class="ticker-item">ALLIANZ COVERAGE <strong>$4M AMAZON</strong> <span class="dot"></span></span>
+        </div>
+      </div>
+
+      <div class="page-nav">
+        <div class="page-nav-spacer"></div>
+        <button class="page-nav-btn next" onclick="goPage(1)">01 The Thesis →</button>
+      </div>
+    </section>
+
+    <!-- ============= PAGE 1: THESIS ============= -->
+    <section class="page" id="page-1">
+      <div class="container">
+        <div class="eyebrow">Section 01 · Market Thesis</div>
+        <h1 class="display">Why now.</h1>
+
+        <p class="lead">
+          The market is telling us two things at the same time. Both matter. Most investors are only listening to one of them.
+        </p>
+
+        <p>
+          The first thing the market is saying: <strong>asset prices are stretched.</strong> The Buffett Indicator, which compares total stock market value to U.S. GDP, sat at 230% as of December 31, 2025 and 227% in April 2026. Warren Buffett historically called readings approaching 200% a sign of "playing with fire." The Shiller CAPE ratio, which smooths earnings over a 10-year window, was at 36.48 in April 2026 — territory only seen before the dot-com peak and the 2021 bubble.
+        </p>
+
+        <p>
+          The second thing the market is saying: <strong>portfolio balances look strong.</strong> The S&amp;P 500 rose 211.3% from May 2016 to March 2026. Investors see rising 401k statements and feel rich. Most do not realize that M2 money supply rose 77.2% over the same period, meaning a meaningful portion of that gain came from monetary expansion, not durable value creation.
+        </p>
+
+        <h2>The collision</h2>
+
+        <p>
+          Investors feel wealthy because their balances have grown. The growth has been real in nominal terms. But the same investors are exposed to elevated valuations, monetary distortion, and the assumption that public-market liquidity equals safety. <strong>Liquidity is not protection. It just means you can sell quickly.</strong>
+        </p>
+
+        <p>
+          State Street's 2026 alternatives outlook described stock markets near all-time highs, elevated valuations of risky assets, record concentration within key equity indices, and high equity-bond correlations. Institutional capital is already moving. Family offices are increasing alternatives allocations. The retail investor has not caught up yet.
+        </p>
+
+        <div class="callout">
+          <div class="callout-eyebrow">The strategic question</div>
+          <h2>If a portion of portfolio growth is tied to market liquidity and elevated valuations, what portion of capital should be moved into documented commerce?</h2>
+          <p>
+            This is the question Totem is positioned to answer. Not as a competing investment. As a different category of capital deployment entirely.
+          </p>
+        </div>
+
+        <h2>Why this is the moment</h2>
+
+        <p>
+          Three conditions are converging that make this the right time to define a new category, not later:
+        </p>
+
+        <div class="stat-grid stat-grid-3">
+          <div class="stat-cell">
+            <div class="stat-num">01</div>
+            <div class="stat-label"><strong>Macro fragility.</strong> Investors are starting to question whether their balances reflect strength or liquidity.</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">02</div>
+            <div class="stat-label"><strong>Alternatives shift.</strong> Institutional capital is rotating toward documented, contracted, productive deployment.</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">03</div>
+            <div class="stat-label"><strong>Track record.</strong> Totem has 2,000+ completed transactions and 0.00% defaults. The proof exists. The story does not yet.</div>
+          </div>
+        </div>
+
+        <p>
+          The work in this document is the strategic answer to the question above. We are not building a better CD or a better bond. We are building the first place where capital can be deployed into productive U.S. commerce with both principal and returns insured by the largest trade credit insurer in the world.
+        </p>
+
+        <p>
+          That asset class did not exist before Totem. It is the reason prospects are skeptical. They are not skeptical of us specifically. <strong>They are skeptical of a category they have never heard of.</strong> The job over the next 12 months is to make the category real in their minds.
+        </p>
+
+        <div class="pull-quote">
+          The reason no one knows about this is because nothing exists with this type of asset class. We are building a brand new one.
+          <span class="attribution">— JJ, on the foundational insight</span>
+        </div>
+
+        <p class="small">
+          Sources: Current Market Valuation; Fortune (April 2026); YCharts (Shiller CAPE); FRED (S&amp;P 500 series, M2 series); State Street Global Advisors 2026 Alternatives Outlook.
+        </p>
+      </div>
+
+      <div class="page-nav">
+        <button class="page-nav-btn" onclick="goPage(0)">← 00 Cover</button>
+        <div class="page-nav-spacer"></div>
+        <button class="page-nav-btn next" onclick="goPage(2)">02 The Reframe →</button>
+      </div>
+    </section>
+
+    <!-- ============= PAGE 2: THE REFRAME ============= -->
+    <section class="page" id="page-2">
+      <div class="container">
+        <div class="eyebrow">Section 02 · Strategic Reframe</div>
+        <h1 class="display">Totem is not an alternative investment.</h1>
+
+        <p class="lead">
+          That sentence is the entire strategy. Once partners internalize it, every other decision in this document follows. Once prospects internalize it, every objection collapses.
+        </p>
+
+        <h2 class="first">The problem with how we have been positioning</h2>
+
+        <p>
+          When we say "alternative investment," we put ourselves in a category investors already have a model for. That model includes hedge funds, private equity, REITs, commodity ETFs, and crypto. All of those compete on yield, complexity, accreditation, and risk tolerance. None of them win the conversation we are actually trying to have.
+        </p>
+
+        <p>
+          The conversation we are trying to have is not "should you replace your hedge fund with Totem." The conversation is <strong>"why is your CD, your 401k, your stocks, and your real estate uninsured against loss of either principal or return."</strong>
+        </p>
+
+        <h2>The category we are actually building</h2>
+
+        <div class="callout callout-gold">
+          <div class="callout-eyebrow">The category claim</div>
+          <h2>Totem is the only place, that we know of, where capital can be deployed into productive U.S. commerce with 100% of principal AND 100% of returns insured by Allianz.</h2>
+          <p>
+            Not principal alone. Not returns alone. <strong>Both.</strong> Backed by the largest trade credit insurance company in the world. Tied to verified Fortune 100 purchase orders. Repaid on a 90 to 100 day cycle. Verifiable on the phone with our partners before any capital moves.
+          </p>
+        </div>
+
+        <h2>What this category replaces</h2>
+
+        <p>
+          This is the part we have been getting wrong. We have been competing for the 5% of capital that is actively shopping for short-cycle PO finance. That market is small. Most of it does not exist.
+        </p>
+
+        <p>
+          The actual market is <strong>100% of the capital currently sitting in CDs, 401ks, brokerage accounts, savings accounts, real estate equity, and idle cash.</strong> The job is to convince capital to leave its current category and move into ours.
+        </p>
+
+        <p>
+          That is a much bigger market. It is also a much harder sale. Investors are scared of the unfamiliar. They are not wrong to be. The job is not to overpower their skepticism. The job is to walk them through the structure, name our buyers, hand them the phone with our partners, and let them verify it themselves.
+        </p>
+
+        <h2>The 100% insurance question</h2>
+
+        <p>
+          This is the single sentence that makes the case stronger than any spreadsheet. We will use it as the test against every option in Section 04:
+        </p>
+
+        <div class="big-question">
+          <div class="label">The Question</div>
+          <div class="q">When was the last time your 401k, your CDs, your stocks, or your real estate insured 100% of your principal AND 100% of your returns?</div>
+          <div class="answer">The answer for every option except Totem is the same word. <strong>Never.</strong></div>
+        </div>
+
+        <h2>What we name the category</h2>
+
+        <p>
+          The language we have been using is "purchase order finance" or "PO funding." Both are accurate. Neither is sticky.
+        </p>
+
+        <p>
+          The language we will use going forward is <strong>commerce-backed private funding.</strong> Three reasons:
+        </p>
+
+        <div class="proof-grid">
+          <div class="proof-card">
+            <div class="pc-num">01</div>
+            <h4>It tells the story instantly</h4>
+            <p>"Commerce-backed" tells the prospect that real business activity is happening behind their capital. It is not synthetic. It is not market sentiment. It is goods moving to buyers.</p>
+          </div>
+          <div class="proof-card">
+            <div class="pc-num">02</div>
+            <h4>It stakes new ground</h4>
+            <p>"Private funding" sits next to private credit and private equity in the prospect's mind, but the "commerce-backed" qualifier separates us. We are not generic alternatives. We are specifically tied to commerce.</p>
+          </div>
+          <div class="proof-card">
+            <div class="pc-num">03</div>
+            <h4>It is defensible in compliance</h4>
+            <p>The language is descriptive, not promotional. It avoids "investment," "guaranteed," and "risk-free" while still landing the punch. The structure stays compliant. The story stays sharp.</p>
+          </div>
+        </div>
+
+        <div class="pull-quote">
+          We are not trying to build a better version of something that already exists. We are trying to make people stop and ask: how did I never hear about this before?
+        </div>
+      </div>
+
+      <div class="page-nav">
+        <button class="page-nav-btn" onclick="goPage(1)">← 01 Thesis</button>
+        <div class="page-nav-spacer"></div>
+        <button class="page-nav-btn next" onclick="goPage(3)">03 Proof Stack →</button>
+      </div>
+    </section>
+
+    <!-- ============= PAGE 3: PROOF STACK ============= -->
+    <section class="page" id="page-3">
+      <div class="container">
+        <div class="eyebrow">Section 03 · The Proof Stack</div>
+        <h1 class="display">Why we win the room.</h1>
+
+        <p class="lead">
+          The category claim only works if the proof is real. Every line below is documented and partner-confirmed. This is what every prospect-facing piece will lead with.
+        </p>
+
+        <h2 class="first">The buyer relationship</h2>
+
+        <p>
+          We do not finance unknowns. Every transaction sits behind a verified purchase order from a Fortune 100 buyer. That buyer is on a list any prospect would recognize.
+        </p>
+
+        <div class="stat-grid stat-grid-4">
+          <div class="stat-cell">
+            <div class="stat-num stat-num-small">Amazon</div>
+            <div class="stat-label">$4M Allianz coverage endorsement</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num stat-num-small">Bank of America</div>
+            <div class="stat-label">$500K Allianz coverage</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num stat-num-small">UPS</div>
+            <div class="stat-label">$500K Allianz coverage</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num stat-num-small">CVS Health</div>
+            <div class="stat-label">$500K Allianz coverage</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num stat-num-small">Boeing</div>
+            <div class="stat-label">Verified buyer</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num stat-num-small">Toyota North America</div>
+            <div class="stat-label">$500K Allianz coverage</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num stat-num-small">Cintas</div>
+            <div class="stat-label">Verified buyer</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num stat-num-small">Miami Dolphins</div>
+            <div class="stat-label">Verified buyer</div>
+          </div>
+        </div>
+
+        <h2>The vendor relationship</h2>
+
+        <div class="callout callout-gold">
+          <div class="callout-eyebrow">The anchor</div>
+          <h2>Amazon's #1 minority business enterprise supplier holds an exclusive right of first refusal with Totem.</h2>
+          <p>
+            This is the relationship that started Totem in 2020 and continues to anchor it. The vendor began with hand sanitizer and PPE during COVID. Today, the vendor has delivered millions of dollars of inventory to Amazon, just landed another multi-million-dollar contract, and holds quarterly meetings at Amazon's corporate headquarters because of what we are doing together.
+          </p>
+          <p>
+            <strong>The right of first refusal means Totem sees every transaction first.</strong> Other capital sources see what we pass on. We do not.
+          </p>
+        </div>
+
+        <h2>The insurance layer</h2>
+
+        <p>
+          This is the part the market does not believe is possible until we walk them through it. Every transaction sits inside a multi-layer protection structure.
+        </p>
+
+        <div class="proof-grid">
+          <div class="proof-card">
+            <div class="pc-num">LAYER 01</div>
+            <h4>Trade credit insurance through Allianz</h4>
+            <p>Coverage through Euler Hermes, the largest trade credit insurer in the world. Buyer-specific endorsements protect against non-payment. $4M on Amazon. $500K on each of Bank of America, UPS, CVS Health, Toyota North America, and Mastech. Policy P1006427.</p>
+          </div>
+          <div class="proof-card">
+            <div class="pc-num">LAYER 02</div>
+            <h4>Performance guarantee, first position</h4>
+            <p>Before any capital moves, every transaction is backed by a performance guarantee that names the capital partner as first-position beneficiary for 100% of principal plus the 5% origination fee. The guarantee equals the capital partner's full exposure.</p>
+          </div>
+          <div class="proof-card">
+            <div class="pc-num">LAYER 03</div>
+            <h4>Joint account controls</h4>
+            <p>Capital partner funds are not sent to the vendor. They sit in a joint account earmarked for the specific purchase order. Funds release directly to the manufacturer. The vendor never holds the capital. The buyer pays into the joint account at settlement.</p>
+          </div>
+          <div class="proof-card">
+            <div class="pc-num">LAYER 04</div>
+            <h4>Freight and consumable goods only</h4>
+            <p>Full-value freight insurance is required on international or ocean shipments. Totem only finances consumable goods that are not for resale. Hard hats, PPE, uniforms, warehouse equipment, medical supplies. The goods are used. The buyer pays.</p>
+          </div>
+        </div>
+
+        <h2>The track record</h2>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <div class="stat-num">2,000<em>+</em></div>
+            <div class="stat-label"><strong>Completed transactions.</strong> Every transaction documented. Every cycle closed. Every capital partner repaid.</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num"><em>0.00%</em></div>
+            <div class="stat-label"><strong>Default and realized loss rate.</strong> Across the full transaction history. Zero principal lost. Zero fees missed.</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">5%</div>
+            <div class="stat-label"><strong>Origination fee per cycle.</strong> Fixed, contractual, paid at settlement. Not market-dependent. Not negotiable.</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">90 to 100</div>
+            <div class="stat-label"><strong>Day cycle, fixed.</strong> Not "approximately." Not "expected." The cycle is engineered into the structure of the transaction.</div>
+          </div>
+        </div>
+
+        <h2>The challenge close</h2>
+
+        <div class="callout">
+          <div class="callout-eyebrow">The credibility move</div>
+          <h2>"We will put you on the phone with one of our partners. Verify this yourself before any capital moves."</h2>
+          <p>
+            This is what breaks skepticism. Most prospects have never heard a financial pitch end with "go check it." The willingness to be verified is itself the strongest argument we have. Every prospect-facing asset will end with this offer.
+          </p>
+        </div>
+
+        <p>
+          The proof stack on this page is not the marketing copy. It is the foundation. The 12 months of work in front of us turn this stack into language, story, video, comparison tables, calculators, and verification calls. <strong>The asset class is real. The job is to make it feel real.</strong>
+        </p>
+      </div>
+
+      <div class="page-nav">
+        <button class="page-nav-btn" onclick="goPage(2)">← 02 Reframe</button>
+        <div class="page-nav-spacer"></div>
+        <button class="page-nav-btn next" onclick="goPage(4)">04 Competitive Landscape →</button>
+      </div>
+    </section>
+
+    <!-- ============= PAGE 4: COMPETITIVE LANDSCAPE ============= -->
+    <section class="page" id="page-4">
+      <div class="container-wide">
+        <div class="eyebrow">Section 04 · Competitive Landscape</div>
+        <h1 class="display">The investment universe.</h1>
+
+        <p class="lead">
+          12 categories. 40+ named products. One question that separates Totem from all of them. This is the 12-month build. Each category becomes a content workstream, a comparison piece, and a prospect-facing asset.
+        </p>
+
+        <h2 class="first">The headline test</h2>
+
+        <p>
+          Before the deep tables, the simplest version of the comparison. The same question applied to every category. The same answer for everything except Totem.
+        </p>
+
+        <table class="insurance-tbl">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>100% Principal Insured</th>
+              <th>100% Returns Insured</th>
+              <th>What is actually protected</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="totem">
+              <td>Totem LCG</td>
+              <td class="center"><span class="check">✓</span></td>
+              <td class="center"><span class="check">✓</span></td>
+              <td>Allianz trade credit insurance + first-position performance guarantee covering principal AND 5% origination fee. Verifiable on partner call before capital moves.</td>
+            </tr>
+            <tr>
+              <td>Bank CDs</td>
+              <td class="center"><span class="partial-x">PARTIAL</span></td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td>FDIC covers principal up to $250K per depositor per bank. Stated rate is contractual but capped at deposit terms. Returns are not insured beyond the bank's promise.</td>
+            </tr>
+            <tr>
+              <td>High-yield savings</td>
+              <td class="center"><span class="partial-x">PARTIAL</span></td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td>FDIC covers principal up to limits. Rate floats. No protected return.</td>
+            </tr>
+            <tr>
+              <td>Treasury bills / bonds</td>
+              <td class="center"><span class="partial-x">PARTIAL</span></td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td>Backed by full faith and credit of U.S. government. Sold before maturity, market price moves. Yield is fixed but low.</td>
+            </tr>
+            <tr>
+              <td>Money market funds</td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td>Investment products, not bank deposits. Not FDIC insured. Yield resets.</td>
+            </tr>
+            <tr>
+              <td>401(k) / IRA / Roth IRA</td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td>Tax wrapper, not insurance. Underlying holdings (mutual funds, ETFs, target-date funds) carry full market risk.</td>
+            </tr>
+            <tr>
+              <td>Public stocks / ETFs / index funds</td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td>SIPC protects against broker failure, not market loss. Liquid does not mean protected.</td>
+            </tr>
+            <tr>
+              <td>Bond funds</td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td>No personal maturity. Net asset value moves with rates and credit conditions.</td>
+            </tr>
+            <tr>
+              <td>Real estate / REITs</td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td>Tangible asset. Subject to tenant, leverage, rate, maintenance, and market risk. No insurance on principal or yield.</td>
+            </tr>
+            <tr>
+              <td>Annuities</td>
+              <td class="center"><span class="partial-x">PARTIAL</span></td>
+              <td class="center"><span class="partial-x">PARTIAL</span></td>
+              <td>Insurance carrier guarantees specific contract terms. Surrender periods, caps, spreads, and fees apply. Long lockups.</td>
+            </tr>
+            <tr>
+              <td>Private credit (BDCs, funds)</td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td>Pooled lending. Borrower default risk. Manager-controlled redemption windows. No transaction-level insurance.</td>
+            </tr>
+            <tr>
+              <td>Private equity / venture</td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td>Equity ownership in private companies. 7 to 10 year lockups. Total loss possible.</td>
+            </tr>
+            <tr>
+              <td>Commodities / precious metals</td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td>Price-driven. No income. No protection on either dimension.</td>
+            </tr>
+            <tr>
+              <td>Crypto / digital assets</td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td>Custody, platform, regulatory, and volatility risk. SEC has warned of exceptional volatility and lack of investor protections.</td>
+            </tr>
+            <tr>
+              <td>Collectibles / art / hard assets</td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td class="center"><span class="cross">✗</span></td>
+              <td>Resale-dependent. Authentication, storage, and liquidity risk. No defined repayment.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="small">
+          Sources: FDIC, IRS, Investor.gov (SEC), TreasuryDirect, FINRA, SIPC, State Street Global Advisors. Every "partial" or "no" reflects what U.S. regulators publicly state about the product class. The "yes" line for Totem reflects what is documented in the policy and transaction structure.
+        </p>
+
+        <h2>The 12-month build, by category</h2>
+
+        <p>
+          Each category below is one to two months of dedicated work over the next 12 months. Educational content, comparison piece, prospect asset, and member webinar. The tables below are the foundation of every workstream. <strong>This is what I will be building. Each category gets the same depth of treatment.</strong>
+        </p>
+
+        <div class="universe">
+
+          <!-- CAT 1: CASH / CDs / TREASURIES -->
+          <div class="universe-cat">
+            <div class="universe-cat-header">
+              <div><span class="cat-num">CAT 01</span><span class="cat-name">Cash, CDs, Money Markets, Treasury Bills</span></div>
+              <div class="cat-meta">PRIORITY 1 · Q1 2026 · Education battlefield</div>
+            </div>
+            <div class="universe-cat-body">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>What creates the return</th>
+                    <th>Principal protection</th>
+                    <th>Return protection</th>
+                    <th>Cycle / lockup</th>
+                    <th>Verification path</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="totem-line">
+                    <td>Totem LCG</td>
+                    <td>5% origination fee on financed Fortune 100 purchase orders</td>
+                    <td>100% via Allianz + first-position guarantee</td>
+                    <td>100% of fee insured under same structure</td>
+                    <td>90 to 100 day cycle, fixed</td>
+                    <td>Live partner verification call before capital moves</td>
+                  </tr>
+                  <tr>
+                    <td>Bank CD</td>
+                    <td>Bank interest paid for committing deposits</td>
+                    <td>FDIC up to $250K per depositor per bank</td>
+                    <td>None beyond stated rate</td>
+                    <td>Fixed term, early withdrawal penalty</td>
+                    <td>Bank disclosures, FDIC lookup</td>
+                  </tr>
+                  <tr>
+                    <td>High-yield savings</td>
+                    <td>Variable bank interest</td>
+                    <td>FDIC within limits</td>
+                    <td>None, rate can reset</td>
+                    <td>Liquid, rate adjustable</td>
+                    <td>Bank disclosures</td>
+                  </tr>
+                  <tr>
+                    <td>Treasury bills</td>
+                    <td>Discount or interest from U.S. government debt</td>
+                    <td>U.S. government backing at maturity</td>
+                    <td>Fixed if held to maturity, market risk if sold</td>
+                    <td>4 to 52 weeks</td>
+                    <td>TreasuryDirect, broker statements</td>
+                  </tr>
+                  <tr>
+                    <td>Money market fund</td>
+                    <td>Short-term instruments held by fund</td>
+                    <td>None, not FDIC insured</td>
+                    <td>None, yield floats</td>
+                    <td>Daily redemption typically</td>
+                    <td>Fund prospectus</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="position">
+                <strong>Totem position</strong>
+                Totem loses on FDIC clarity and pays no government-backed guarantee. Totem wins on every other dimension. Returns are higher (5% per 90 days vs. 4% APY top tier on CDs), insurance covers both principal and return, and the cycle is shorter than most CD terms. <em>The reframe: FDIC protects principal up to $250K at a 4% return ceiling. Totem insures principal AND a 5% per cycle return through Allianz with no statutory ceiling.</em>
+              </div>
+            </div>
+          </div>
+
+          <!-- CAT 2: RETIREMENT -->
+          <div class="universe-cat">
+            <div class="universe-cat-header">
+              <div><span class="cat-num">CAT 02</span><span class="cat-name">Retirement Accounts (Wrappers)</span></div>
+              <div class="cat-meta">PRIORITY 2 · Q1 2026 · Largest pool of trapped capital</div>
+            </div>
+            <div class="universe-cat-body">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>What creates the return</th>
+                    <th>Principal protection</th>
+                    <th>Return protection</th>
+                    <th>Cycle / lockup</th>
+                    <th>Verification path</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="totem-line">
+                    <td>Totem LCG</td>
+                    <td>Commerce-backed transaction repayment</td>
+                    <td>100% Allianz + guarantee</td>
+                    <td>100% on origination fee</td>
+                    <td>90 to 100 days</td>
+                    <td>Partner call</td>
+                  </tr>
+                  <tr>
+                    <td>401(k) / 403(b) / 457</td>
+                    <td>Underlying mutual funds, ETFs, target-date funds</td>
+                    <td>None, fully market exposed</td>
+                    <td>None</td>
+                    <td>Restricted; 10% penalty before 59½</td>
+                    <td>Plan documents, holdings statement</td>
+                  </tr>
+                  <tr>
+                    <td>Traditional IRA</td>
+                    <td>Securities, interest, dividends inside wrapper</td>
+                    <td>None, depends on holdings</td>
+                    <td>None</td>
+                    <td>Restricted; 10% penalty before 59½</td>
+                    <td>Custodian statements</td>
+                  </tr>
+                  <tr>
+                    <td>Roth IRA</td>
+                    <td>Same as traditional, after-tax basis</td>
+                    <td>None, depends on holdings</td>
+                    <td>None</td>
+                    <td>Contribution withdrawals flexible; earnings restricted</td>
+                    <td>Custodian statements</td>
+                  </tr>
+                  <tr>
+                    <td>Self-directed IRA</td>
+                    <td>Real estate, notes, private placements, alternative assets</td>
+                    <td>None, depends on asset</td>
+                    <td>None unless documented per asset</td>
+                    <td>Retirement rules + asset-level lockup</td>
+                    <td>Custodian + asset-level documents</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="position">
+                <strong>Totem position</strong>
+                Totem loses on tax-deferred compounding. Totem wins on liquidity, protection, and capital flexibility. <em>The reframe: do not replace retirement planning. Build a separate opportunity-capital bucket. The 401k holds the long-term wrapper. Totem holds the productive capital.</em> Self-directed IRAs are the bridge. Capital can flow into Totem inside a self-directed IRA structure.
+              </div>
+            </div>
+          </div>
+
+          <!-- CAT 3: PUBLIC EQUITIES -->
+          <div class="universe-cat">
+            <div class="universe-cat-header">
+              <div><span class="cat-num">CAT 03</span><span class="cat-name">Public Equities (Stocks, Index Funds, ETFs)</span></div>
+              <div class="cat-meta">PRIORITY 3 · Q1-Q2 2026 · Default wealth-building story</div>
+            </div>
+            <div class="universe-cat-body">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>What creates the return</th>
+                    <th>Principal protection</th>
+                    <th>Return protection</th>
+                    <th>Cycle / lockup</th>
+                    <th>Verification path</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="totem-line">
+                    <td>Totem LCG</td>
+                    <td>Commerce-backed transaction repayment</td>
+                    <td>100% Allianz + guarantee</td>
+                    <td>100% on origination fee</td>
+                    <td>90 to 100 days</td>
+                    <td>Partner call</td>
+                  </tr>
+                  <tr>
+                    <td>Individual stocks</td>
+                    <td>Capital appreciation + dividends</td>
+                    <td>None</td>
+                    <td>None</td>
+                    <td>Liquid, but selling at loss possible</td>
+                    <td>Public filings, market price</td>
+                  </tr>
+                  <tr>
+                    <td>Broad-market index ETF</td>
+                    <td>Index exposure + dividends</td>
+                    <td>None</td>
+                    <td>None</td>
+                    <td>Liquid intraday</td>
+                    <td>Fund prospectus, holdings</td>
+                  </tr>
+                  <tr>
+                    <td>Dividend stocks</td>
+                    <td>Dividends + appreciation</td>
+                    <td>None</td>
+                    <td>Dividends are not contractual</td>
+                    <td>Liquid intraday</td>
+                    <td>Public filings</td>
+                  </tr>
+                  <tr>
+                    <td>Mutual funds / target-date funds</td>
+                    <td>Portfolio gains, dividends, interest</td>
+                    <td>None</td>
+                    <td>None</td>
+                    <td>NAV redemption, daily</td>
+                    <td>Fund prospectus</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="position">
+                <strong>Totem position</strong>
+                Totem loses on daily liquidity and SIPC familiarity. Totem wins on protection, defined return, and decoupling from market sentiment. <em>The reframe: liquidity is not protection. You can sell quickly. That does not mean you can sell without loss. Totem's 90-day cycle is shorter than most investors' actual holding periods.</em>
+              </div>
+            </div>
+          </div>
+
+          <!-- CAT 4: FUNDS / ETFs (extended) -->
+          <div class="universe-cat">
+            <div class="universe-cat-header">
+              <div><span class="cat-num">CAT 04</span><span class="cat-name">Funds and Exchange-Traded Products</span></div>
+              <div class="cat-meta">PRIORITY 4 · Q2 2026 · The black-box problem</div>
+            </div>
+            <div class="universe-cat-body">
+              <table>
+                <thead>
+                  <tr><th>Product</th><th>What creates the return</th><th>Principal protection</th><th>Return protection</th><th>Cycle / lockup</th><th>Verification path</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="totem-line"><td>Totem LCG</td><td>Commerce-backed transaction repayment</td><td>100% Allianz + guarantee</td><td>100% on origination fee</td><td>90 to 100 days</td><td>Partner call</td></tr>
+                  <tr><td>Sector ETF</td><td>Sector performance</td><td>None</td><td>None</td><td>Liquid intraday</td><td>Fund prospectus</td></tr>
+                  <tr><td>Closed-end fund</td><td>Underlying assets, premium/discount</td><td>None</td><td>None</td><td>Tradable, but at variable premium/discount to NAV</td><td>Fund prospectus</td></tr>
+                  <tr><td>Leveraged / inverse ETF</td><td>Daily leveraged or inverse exposure</td><td>None</td><td>None</td><td>Tradable, decay risk</td><td>FINRA warnings, prospectus</td></tr>
+                  <tr><td>ETN</td><td>Issuer credit + index promise</td><td>None, issuer credit risk</td><td>None</td><td>Tradable, but unsecured debt</td><td>Issuer disclosures</td></tr>
+                </tbody>
+              </table>
+              <div class="position">
+                <strong>Totem position</strong>
+                The fund category exposes investors to issuer risk, tracking error, fee drag, and complexity most investors cannot evaluate. <em>The reframe: if a prospect already accepts ETN issuer risk without insurance, why not accept Totem's documented counterparty risk with full insurance?</em>
+              </div>
+            </div>
+          </div>
+
+          <!-- CAT 5: BONDS -->
+          <div class="universe-cat">
+            <div class="universe-cat-header">
+              <div><span class="cat-num">CAT 05</span><span class="cat-name">Bonds and Fixed Income</span></div>
+              <div class="cat-meta">PRIORITY 5 · Q2 2026 · Income competitor</div>
+            </div>
+            <div class="universe-cat-body">
+              <table>
+                <thead>
+                  <tr><th>Product</th><th>What creates the return</th><th>Principal protection</th><th>Return protection</th><th>Cycle / lockup</th><th>Verification path</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="totem-line"><td>Totem LCG</td><td>Commerce-backed transaction repayment</td><td>100% Allianz + guarantee</td><td>100% on origination fee</td><td>90 to 100 days</td><td>Partner call</td></tr>
+                  <tr><td>U.S. Treasury bonds (10Y, 30Y)</td><td>Coupon + principal at maturity</td><td>U.S. government backing at maturity</td><td>Fixed coupon if held</td><td>10 to 30 years</td><td>TreasuryDirect</td></tr>
+                  <tr><td>Investment-grade corporate bonds</td><td>Coupon + principal at maturity</td><td>Issuer credit, no insurance</td><td>Fixed if held, market risk if sold</td><td>1 to 30 years typical</td><td>Issuer prospectus, ratings</td></tr>
+                  <tr><td>Municipal bonds</td><td>Coupon + tax advantage</td><td>Issuer credit</td><td>Fixed if held</td><td>Variable</td><td>MSRB EMMA, issuer docs</td></tr>
+                  <tr><td>High-yield (junk) bonds</td><td>Higher coupon for credit risk</td><td>Issuer credit, default risk elevated</td><td>None beyond stated</td><td>Variable</td><td>Issuer prospectus, ratings</td></tr>
+                </tbody>
+              </table>
+              <div class="position">
+                <strong>Totem position</strong>
+                Bonds compete on income but lose on every dimension that matters: yield (3-4% on Treasuries vs. 5% per cycle), duration (years vs. 90 days), and insurance (none vs. 100% Allianz). <em>The reframe: a 10-year Treasury locks capital for a decade at 4.39%. Totem returns capital plus 5% in 90 days, with both insured.</em>
+              </div>
+            </div>
+          </div>
+
+          <!-- CAT 6: REAL ESTATE -->
+          <div class="universe-cat">
+            <div class="universe-cat-header">
+              <div><span class="cat-num">CAT 06</span><span class="cat-name">Real Estate</span></div>
+              <div class="cat-meta">PRIORITY 6 · Q2-Q3 2026 · Tangibility competitor</div>
+            </div>
+            <div class="universe-cat-body">
+              <table>
+                <thead>
+                  <tr><th>Product</th><th>What creates the return</th><th>Principal protection</th><th>Return protection</th><th>Cycle / lockup</th><th>Verification path</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="totem-line"><td>Totem LCG</td><td>Commerce-backed transaction repayment</td><td>100% Allianz + guarantee</td><td>100% on origination fee</td><td>90 to 100 days</td><td>Partner call</td></tr>
+                  <tr><td>Direct rental property</td><td>Rent + appreciation</td><td>None, leverage common</td><td>None, vacancy risk</td><td>Years; sale takes months</td><td>Title, inspection, comps</td></tr>
+                  <tr><td>Public REITs</td><td>Distributions + appreciation</td><td>None, market priced</td><td>None</td><td>Liquid intraday</td><td>SEC filings, fund prospectus</td></tr>
+                  <tr><td>Non-traded REITs</td><td>Distributions + appreciation</td><td>None, often illiquid and high-fee</td><td>None</td><td>Multi-year lockups common</td><td>Sponsor disclosures</td></tr>
+                  <tr><td>Real estate crowdfunding</td><td>Rent + appreciation, pooled</td><td>None</td><td>None</td><td>Multi-year typical</td><td>Platform disclosures</td></tr>
+                </tbody>
+              </table>
+              <div class="position">
+                <strong>Totem position</strong>
+                Real estate competes on tangibility. The trade is leverage, vacancy, maintenance, taxes, and slow exits. <em>The reframe: tangible does not mean insured. A duplex burns or a tenant disappears, and the investor eats the loss. A Totem transaction has Allianz behind it from the moment capital moves.</em>
+              </div>
+            </div>
+          </div>
+
+          <!-- CAT 7: ANNUITIES -->
+          <div class="universe-cat">
+            <div class="universe-cat-header">
+              <div><span class="cat-num">CAT 07</span><span class="cat-name">Annuities and Insurance Products</span></div>
+              <div class="cat-meta">PRIORITY 7 · Q3 2026 · Protection competitor</div>
+            </div>
+            <div class="universe-cat-body">
+              <table>
+                <thead>
+                  <tr><th>Product</th><th>What creates the return</th><th>Principal protection</th><th>Return protection</th><th>Cycle / lockup</th><th>Verification path</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="totem-line"><td>Totem LCG</td><td>Commerce-backed transaction repayment</td><td>100% Allianz + guarantee</td><td>100% on origination fee</td><td>90 to 100 days</td><td>Partner call</td></tr>
+                  <tr><td>Fixed annuity</td><td>Insurer-credited interest</td><td>Carrier guarantee, state guaranty fund partial backing</td><td>Stated rate, contract-bound</td><td>Multi-year surrender period</td><td>Contract documents</td></tr>
+                  <tr><td>Indexed annuity</td><td>Index-linked credit, capped</td><td>Carrier guarantee on principal</td><td>Capped, with participation rates and spreads</td><td>5 to 10 year surrender</td><td>Contract documents</td></tr>
+                  <tr><td>Variable annuity</td><td>Subaccount performance</td><td>Optional riders at extra cost</td><td>None unless rider purchased</td><td>Multi-year surrender</td><td>Prospectus + contract</td></tr>
+                  <tr><td>RILA (registered indexed-linked annuity)</td><td>Buffered or floored index returns</td><td>Partial via buffer</td><td>Partial, capped</td><td>5 to 10 year surrender</td><td>Prospectus + contract</td></tr>
+                </tbody>
+              </table>
+              <div class="position">
+                <strong>Totem position</strong>
+                Annuities are the closest mental model investors have for "insured returns." Fees, surrender charges, caps, spreads, and complexity are the trade. <em>The reframe: investors who buy annuities prove they value protection. Totem offers the same protection without the 7-year lockup, 7-figure surrender penalty, or 200-page prospectus.</em>
+              </div>
+            </div>
+          </div>
+
+          <!-- CAT 8: PRIVATE CREDIT -->
+          <div class="universe-cat">
+            <div class="universe-cat-header">
+              <div><span class="cat-num">CAT 08</span><span class="cat-name">Private Credit and Direct Lending</span></div>
+              <div class="cat-meta">PRIORITY 8 · Q3 2026 · Closest neighbor</div>
+            </div>
+            <div class="universe-cat-body">
+              <table>
+                <thead>
+                  <tr><th>Product</th><th>What creates the return</th><th>Principal protection</th><th>Return protection</th><th>Cycle / lockup</th><th>Verification path</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="totem-line"><td>Totem LCG</td><td>Commerce-backed transaction repayment, transaction-level</td><td>100% Allianz + guarantee</td><td>100% on origination fee</td><td>90 to 100 days</td><td>Partner call</td></tr>
+                  <tr><td>Public BDC</td><td>Loan interest + management fees</td><td>None, manager controlled</td><td>None</td><td>Liquid (publicly traded)</td><td>SEC filings</td></tr>
+                  <tr><td>Private BDC / interval fund</td><td>Loan interest, illiquid</td><td>None</td><td>None</td><td>Quarterly redemption windows typical</td><td>Sponsor disclosures</td></tr>
+                  <tr><td>Direct lending fund (Cliffwater CDLI: 9.53%)</td><td>Pooled middle-market loans</td><td>None, manager-level</td><td>None</td><td>Multi-year lockups</td><td>Manager reports, no transaction-level disclosure</td></tr>
+                  <tr><td>Invoice factoring / MCA</td><td>Receivable advance + fees</td><td>None to limited, recourse varies</td><td>None</td><td>30 to 90 days typical</td><td>Counterparty docs</td></tr>
+                </tbody>
+              </table>
+              <div class="position">
+                <strong>Totem position</strong>
+                Private credit is the closest conceptual neighbor. The Cliffwater CDLI returns 9.53% annualized. Totem returns 5% per 90 days, equivalent to roughly 20% annual. <em>The reframe: private credit is pooled and opaque. Totem is transaction-specific and verifiable. The prospect can review the actual purchase order, the buyer relationship, and the insurance policy before any capital moves.</em>
+              </div>
+            </div>
+          </div>
+
+          <!-- CAT 9: PRIVATE EQUITY -->
+          <div class="universe-cat">
+            <div class="universe-cat-header">
+              <div><span class="cat-num">CAT 09</span><span class="cat-name">Private Equity, Venture, Reg D Placements</span></div>
+              <div class="cat-meta">PRIORITY 9 · Q3-Q4 2026 · High upside, high lockup</div>
+            </div>
+            <div class="universe-cat-body">
+              <table>
+                <thead>
+                  <tr><th>Product</th><th>What creates the return</th><th>Principal protection</th><th>Return protection</th><th>Cycle / lockup</th><th>Verification path</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="totem-line"><td>Totem LCG</td><td>Commerce-backed transaction repayment</td><td>100% Allianz + guarantee</td><td>100% on origination fee</td><td>90 to 100 days</td><td>Partner call</td></tr>
+                  <tr><td>Angel investment</td><td>Equity exit if any</td><td>None, total loss possible</td><td>None</td><td>5 to 10+ years</td><td>Cap table, deal documents</td></tr>
+                  <tr><td>Venture capital fund</td><td>Pooled startup equity exits</td><td>None</td><td>None</td><td>10-year fund life</td><td>LPA, GP reports</td></tr>
+                  <tr><td>Private equity fund</td><td>Buyout returns at fund exit</td><td>None</td><td>None</td><td>7 to 12 years</td><td>LPA, GP reports</td></tr>
+                  <tr><td>Reg D 506(c) placement</td><td>Issuer-specific terms</td><td>None unless documented</td><td>None unless documented</td><td>Variable, often illiquid</td><td>PPM, accreditation verified</td></tr>
+                </tbody>
+              </table>
+              <div class="position">
+                <strong>Totem position</strong>
+                Private equity competes on upside. Lockups, total-loss risk, and accreditation gates are the trade. <em>The reframe: private equity asks an investor to wait 7 to 10 years for an exit they cannot control. Totem asks for 90 days, returns the capital with insurance, and lets the investor decide whether to redeploy.</em>
+              </div>
+            </div>
+          </div>
+
+          <!-- CAT 10: COMMODITIES -->
+          <div class="universe-cat">
+            <div class="universe-cat-header">
+              <div><span class="cat-num">CAT 10</span><span class="cat-name">Commodities, Precious Metals, Futures</span></div>
+              <div class="cat-meta">PRIORITY 10 · Q4 2026 · Inflation-fear competitor</div>
+            </div>
+            <div class="universe-cat-body">
+              <table>
+                <thead>
+                  <tr><th>Product</th><th>What creates the return</th><th>Principal protection</th><th>Return protection</th><th>Cycle / lockup</th><th>Verification path</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="totem-line"><td>Totem LCG</td><td>Commerce-backed transaction repayment</td><td>100% Allianz + guarantee</td><td>100% on origination fee</td><td>90 to 100 days</td><td>Partner call</td></tr>
+                  <tr><td>Gold / silver bullion</td><td>Spot price appreciation</td><td>None, dealer spreads</td><td>None, no income</td><td>Liquid via dealer</td><td>Dealer documentation, assay</td></tr>
+                  <tr><td>Precious metal ETF</td><td>Tracks spot</td><td>None</td><td>None</td><td>Liquid intraday</td><td>Fund prospectus</td></tr>
+                  <tr><td>Commodity ETF</td><td>Roll yield + spot</td><td>None</td><td>None</td><td>Liquid intraday</td><td>Fund prospectus</td></tr>
+                  <tr><td>Futures contracts</td><td>Leveraged price exposure</td><td>None, leveraged loss possible</td><td>None</td><td>Contract-specific, daily margin</td><td>CME documentation</td></tr>
+                </tbody>
+              </table>
+              <div class="position">
+                <strong>Totem position</strong>
+                Commodities are bought on fear. The investor is paying for a scenario, not for cash flow. <em>The reframe: gold does not pay you for owning it. Totem pays a 5% origination fee per cycle, contractually, while inflation insurance is irrelevant because the cycle is shorter than the inflation horizon.</em>
+              </div>
+            </div>
+          </div>
+
+          <!-- CAT 11: CRYPTO -->
+          <div class="universe-cat">
+            <div class="universe-cat-header">
+              <div><span class="cat-num">CAT 11</span><span class="cat-name">Crypto and Digital Assets</span></div>
+              <div class="cat-meta">PRIORITY 11 · Q4 2026 · Asymmetric upside competitor</div>
+            </div>
+            <div class="universe-cat-body">
+              <table>
+                <thead>
+                  <tr><th>Product</th><th>What creates the return</th><th>Principal protection</th><th>Return protection</th><th>Cycle / lockup</th><th>Verification path</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="totem-line"><td>Totem LCG</td><td>Commerce-backed transaction repayment</td><td>100% Allianz + guarantee</td><td>100% on origination fee</td><td>90 to 100 days</td><td>Partner call</td></tr>
+                  <tr><td>Bitcoin / major crypto</td><td>Spot appreciation</td><td>None, custody risk</td><td>None</td><td>Liquid on exchanges</td><td>On-chain, exchange records</td></tr>
+                  <tr><td>Crypto fund / trust</td><td>Pooled crypto exposure</td><td>None</td><td>None</td><td>Liquid or windowed</td><td>Fund disclosures</td></tr>
+                  <tr><td>Staking / lending platform</td><td>Yield on locked tokens</td><td>Platform credit risk (FTX, Celsius, Voyager precedent)</td><td>None</td><td>Lockup periods common</td><td>Platform disclosures, smart contracts</td></tr>
+                </tbody>
+              </table>
+              <div class="position">
+                <strong>Totem position</strong>
+                Crypto sells the same emotion as Totem: this is new, the legacy system has problems, take a chance. The difference is that crypto has zero protection and a history of platform failure. <em>The reframe: unfamiliar is not unsafe. But unfamiliar must be verified. Totem invites verification. Crypto platforms ask for trust without it.</em>
+              </div>
+            </div>
+          </div>
+
+          <!-- CAT 12: COLLECTIBLES -->
+          <div class="universe-cat">
+            <div class="universe-cat-header">
+              <div><span class="cat-num">CAT 12</span><span class="cat-name">Collectibles and Hard Assets</span></div>
+              <div class="cat-meta">PRIORITY 12 · Q4 2026 · Passion-asset framing</div>
+            </div>
+            <div class="universe-cat-body">
+              <table>
+                <thead>
+                  <tr><th>Product</th><th>What creates the return</th><th>Principal protection</th><th>Return protection</th><th>Cycle / lockup</th><th>Verification path</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="totem-line"><td>Totem LCG</td><td>Commerce-backed transaction repayment</td><td>100% Allianz + guarantee</td><td>100% on origination fee</td><td>90 to 100 days</td><td>Partner call</td></tr>
+                  <tr><td>Art and fractional art</td><td>Resale market appreciation</td><td>None</td><td>None</td><td>Years, dealer-dependent</td><td>Provenance, appraisal</td></tr>
+                  <tr><td>Watches / cars / wine</td><td>Resale market appreciation</td><td>None, authentication risk</td><td>None</td><td>Years</td><td>Authentication, appraisal</td></tr>
+                  <tr><td>Sports cards / memorabilia</td><td>Resale market appreciation</td><td>None</td><td>None</td><td>Years</td><td>Grading, authentication</td></tr>
+                </tbody>
+              </table>
+              <div class="position">
+                <strong>Totem position</strong>
+                Collectibles are passion plays. Storage, authentication, and resale risk are the trade. Most never produce cash flow. <em>The reframe: scarcity is not cash flow. Totem produces cash flow on a 90-day clock with insurance.</em>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <h2>The honest assessment</h2>
+
+        <p>
+          We do not pretend Totem wins on every dimension. Here is where Totem genuinely loses, and how we handle it:
+        </p>
+
+        <div class="proof-grid">
+          <div class="proof-card">
+            <div class="pc-num">LOSS 01</div>
+            <h4>Daily liquidity (vs. public stocks)</h4>
+            <p>Totem capital is committed for 90 to 100 days. Stocks can be sold in seconds. <strong>The reframe:</strong> 90 days is shorter than most investors actually hold their positions. Liquidity matters less than protection at exit.</p>
+          </div>
+          <div class="proof-card">
+            <div class="pc-num">LOSS 02</div>
+            <h4>FDIC clarity (vs. CDs)</h4>
+            <p>FDIC is a household acronym. Allianz trade credit insurance is not. <strong>The reframe:</strong> FDIC covers principal up to $250K at 4% returns. Allianz covers principal AND returns at 5% per cycle. The acronym is unfamiliar. The economics are not close.</p>
+          </div>
+          <div class="proof-card">
+            <div class="pc-num">LOSS 03</div>
+            <h4>Tax-deferred compounding (vs. retirement)</h4>
+            <p>401k contributions are pre-tax. Totem returns are taxable. <strong>The reframe:</strong> retirement and Totem are not the same bucket. The 401k builds the long-term wrapper. Totem builds productive capital. Self-directed IRAs bridge the two.</p>
+          </div>
+          <div class="proof-card">
+            <div class="pc-num">LOSS 04</div>
+            <h4>Public-market familiarity</h4>
+            <p>Investors have been told for 50 years that the S&amp;P 500 is the safe choice. <strong>The reframe:</strong> familiarity is not protection. The Buffett Indicator at 230% is a familiar market at unfamiliar valuations. The work in this 12-month build is to make Totem feel familiar through repetition, story, and verification.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-nav">
+        <button class="page-nav-btn" onclick="goPage(3)">← 03 Proof Stack</button>
+        <div class="page-nav-spacer"></div>
+        <button class="page-nav-btn next" onclick="goPage(5)">05 Wealth Preservation Blueprint →</button>
+      </div>
+    </section>
+
+    <!-- ============= PAGE 5: BLUEPRINT ============= -->
+    <section class="page" id="page-5">
+      <div class="container">
+        <div class="eyebrow">Section 05 · Wealth Preservation Blueprint</div>
+        <h1 class="display">The framework we put on every prospect's desk.</h1>
+
+        <p class="lead">
+          The Wealth Preservation Blueprint is the branded scorecard prospects use to evaluate any capital option. Five questions. Same framework. Every category answers them. Most fail. Totem does not.
+        </p>
+
+        <h2 class="first">Why a framework, not a pitch</h2>
+
+        <p>
+          Prospects do not buy from people who pitch. Prospects buy from people who teach them how to think. The Wealth Preservation Blueprint is the teaching tool. The job of every Totem prospect-facing asset is to leave the reader with a framework they can use even if they never buy.
+        </p>
+
+        <p>
+          That is the long game. Investors who use the Blueprint will eventually compare every option they hold against it. Most options fail the test. Totem is the only option, that we know of, that passes all five.
+        </p>
+
+        <div class="blueprint">
+          <div class="blueprint-q">
+            <div class="num">01</div>
+            <div>
+              <h4>What creates the return?</h4>
+              <p>Most investments answer this with abstraction: "the market," "the economy," "growth." Totem answers it with specificity: a Fortune 100 buyer paid a verified vendor for goods we financed. The 5% origination fee is the contractual payment for that role.</p>
+            </div>
+          </div>
+          <div class="blueprint-q">
+            <div class="num">02</div>
+            <div>
+              <h4>What protects the principal?</h4>
+              <p>FDIC, SIPC, and U.S. government backing are familiar but limited. They cover specific scenarios, not investment performance. Totem stacks Allianz trade credit insurance, a first-position performance guarantee equal to 100% of principal, and joint account controls that earmark capital to a single transaction.</p>
+            </div>
+          </div>
+          <div class="blueprint-q">
+            <div class="num">03</div>
+            <div>
+              <h4>What protects the return?</h4>
+              <p>This is the question almost no other investment can answer. Stocks have no protected return. CDs cap returns at deposit terms. Annuities have caps and surrender penalties. Totem insures the 5% origination fee under the same Allianz structure that protects principal. Both legs covered.</p>
+            </div>
+          </div>
+          <div class="blueprint-q">
+            <div class="num">04</div>
+            <div>
+              <h4>How long is capital committed?</h4>
+              <p>Liquidity is not protection, but committed capital that you cannot recover at need is a real cost. Totem's 90 to 100 day cycle is shorter than every CD term, every retirement lockup, and every private fund. Capital returns on a known clock.</p>
+            </div>
+          </div>
+          <div class="blueprint-q">
+            <div class="num">05</div>
+            <div>
+              <h4>Can the counterparty be verified?</h4>
+              <p>This is the close. Totem invites verification. We will put any qualified prospect on the phone with our partners to walk through the buyer relationship, the vendor history, the insurance policy, the joint account structure, and the repayment path. No other investment in the universe ends with that offer.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>The deliverable</h2>
+
+        <p>
+          The Wealth Preservation Blueprint becomes three assets:
+        </p>
+
+        <div class="proof-grid">
+          <div class="proof-card">
+            <div class="pc-num">ASSET 01</div>
+            <h4>Downloadable PDF (lead magnet)</h4>
+            <p>5 questions, 12 categories scored against the questions, Totem's score on each. The prospect downloads it, walks through their portfolio, and discovers what they hold and what they do not.</p>
+          </div>
+          <div class="proof-card">
+            <div class="pc-num">ASSET 02</div>
+            <h4>Interactive web tool</h4>
+            <p>The same framework, online, where a prospect inputs their current holdings and sees a side-by-side scorecard. Builds engagement, captures lead data, opens the door to the partner verification call.</p>
+          </div>
+          <div class="proof-card">
+            <div class="pc-num">ASSET 03</div>
+            <h4>Member-facing webinar</h4>
+            <p>JJ walks through the Blueprint live, applying it to real holdings prospects bring to the call. Q&amp;A driven. Builds trust. Ends with the verification offer.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-nav">
+        <button class="page-nav-btn" onclick="goPage(4)">← 04 Competitive Landscape</button>
+        <div class="page-nav-spacer"></div>
+        <button class="page-nav-btn next" onclick="goPage(6)">06 The Story Engine →</button>
+      </div>
+    </section>
+
+    <!-- ============= PAGE 6: STORY ENGINE ============= -->
+    <section class="page" id="page-6">
+      <div class="container">
+        <div class="eyebrow">Section 06 · The Story Engine</div>
+        <h1 class="display">How we make the unfamiliar familiar.</h1>
+
+        <p class="lead">
+          One document does not change minds. Repetition does. The 12-month content engine is built to land the same story from twelve angles, in twelve voices, across twelve channels.
+        </p>
+
+        <h2 class="first">The slow-drip strategy</h2>
+
+        <p>
+          We are not running a sales campaign. We are running an education campaign. Investors who learn something useful from us in March come back in May. The ones who come back in May share with someone in June. The ones who share in June schedule a partner verification call in August. <strong>The story compounds. The funnel does not need to.</strong>
+        </p>
+
+        <h2>The four phases</h2>
+
+        <div class="roadmap">
+          <div class="roadmap-item">
+            <div class="phase">Phase 01 · Q1 2026</div>
+            <h4>Establish the map</h4>
+            <p>Make the prospect smarter about where capital can go. Articles on the U.S. investment universe, the wrapper-vs-investment distinction, and the safety-vs-protection distinction. Outcome: prospect can explain the landscape better than their own advisor.</p>
+          </div>
+          <div class="roadmap-item">
+            <div class="phase">Phase 02 · Q1 to Q2 2026</div>
+            <h4>Attack familiar categories gently</h4>
+            <p>Articles, videos, and one-pagers that ask one disarming question per category. "CDs feel safe. But what are they protecting?" "Your 401k is a wrapper. Is the wrapper insured?" "Real estate is tangible. Is the return?" Outcome: prospect starts questioning their existing portfolio without being attacked.</p>
+          </div>
+          <div class="roadmap-item">
+            <div class="phase">Phase 03 · Q2 to Q3 2026</div>
+            <h4>Introduce Totem's category</h4>
+            <p>Commerce-backed private funding explained from scratch. The supply chain gap most investors never see. What purchase-order financing is. Why insurance layers matter. The due-diligence checklist for any private opportunity, applied to Totem. Outcome: prospect understands the category and can articulate it back.</p>
+          </div>
+          <div class="roadmap-item">
+            <div class="phase">Phase 04 · Q3 to Q4 2026</div>
+            <h4>Build proof over time</h4>
+            <p>Completed transaction walkthroughs. Buyer verification process. What we mean by 100% insurance. The partner call: actual recordings of the verification offer in practice. Quarterly proof reports: transactions, buyers, cycles, lessons learned. Outcome: prospect trusts the structure enough to take a partner verification call.</p>
+          </div>
+        </div>
+
+        <h2>The channels</h2>
+
+        <div class="stat-grid stat-grid-3">
+          <div class="stat-cell">
+            <div class="stat-num stat-num-small">Long-form</div>
+            <div class="stat-label">Articles, downloads, and the Wealth Preservation Blueprint as a centerpiece. SEO-driven. Evergreen.</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num stat-num-small">Video</div>
+            <div class="stat-label">JJ explains the category. Member testimonials. Buyer relationship features. Vendor stories. Partner verification calls (with permission).</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num stat-num-small">Direct</div>
+            <div class="stat-label">Email sequences for each phase. Webinar series. One-on-one partner calls. Referral partner enablement.</div>
+          </div>
+        </div>
+
+        <h2>The compounding effect</h2>
+
+        <p>
+          Year one builds the foundation. Year two compounds. By the end of 2026, every prospect who lands on Totem encounters a complete library of education that walks them from "I have never heard of this" to "let me schedule the verification call." <strong>The library is the product. The capital deployment is the outcome.</strong>
+        </p>
+
+        <div class="callout callout-gold">
+          <div class="callout-eyebrow">The strategic insight</div>
+          <h2>We are not building a sales funnel. We are building a category.</h2>
+          <p>
+            Sales funnels close prospects on what they already understand. Categories teach the market what to want, then become the answer. Stripe did this for online payments. Tesla did this for electric vehicles. Bitcoin did it for digital scarcity. <strong>Commerce-backed private funding is the category Totem is building.</strong> The 12 months ahead are about making that name stick.
+          </p>
+        </div>
+      </div>
+
+      <div class="page-nav">
+        <button class="page-nav-btn" onclick="goPage(5)">← 05 Blueprint</button>
+        <div class="page-nav-spacer"></div>
+        <button class="page-nav-btn next" onclick="goPage(7)">07 What I Need From You →</button>
+      </div>
+    </section>
+
+    <!-- ============= PAGE 7: WHAT I NEED ============= -->
+    <section class="page" id="page-7">
+      <div class="container">
+        <div class="eyebrow">Section 07 · The Partner Ask</div>
+        <h1 class="display">What I need from each of you.</h1>
+
+        <p class="lead">
+          Six months of background work brought us here. The next 12 months will only land if the four of us are aligned. Here is what I need, in order.
+        </p>
+
+        <div class="partner-ask">
+          <h2>Zak</h2>
+          <p>
+            You see the structure better than anyone. The category claim ("100% of principal AND returns insured, no one else, that we know of") is the strategic move that everything else follows from. <strong>I need your edits on the language.</strong> Sharpen what is loose. Strengthen what is right. If a claim is overstated, mark it. If a claim is understated, push it.
+          </p>
+          <p>
+            I also need your read on the Wealth Preservation Blueprint as a brandable framework. Is this the right name? Is this the right structure? Or is there a sharper version sitting in your head that I have not surfaced?
+          </p>
+        </div>
+
+        <div class="partner-ask">
+          <h2>David</h2>
+          <p>
+            <strong>I need your read on the proof stack.</strong> Every claim in Section 03 is documented per our last conversation. If any of it has shifted, I want to know now, before we build anything prospect-facing on top of it. Specifically: the Allianz coverage endorsements, the buyer list, and the Amazon MBE relationship.
+          </p>
+          <p>
+            I also need you to flag any claim that could create regulatory exposure. The category is new. The language is sharp. Compliance has to hold up to scrutiny from anyone who asks the question.
+          </p>
+        </div>
+
+        <div class="partner-ask">
+          <h2>Justus</h2>
+          <p>
+            <strong>I need you to think about distribution.</strong> The 12-month content engine in Section 06 only works if we have a distribution plan that matches the depth of the work. Email lists, partner channels, paid acquisition, referral incentives, webinars, video.
+          </p>
+          <p>
+            What does our current footprint actually support? What needs to be built? And what is the right sequence so that we are not producing content the market never sees?
+          </p>
+        </div>
+
+        <h2>What happens next</h2>
+
+        <p>
+          This wireframe is the strategy. The next deliverables, in order:
+        </p>
+
+        <div class="roadmap">
+          <div class="roadmap-item">
+            <div class="phase">Step 01 · Next 7 days</div>
+            <h4>Partner edits to this wireframe</h4>
+            <p>Each of you marks up the strategy, the language, and the proof. We meet to align on a single approved version.</p>
+          </div>
+          <div class="roadmap-item">
+            <div class="phase">Step 02 · Next 30 days</div>
+            <h4>Phase 01 content shipped</h4>
+            <p>The first three articles, the Wealth Preservation Blueprint v1 PDF, and the foundational landing page on totemlcg.com.</p>
+          </div>
+          <div class="roadmap-item">
+            <div class="phase">Step 03 · Next 90 days</div>
+            <h4>Phase 02 content engine running</h4>
+            <p>Category-attack articles, comparison tools, and the first webinar series. Distribution channels live.</p>
+          </div>
+          <div class="roadmap-item">
+            <div class="phase">Step 04 · Next 12 months</div>
+            <h4>The category is named</h4>
+            <p>By May 2027, "commerce-backed private funding" is a term prospects use back to us. The library is built. The verification calls are scheduled. The capital is moving.</p>
+          </div>
+        </div>
+
+        <h2>Why this matters now</h2>
+
+        <p>
+          Three reasons we cannot wait:
+        </p>
+
+        <p>
+          <strong>The macro window is open.</strong> Buffett at 230% gives us the strongest urgency case we will have in years. We do not need to predict a crash. We just need to be the place capital moves to when investors stop trusting the curve.
+        </p>
+
+        <p>
+          <strong>The competitive window is open.</strong> No one is using the language "commerce-backed private funding" yet. No one is making the 100% insurance claim with documentation behind it. We can name the category now, or someone else will name it for us in 18 months and we will spend the rest of our existence explaining why we are different.
+        </p>
+
+        <p>
+          <strong>The internal window is open.</strong> We have 2,000+ transactions, 0.00% defaults, and the strongest vendor relationship in MBE supply at Amazon. The proof is real. The story is not yet built. The 12 months in front of us are about closing that gap.
+        </p>
+
+        <div class="partner-ask">
+          <h2>The close</h2>
+          <p>
+            None of this works without the three of you. The work in this document is mine. The strategy in this document is ours. Edit it hard. Push back where you should. Sharpen what is loose. <strong>Then let's go build.</strong>
+          </p>
+          <div class="sig">
+            <div class="sig-block">
+              <div class="name">JJ Gilmore</div>
+              <div class="role">Strategy &amp; Revenue Engineering</div>
+            </div>
+            <div class="sig-block" style="text-align: right;">
+              <div class="role">Wireframe v1</div>
+              <div class="role" style="margin-top: 4px;">May 2026</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-nav">
+        <button class="page-nav-btn" onclick="goPage(6)">← 06 Story Engine</button>
+        <div class="page-nav-spacer"></div>
+        <button class="page-nav-btn" onclick="goPage(0)">↑ Back to Cover</button>
+      </div>
+    </section>
+
+    <footer class="site-foot">
+      <div class="row">
+        <div><strong>TOTEM LC GROUP</strong> · Strategic Wireframe v1 · May 2026</div>
+        <div>For Zak, David, and Justus · Internal use only · Not for distribution</div>
+      </div>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+  function goPage(n) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + n).classList.add('active');
+    document.querySelectorAll('#nav a').forEach(a => a.classList.remove('active'));
+    document.querySelector('#nav a[data-page="' + n + '"]').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    history.pushState({ page: n }, '', '#' + n);
+  }
+
+  document.querySelectorAll('#nav a').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      goPage(parseInt(a.dataset.page));
+    });
+  });
+
+  // Handle browser back/forward
+  window.addEventListener('popstate', e => {
+    if (e.state && typeof e.state.page === 'number') {
+      goPage(e.state.page);
+    }
+  });
+
+  // Initial state from URL hash
+  if (window.location.hash) {
+    const n = parseInt(window.location.hash.replace('#', ''));
+    if (!isNaN(n) && n >= 0 && n <= 7) goPage(n);
+  }
+</script>
+
+</body>
+</html>
