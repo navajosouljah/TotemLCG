@@ -3,27 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Totem LCG — Strategic Wireframe — For Partners</title>
+<title>Totem LCG · Strategic Wireframe · For Partners</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #1A3A52;
-    --navy-deep: #0F2638;
-    --gold: #B8941F;
-    --gold-bright: #D4AF37;
+    --black: #0A0A0A;
+    --black-pure: #000000;
+    --black-soft: #1A1A1A;
+    --gold: #C9961A;
+    --gold-bright: #D4A017;
+    --gold-deep: #A6791A;
     --gold-soft: #FAF1D8;
-    --ivory: #F5F3F0;
-    --platinum: #E8E8E8;
-    --slate: #3D7BA8;
-    --forest: #2D5F4F;
-    --ink: #0E1A24;
-    --ink-soft: #2C3E50;
-    --muted: #6B7B8C;
-    --line: #D9D5CC;
-    --line-soft: #E8E4DA;
+    --gold-tint: #FDF8E9;
     --white: #FFFFFF;
+    --warm-white: #FBFAF7;
+    --paper: #F8F6F1;
+    --line: #E8E4DC;
+    --line-soft: #F0EDE6;
+    --ink: #1A1A1A;
+    --ink-soft: #3A3A3A;
+    --muted: #7A7A7A;
+    --muted-light: #B5B0A6;
     --serif-display: 'Cormorant Garamond', Georgia, serif;
     --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
@@ -36,7 +38,7 @@
   body {
     font-family: var(--sans);
     color: var(--ink);
-    background: var(--ivory);
+    background: var(--white);
     line-height: 1.6;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
@@ -50,94 +52,88 @@
     min-height: 100vh;
   }
 
-  /* ============= SIDEBAR ============= */
+  /* ============= SIDEBAR (BLACK) ============= */
   .sidebar {
-    background: var(--navy);
+    background: var(--black);
     color: var(--white);
-    padding: 40px 28px;
+    padding: 36px 26px;
     position: sticky;
     top: 0;
     height: 100vh;
     overflow-y: auto;
-    border-right: 1px solid var(--navy-deep);
   }
 
   .brand {
-    margin-bottom: 48px;
+    margin-bottom: 36px;
     padding-bottom: 24px;
     border-bottom: 1px solid rgba(255,255,255,0.08);
   }
 
-  .brand-mark {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-  }
-
-  .brand-mark svg { width: 36px; height: 42px; }
-
-  .brand-name {
-    font-family: var(--serif-display);
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: var(--white);
-    line-height: 1;
+  .brand-logo {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 14px;
   }
 
   .brand-tag {
+    font-family: var(--mono);
     font-size: 9px;
     letter-spacing: 3px;
     color: var(--gold-bright);
     text-transform: uppercase;
-    font-weight: 600;
-    margin-top: 4px;
+    font-weight: 500;
+    margin-top: 6px;
   }
 
   .doc-meta {
     font-size: 11px;
     color: rgba(255,255,255,0.5);
-    line-height: 1.6;
-    letter-spacing: 0.5px;
+    line-height: 1.7;
+    letter-spacing: 0.3px;
   }
 
   .doc-meta strong {
     color: var(--gold-bright);
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    font-family: var(--mono);
+    font-size: 10px;
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 2px;
   }
+  .doc-meta strong:first-child { margin-top: 0; }
 
   .nav {
     list-style: none;
+    margin-top: 8px;
   }
 
   .nav-section-label {
+    font-family: var(--mono);
     font-size: 10px;
     letter-spacing: 2.5px;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.35);
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 500;
     margin-top: 28px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
-  .nav li {
-    margin-bottom: 2px;
-  }
+  .nav li { margin-bottom: 1px; }
 
   .nav a {
     display: flex;
     align-items: baseline;
     gap: 14px;
-    padding: 10px 12px;
-    color: rgba(255,255,255,0.75);
+    padding: 10px 14px 10px 12px;
+    color: rgba(255,255,255,0.7);
     text-decoration: none;
     font-size: 14px;
     font-weight: 400;
     border-left: 2px solid transparent;
     transition: all 0.2s ease;
-    border-radius: 0 4px 4px 0;
   }
 
   .nav a:hover {
@@ -147,7 +143,7 @@
   }
 
   .nav a.active {
-    background: rgba(184,148,31,0.08);
+    background: rgba(212,160,23,0.08);
     color: var(--white);
     border-left-color: var(--gold-bright);
     font-weight: 500;
@@ -155,23 +151,24 @@
 
   .nav-num {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 10px;
     color: var(--gold);
     flex-shrink: 0;
     width: 18px;
+    font-weight: 500;
   }
 
-  .nav a.active .nav-num {
-    color: var(--gold-bright);
-  }
+  .nav a.active .nav-num { color: var(--gold-bright); }
 
   .sidebar-foot {
-    margin-top: 40px;
-    padding-top: 24px;
+    margin-top: 32px;
+    padding-top: 22px;
     border-top: 1px solid rgba(255,255,255,0.08);
-    font-size: 11px;
+    font-size: 10px;
     color: rgba(255,255,255,0.4);
-    line-height: 1.6;
+    line-height: 1.7;
+    font-family: var(--mono);
+    letter-spacing: 0.5px;
   }
 
   .sidebar-foot strong {
@@ -179,12 +176,12 @@
     font-weight: 600;
     display: block;
     margin-bottom: 4px;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
   }
 
   /* ============= MAIN CONTENT ============= */
   main {
-    background: var(--ivory);
+    background: var(--white);
     min-height: 100vh;
   }
 
@@ -207,7 +204,7 @@
   }
 
   .container-wide {
-    max-width: 1280px;
+    max-width: 1320px;
     margin: 0 auto;
     padding: 80px 60px;
   }
@@ -217,7 +214,7 @@
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 3px;
-    color: var(--gold);
+    color: var(--gold-deep);
     text-transform: uppercase;
     font-weight: 500;
     margin-bottom: 24px;
@@ -225,10 +222,10 @@
 
   h1.display {
     font-family: var(--serif-display);
-    font-size: 84px;
+    font-size: 88px;
     line-height: 0.95;
-    letter-spacing: -1.5px;
-    color: var(--navy);
+    letter-spacing: -2px;
+    color: var(--black);
     font-weight: 500;
     margin-bottom: 32px;
   }
@@ -238,17 +235,17 @@
     font-size: 56px;
     line-height: 1.05;
     letter-spacing: -1px;
-    color: var(--navy);
+    color: var(--black);
     font-weight: 500;
     margin-bottom: 24px;
   }
 
   h2 {
     font-family: var(--serif-display);
-    font-size: 36px;
+    font-size: 38px;
     line-height: 1.15;
     letter-spacing: -0.5px;
-    color: var(--navy);
+    color: var(--black);
     font-weight: 500;
     margin-top: 64px;
     margin-bottom: 20px;
@@ -257,21 +254,21 @@
   h2:first-child, h2.first { margin-top: 0; }
 
   h3 {
-    font-family: var(--sans);
-    font-size: 13px;
-    letter-spacing: 2px;
-    color: var(--gold);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    color: var(--gold-deep);
     text-transform: uppercase;
     font-weight: 600;
     margin-top: 40px;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
 
   h4 {
     font-family: var(--serif-display);
     font-size: 24px;
     line-height: 1.2;
-    color: var(--navy);
+    color: var(--black);
     font-weight: 600;
     margin-top: 24px;
     margin-bottom: 12px;
@@ -279,17 +276,17 @@
 
   p {
     font-size: 17px;
-    line-height: 1.65;
+    line-height: 1.7;
     color: var(--ink-soft);
-    margin-bottom: 18px;
+    margin-bottom: 20px;
   }
 
   p.lead {
     font-size: 22px;
     line-height: 1.5;
-    color: var(--navy);
+    color: var(--black);
     font-weight: 400;
-    margin-bottom: 28px;
+    margin-bottom: 32px;
     font-family: var(--serif-display);
     font-style: italic;
     letter-spacing: 0;
@@ -301,11 +298,11 @@
     line-height: 1.5;
   }
 
-  strong { color: var(--navy); font-weight: 600; }
-  em { color: var(--navy); font-style: italic; }
+  strong { color: var(--black); font-weight: 600; }
+  em { color: var(--black); font-style: italic; }
 
-  a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(184,148,31,0.3); transition: all 0.2s; }
-  a:hover { color: var(--navy); border-bottom-color: var(--navy); }
+  a { color: var(--gold-deep); text-decoration: none; border-bottom: 1px solid rgba(166,121,26,0.3); transition: all 0.2s; }
+  a:hover { color: var(--black); border-bottom-color: var(--black); }
 
   /* ============= LANDING / PAGE 0 ============= */
   .hero {
@@ -315,17 +312,25 @@
     justify-content: center;
     padding: 80px 60px;
     position: relative;
-    background: linear-gradient(135deg, var(--ivory) 0%, #FBF9F4 100%);
+    background: var(--white);
     overflow: hidden;
   }
 
   .hero::before {
     content: "";
     position: absolute;
-    top: -200px; right: -200px;
-    width: 800px; height: 800px;
-    background: radial-gradient(circle, rgba(184,148,31,0.08) 0%, transparent 70%);
+    top: -300px; right: -300px;
+    width: 900px; height: 900px;
+    background: radial-gradient(circle, rgba(212,160,23,0.06) 0%, transparent 65%);
     pointer-events: none;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: 100px; left: 60px; right: 60px;
+    height: 1px;
+    background: var(--line);
   }
 
   .hero-inner {
@@ -338,7 +343,7 @@
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 3px;
-    color: var(--gold);
+    color: var(--gold-deep);
     text-transform: uppercase;
     font-weight: 500;
     margin-bottom: 40px;
@@ -355,10 +360,10 @@
 
   .hero-title {
     font-family: var(--serif-display);
-    font-size: 96px;
+    font-size: 104px;
     line-height: 0.95;
-    letter-spacing: -2.5px;
-    color: var(--navy);
+    letter-spacing: -3px;
+    color: var(--black);
     font-weight: 500;
     margin-bottom: 36px;
     max-width: 14ch;
@@ -366,22 +371,22 @@
 
   .hero-title em {
     font-style: italic;
-    color: var(--gold);
+    color: var(--gold-deep);
     font-weight: 500;
   }
 
   .hero-sub {
     font-size: 22px;
-    line-height: 1.5;
+    line-height: 1.55;
     color: var(--ink-soft);
     max-width: 56ch;
-    margin-bottom: 48px;
+    margin-bottom: 56px;
     font-weight: 300;
   }
 
   .hero-sub strong {
-    color: var(--navy);
-    font-weight: 500;
+    color: var(--black);
+    font-weight: 600;
   }
 
   .hero-meta {
@@ -412,7 +417,7 @@
   .hero-meta-value {
     font-family: var(--serif-display);
     font-size: 22px;
-    color: var(--navy);
+    color: var(--black);
     font-weight: 600;
     line-height: 1.2;
   }
@@ -427,31 +432,33 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     font-weight: 500;
+    font-family: var(--mono);
   }
 
   .hero-cta-btn {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    padding: 18px 32px;
-    background: var(--navy);
+    padding: 18px 36px;
+    background: var(--black);
     color: var(--white);
     border: none;
     text-decoration: none;
     font-family: var(--sans);
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s ease;
+    border-bottom: none;
   }
 
   .hero-cta-btn:hover {
-    background: var(--gold);
+    background: var(--gold-deep);
     color: var(--white);
     transform: translateY(-2px);
-    box-shadow: 0 12px 32px -8px rgba(184,148,31,0.4);
+    box-shadow: 0 12px 28px -10px rgba(0,0,0,0.3);
     border-bottom: none;
   }
 
@@ -460,11 +467,11 @@
 
   /* ============= MARKET TICKER ============= */
   .ticker {
-    background: var(--navy);
+    background: var(--black);
     color: var(--white);
-    padding: 20px 60px;
+    padding: 18px 60px;
     overflow: hidden;
-    border-top: 1px solid var(--gold);
+    border-top: 2px solid var(--gold);
   }
 
   .ticker-inner {
@@ -483,13 +490,14 @@
     font-family: var(--mono);
     font-size: 12px;
     letter-spacing: 1.5px;
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.65);
     display: inline-flex;
     align-items: center;
     gap: 12px;
+    font-weight: 400;
   }
 
-  .ticker-item strong { color: var(--gold-bright); font-weight: 500; }
+  .ticker-item strong { color: var(--gold-bright); font-weight: 600; }
   .ticker-item .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); }
 
   /* ============= PULL QUOTE ============= */
@@ -500,7 +508,7 @@
     font-family: var(--serif-display);
     font-size: 32px;
     line-height: 1.3;
-    color: var(--navy);
+    color: var(--black);
     font-style: italic;
     font-weight: 500;
     letter-spacing: -0.3px;
@@ -508,11 +516,11 @@
 
   .pull-quote .attribution {
     display: block;
-    font-family: var(--sans);
-    font-size: 13px;
+    font-family: var(--mono);
+    font-size: 11px;
     color: var(--muted);
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
     font-style: normal;
     font-weight: 500;
     margin-top: 16px;
@@ -547,20 +555,18 @@
     font-family: var(--serif-display);
     font-size: 56px;
     line-height: 1;
-    color: var(--navy);
+    color: var(--black);
     font-weight: 500;
     letter-spacing: -1px;
     margin-bottom: 12px;
   }
 
   .stat-num em {
-    color: var(--gold);
+    color: var(--gold-deep);
     font-style: normal;
   }
 
-  .stat-num-small {
-    font-size: 36px;
-  }
+  .stat-num-small { font-size: 32px; }
 
   .stat-label {
     font-size: 14px;
@@ -568,21 +574,12 @@
     line-height: 1.5;
   }
 
-  .stat-source {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-top: 12px;
-  }
-
-  /* ============= CALLOUT ============= */
+  /* ============= CALLOUT - BLACK INVERTED ============= */
   .callout {
-    background: var(--navy);
+    background: var(--black);
     color: var(--white);
-    padding: 48px 56px;
-    margin: 64px 0;
+    padding: 56px 60px;
+    margin: 72px 0;
     position: relative;
   }
 
@@ -598,7 +595,7 @@
 
   .callout h2 {
     color: var(--white);
-    font-size: 32px;
+    font-size: 36px;
     margin: 0 0 20px 0;
     line-height: 1.2;
   }
@@ -606,8 +603,8 @@
   .callout p {
     color: rgba(255,255,255,0.85);
     font-size: 17px;
-    line-height: 1.65;
-    margin-bottom: 16px;
+    line-height: 1.7;
+    margin-bottom: 18px;
   }
 
   .callout p:last-child { margin-bottom: 0; }
@@ -617,86 +614,10 @@
     background: var(--gold-soft);
     color: var(--ink);
   }
-  .callout-gold .callout-eyebrow { color: var(--gold); }
-  .callout-gold h2 { color: var(--navy); }
+  .callout-gold .callout-eyebrow { color: var(--gold-deep); }
+  .callout-gold h2 { color: var(--black); }
   .callout-gold p { color: var(--ink-soft); }
-  .callout-gold strong { color: var(--navy); }
-
-  /* ============= COMPARE TABLE ============= */
-  .table-wrap {
-    margin: 32px 0;
-    overflow-x: auto;
-    border: 1px solid var(--line);
-    background: var(--white);
-  }
-
-  table.cmp {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-  }
-
-  table.cmp thead {
-    background: var(--navy);
-  }
-
-  table.cmp th {
-    padding: 14px 16px;
-    text-align: left;
-    color: var(--white);
-    font-weight: 600;
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    border-right: 1px solid rgba(255,255,255,0.08);
-    vertical-align: middle;
-  }
-
-  table.cmp th:last-child { border-right: 0; }
-
-  table.cmp td {
-    padding: 14px 16px;
-    border-bottom: 1px solid var(--line-soft);
-    border-right: 1px solid var(--line-soft);
-    vertical-align: top;
-    line-height: 1.45;
-    color: var(--ink-soft);
-  }
-
-  table.cmp td:last-child { border-right: 0; }
-  table.cmp tr:last-child td { border-bottom: 0; }
-
-  table.cmp tr.cat-header td {
-    background: var(--ivory);
-    font-family: var(--serif-display);
-    font-size: 16px;
-    color: var(--navy);
-    font-weight: 600;
-    padding: 16px;
-    letter-spacing: 0;
-    border-top: 2px solid var(--navy);
-    border-bottom: 1px solid var(--line);
-  }
-
-  table.cmp tr.totem-row td {
-    background: var(--gold-soft);
-    color: var(--ink);
-    font-weight: 500;
-    border-top: 2px solid var(--gold);
-    border-bottom: 2px solid var(--gold);
-  }
-
-  table.cmp tr.totem-row td:first-child {
-    border-left: 4px solid var(--gold);
-    color: var(--navy);
-    font-weight: 700;
-  }
-
-  table.cmp .yes { color: var(--forest); font-weight: 600; }
-  table.cmp .no { color: #B8201F; font-weight: 600; }
-  table.cmp .partial { color: var(--gold); font-weight: 600; }
-
-  td.first { font-weight: 600; color: var(--navy); width: 18%; }
+  .callout-gold strong { color: var(--gold-deep); }
 
   /* ============= 100 INSURANCE TABLE ============= */
   table.insurance-tbl {
@@ -708,14 +629,15 @@
     font-size: 14px;
   }
 
-  table.insurance-tbl thead { background: var(--navy); color: var(--white); }
+  table.insurance-tbl thead { background: var(--black); color: var(--white); }
   table.insurance-tbl th {
-    padding: 16px;
+    padding: 18px;
     text-align: left;
     font-size: 11px;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 600;
+    font-family: var(--mono);
   }
   table.insurance-tbl th:nth-child(2),
   table.insurance-tbl th:nth-child(3) {
@@ -724,57 +646,71 @@
   }
 
   table.insurance-tbl td {
-    padding: 16px;
+    padding: 18px;
     border-bottom: 1px solid var(--line-soft);
     vertical-align: middle;
-    line-height: 1.4;
+    line-height: 1.5;
   }
 
   table.insurance-tbl td.center { text-align: center; }
   table.insurance-tbl tr:last-child td { border-bottom: 0; }
   table.insurance-tbl tr.totem td {
-    background: var(--gold-soft);
+    background: var(--gold-tint);
     border-top: 2px solid var(--gold);
     border-bottom: 2px solid var(--gold);
   }
   table.insurance-tbl tr.totem td:first-child {
     border-left: 4px solid var(--gold);
-    color: var(--navy);
+    color: var(--black);
     font-weight: 700;
   }
-  table.insurance-tbl .check { color: var(--forest); font-size: 22px; font-weight: 700; }
-  table.insurance-tbl .cross { color: #B8201F; font-size: 22px; font-weight: 700; }
+  table.insurance-tbl .check {
+    color: var(--gold-deep);
+    font-size: 22px;
+    font-weight: 700;
+  }
+  table.insurance-tbl .cross {
+    color: var(--muted-light);
+    font-size: 22px;
+    font-weight: 400;
+  }
   table.insurance-tbl .partial-x {
-    color: var(--gold);
-    font-size: 14px;
+    color: var(--gold-deep);
+    font-family: var(--mono);
+    font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    background: var(--gold-soft);
+    padding: 4px 10px;
+    border-radius: 2px;
   }
 
   /* ============= BIG QUESTION ============= */
   .big-question {
     margin: 80px 0;
     text-align: center;
-    padding: 64px 32px;
-    background: var(--white);
-    border-top: 4px solid var(--gold);
-    border-bottom: 4px solid var(--gold);
+    padding: 72px 32px;
+    background: var(--paper);
+    border-top: 4px solid var(--black);
+    border-bottom: 4px solid var(--black);
+    position: relative;
   }
 
   .big-question .label {
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 3px;
-    color: var(--gold);
+    color: var(--gold-deep);
     text-transform: uppercase;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
+    font-weight: 600;
   }
 
   .big-question .q {
     font-family: var(--serif-display);
-    font-size: 44px;
+    font-size: 48px;
     line-height: 1.2;
-    color: var(--navy);
+    color: var(--black);
     font-weight: 500;
     font-style: italic;
     letter-spacing: -0.5px;
@@ -783,7 +719,7 @@
   }
 
   .big-question .answer {
-    margin-top: 32px;
+    margin-top: 36px;
     font-family: var(--mono);
     font-size: 13px;
     color: var(--muted);
@@ -792,8 +728,8 @@
   }
 
   .big-question .answer strong {
-    color: var(--gold);
-    font-weight: 600;
+    color: var(--gold-deep);
+    font-weight: 700;
   }
 
   /* ============= PROOF CARDS ============= */
@@ -808,21 +744,29 @@
     background: var(--white);
     border: 1px solid var(--line);
     padding: 32px;
-    border-top: 3px solid var(--gold);
+    border-top: 3px solid var(--black);
+    transition: all 0.3s ease;
+  }
+
+  .proof-card:hover {
+    border-top-color: var(--gold);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -8px rgba(0,0,0,0.08);
   }
 
   .proof-card .pc-num {
     font-family: var(--mono);
     font-size: 11px;
-    color: var(--gold);
+    color: var(--gold-deep);
     letter-spacing: 2px;
     margin-bottom: 12px;
+    font-weight: 600;
   }
 
   .proof-card h4 {
     font-family: var(--serif-display);
     font-size: 22px;
-    color: var(--navy);
+    color: var(--black);
     margin: 0 0 12px 0;
     line-height: 1.25;
     font-weight: 600;
@@ -830,7 +774,7 @@
 
   .proof-card p {
     font-size: 15px;
-    line-height: 1.55;
+    line-height: 1.6;
     color: var(--ink-soft);
     margin-bottom: 0;
   }
@@ -858,22 +802,23 @@
     width: 12px; height: 12px;
     background: var(--gold);
     border-radius: 50%;
-    border: 3px solid var(--ivory);
+    border: 3px solid var(--white);
   }
 
   .roadmap-item .phase {
     font-family: var(--mono);
     font-size: 11px;
-    color: var(--gold);
+    color: var(--gold-deep);
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 6px;
+    font-weight: 600;
   }
 
   .roadmap-item h4 {
     font-family: var(--serif-display);
     font-size: 22px;
-    color: var(--navy);
+    color: var(--black);
     margin: 0 0 8px 0;
     font-weight: 600;
   }
@@ -885,9 +830,7 @@
   }
 
   /* ============= CATEGORY DEEP TABLE ============= */
-  .universe {
-    margin: 48px 0;
-  }
+  .universe { margin: 48px 0; }
 
   .universe-cat {
     background: var(--white);
@@ -896,9 +839,9 @@
   }
 
   .universe-cat-header {
-    background: var(--navy);
+    background: var(--black);
     color: var(--white);
-    padding: 18px 24px;
+    padding: 18px 26px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -906,7 +849,7 @@
     transition: background 0.2s;
   }
 
-  .universe-cat-header:hover { background: var(--navy-deep); }
+  .universe-cat-header:hover { background: var(--black-soft); }
 
   .universe-cat-header .cat-num {
     font-family: var(--mono);
@@ -914,6 +857,7 @@
     color: var(--gold-bright);
     letter-spacing: 2px;
     margin-right: 16px;
+    font-weight: 600;
   }
 
   .universe-cat-header .cat-name {
@@ -925,13 +869,11 @@
   .universe-cat-header .cat-meta {
     font-family: var(--mono);
     font-size: 11px;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.55);
     letter-spacing: 1.5px;
   }
 
-  .universe-cat-body {
-    padding: 0;
-  }
+  .universe-cat-body { padding: 0; }
 
   .universe-cat-body table {
     width: 100%;
@@ -940,16 +882,17 @@
   }
 
   .universe-cat-body th {
-    background: var(--ivory);
+    background: var(--paper);
     padding: 12px 14px;
     text-align: left;
     font-weight: 600;
     font-size: 10px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--navy);
+    color: var(--black);
     border-bottom: 1px solid var(--line);
     border-right: 1px solid var(--line-soft);
+    font-family: var(--mono);
   }
   .universe-cat-body th:last-child { border-right: 0; }
 
@@ -958,7 +901,7 @@
     border-bottom: 1px solid var(--line-soft);
     border-right: 1px solid var(--line-soft);
     vertical-align: top;
-    line-height: 1.45;
+    line-height: 1.5;
     color: var(--ink-soft);
   }
   .universe-cat-body td:last-child { border-right: 0; }
@@ -966,12 +909,12 @@
 
   .universe-cat-body td:first-child {
     font-weight: 600;
-    color: var(--navy);
+    color: var(--black);
     width: 18%;
   }
 
   .universe-cat-body tr.totem-line td {
-    background: var(--gold-soft);
+    background: var(--gold-tint);
     border-top: 2px solid var(--gold);
     border-bottom: 2px solid var(--gold);
     font-weight: 500;
@@ -979,35 +922,35 @@
 
   .universe-cat-body tr.totem-line td:first-child {
     border-left: 4px solid var(--gold);
-    color: var(--navy);
+    color: var(--black);
     font-weight: 700;
   }
 
   /* ============= TOTEM POSITION CALLOUT ============= */
   .position {
-    background: var(--ivory);
-    padding: 16px 24px;
+    background: var(--paper);
+    padding: 18px 26px;
     border-top: 1px solid var(--line);
     font-size: 13px;
     color: var(--ink-soft);
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   .position strong {
-    color: var(--gold);
+    color: var(--gold-deep);
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-size: 11px;
     font-weight: 600;
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     font-family: var(--mono);
   }
 
   /* ============= BLUEPRINT ============= */
   .blueprint {
     background: var(--white);
-    padding: 48px;
+    padding: 56px;
     margin: 48px 0;
     border: 1px solid var(--line);
   }
@@ -1016,24 +959,25 @@
     display: grid;
     grid-template-columns: 60px 1fr;
     gap: 24px;
-    padding: 24px 0;
+    padding: 28px 0;
     border-bottom: 1px solid var(--line-soft);
   }
 
-  .blueprint-q:last-child { border-bottom: 0; }
+  .blueprint-q:last-child { border-bottom: 0; padding-bottom: 0; }
+  .blueprint-q:first-child { padding-top: 0; }
 
   .blueprint-q .num {
     font-family: var(--serif-display);
-    font-size: 48px;
-    color: var(--gold);
+    font-size: 52px;
+    color: var(--gold-deep);
     font-weight: 500;
     line-height: 1;
   }
 
   .blueprint-q h4 {
     font-family: var(--serif-display);
-    font-size: 24px;
-    color: var(--navy);
+    font-size: 26px;
+    color: var(--black);
     margin: 0 0 8px 0;
     font-weight: 600;
   }
@@ -1042,7 +986,7 @@
     font-size: 15px;
     color: var(--ink-soft);
     margin: 0;
-    line-height: 1.55;
+    line-height: 1.6;
   }
 
   /* ============= NEXT BUTTONS ============= */
@@ -1053,7 +997,7 @@
     padding: 48px 60px;
     border-top: 1px solid var(--line);
     margin-top: 80px;
-    background: var(--white);
+    background: var(--paper);
   }
 
   .page-nav-btn {
@@ -1061,62 +1005,64 @@
     align-items: center;
     gap: 16px;
     padding: 16px 28px;
-    color: var(--navy);
-    border: 1px solid var(--line);
+    color: var(--black);
+    border: 1px solid var(--black);
     text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 1px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     background: var(--white);
     cursor: pointer;
     transition: all 0.2s;
     font-family: var(--sans);
-    border-bottom: 1px solid var(--line);
   }
 
   .page-nav-btn:hover {
-    background: var(--navy);
+    background: var(--black);
     color: var(--white);
-    border-color: var(--navy);
   }
 
   .page-nav-btn.next {
-    background: var(--navy);
+    background: var(--black);
     color: var(--white);
-    border-color: var(--navy);
   }
 
   .page-nav-btn.next:hover {
-    background: var(--gold);
-    border-color: var(--gold);
+    background: var(--gold-deep);
+    border-color: var(--gold-deep);
   }
 
   .page-nav-spacer { flex: 1; }
 
   /* ============= PARTNER ASK ============= */
   .partner-ask {
-    background: var(--navy-deep);
+    background: var(--black);
     color: var(--white);
-    padding: 64px 56px;
-    margin: 48px 0;
+    padding: 56px;
+    margin: 32px 0;
     position: relative;
+    border-left: 4px solid var(--gold);
   }
 
   .partner-ask h2 {
-    color: var(--white);
+    color: var(--gold-bright);
     margin-top: 0;
+    font-size: 32px;
+    margin-bottom: 16px;
   }
 
   .partner-ask p {
-    color: rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.85);
     font-size: 17px;
   }
+
+  .partner-ask strong { color: var(--gold-bright); }
 
   .partner-ask .sig {
     margin-top: 48px;
     padding-top: 32px;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255,255,255,0.12);
     display: flex;
     justify-content: space-between;
     align-items: end;
@@ -1124,7 +1070,7 @@
 
   .partner-ask .sig-block .name {
     font-family: var(--serif-display);
-    font-size: 28px;
+    font-size: 32px;
     color: var(--gold-bright);
     font-weight: 500;
   }
@@ -1140,11 +1086,12 @@
 
   /* ============= FOOTER ============= */
   footer.site-foot {
-    background: var(--navy-deep);
+    background: var(--black);
     color: rgba(255,255,255,0.5);
     padding: 32px 60px;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 1px;
+    font-family: var(--mono);
   }
 
   footer.site-foot .row {
@@ -1168,7 +1115,1049 @@
     .stat-grid, .stat-grid-3, .stat-grid-4 { grid-template-columns: 1fr; }
     .proof-grid { grid-template-columns: 1fr; }
     .hero-meta { grid-template-columns: 1fr 1fr; }
+    .blueprint { padding: 32px; }
   }
+
+  /* ============= NEWSLETTER MOCKUP ============= */
+  .newsletter-frame {
+    margin: 48px 0;
+    background: var(--paper);
+    padding: 60px 32px;
+    border: 1px solid var(--line);
+    position: relative;
+  }
+
+  .newsletter-frame::before {
+    content: "MEMBER NEWSLETTER · MOCKUP · ISSUE NO. 01";
+    position: absolute;
+    top: 16px;
+    left: 32px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: var(--gold-deep);
+    font-weight: 600;
+  }
+
+  .newsletter {
+    max-width: 680px;
+    margin: 24px auto 0;
+    background: var(--white);
+    padding: 56px 56px 0 56px;
+    border: 1px solid var(--line);
+    box-shadow: 0 24px 48px -16px rgba(0,0,0,0.08);
+    color: var(--ink);
+  }
+
+  .newsletter-masthead {
+    border-bottom: 3px solid var(--black);
+    padding-bottom: 20px;
+    margin-bottom: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .newsletter-masthead .title {
+    font-family: var(--serif-display);
+    font-size: 38px;
+    font-weight: 600;
+    color: var(--black);
+    line-height: 1;
+    letter-spacing: -0.5px;
+  }
+
+  .newsletter-masthead .title em {
+    color: var(--gold-deep);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .newsletter-masthead .meta {
+    text-align: right;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    line-height: 1.6;
+  }
+
+  .newsletter-masthead .meta strong {
+    color: var(--gold-deep);
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .newsletter-issue-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+
+  .newsletter-headline {
+    font-family: var(--serif-display);
+    font-size: 40px;
+    line-height: 1.1;
+    color: var(--black);
+    font-weight: 600;
+    letter-spacing: -0.8px;
+    margin-bottom: 12px;
+  }
+
+  .newsletter-deck {
+    font-family: var(--serif-display);
+    font-size: 18px;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .newsletter-byline {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .newsletter-byline strong {
+    color: var(--gold-deep);
+    font-weight: 600;
+  }
+
+  .newsletter p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.65;
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+
+  .newsletter p strong { color: var(--black); font-weight: 700; }
+  .newsletter p em { color: var(--ink); font-style: italic; }
+  .newsletter p a { color: var(--gold-deep); border-bottom: 1px solid rgba(166,121,26,0.4); }
+
+  .newsletter h3.section {
+    font-family: var(--serif-display);
+    font-size: 26px;
+    color: var(--black);
+    font-weight: 600;
+    margin: 36px 0 16px 0;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    text-transform: none;
+  }
+
+  .newsletter .pull {
+    font-family: var(--serif-display);
+    font-size: 26px;
+    line-height: 1.3;
+    color: var(--black);
+    font-style: italic;
+    font-weight: 500;
+    border-left: 4px solid var(--gold);
+    padding: 8px 0 8px 24px;
+    margin: 32px 0;
+    letter-spacing: -0.2px;
+  }
+
+  .newsletter .chart-placeholder {
+    margin: 28px 0;
+    padding: 24px 28px;
+    background: var(--paper);
+    border-left: 3px solid var(--gold);
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    line-height: 1.6;
+  }
+
+  .newsletter .chart-placeholder .chart-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--gold-deep);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .newsletter .chart-placeholder strong {
+    display: block;
+    color: var(--black);
+    font-family: var(--serif-display);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .newsletter .chart-placeholder .src {
+    margin-top: 10px;
+    color: var(--muted-light);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* Mini visual chart */
+  .mini-chart {
+    height: 80px;
+    margin: 14px 0 8px 0;
+    position: relative;
+    background:
+      repeating-linear-gradient(to bottom, transparent 0, transparent 19px, var(--line-soft) 19px, var(--line-soft) 20px);
+  }
+
+  .mini-chart svg { width: 100%; height: 100%; display: block; }
+
+  .newsletter-turn {
+    margin: 40px 0 32px 0;
+    padding: 32px;
+    background: var(--black);
+    color: var(--white);
+    position: relative;
+  }
+
+  .newsletter-turn .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold-bright);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .newsletter-turn .title {
+    font-family: var(--serif-display);
+    font-size: 28px;
+    line-height: 1.25;
+    color: var(--white);
+    font-weight: 600;
+    margin-bottom: 14px;
+    letter-spacing: -0.3px;
+  }
+
+  .newsletter-turn p {
+    color: rgba(255,255,255,0.88);
+    font-size: 16px;
+    line-height: 1.65;
+    margin-bottom: 12px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  .newsletter-turn p:last-child { margin-bottom: 0; }
+  .newsletter-turn strong { color: var(--gold-bright); font-weight: 700; }
+
+  .newsletter-cta-card {
+    margin: 36px 0;
+    padding: 28px 32px;
+    background: var(--gold-tint);
+    border-left: 4px solid var(--gold);
+  }
+
+  .newsletter-cta-card .cta-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .newsletter-cta-card h4 {
+    font-family: var(--serif-display);
+    font-size: 24px;
+    color: var(--black);
+    font-weight: 600;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.2px;
+  }
+
+  .newsletter-cta-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink);
+    margin-bottom: 16px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  .newsletter-cta-card .verify-list {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 18px 0;
+  }
+
+  .newsletter-cta-card .verify-list li {
+    padding: 8px 0 8px 28px;
+    position: relative;
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.5;
+    border-bottom: 1px solid rgba(184,148,31,0.15);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+  .newsletter-cta-card .verify-list li:last-child { border-bottom: 0; }
+
+  .newsletter-cta-card .verify-list li::before {
+    content: "→";
+    position: absolute;
+    left: 4px;
+    color: var(--gold-deep);
+    font-weight: 700;
+    font-family: var(--sans);
+  }
+
+  .newsletter-cta-card .verify-list strong {
+    color: var(--black);
+    font-weight: 700;
+    display: inline-block;
+    min-width: 145px;
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .newsletter-cta-btn {
+    display: inline-block;
+    padding: 13px 26px;
+    background: var(--black);
+    color: var(--white);
+    text-decoration: none;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: none;
+    border: none;
+  }
+
+  .newsletter-cta-btn:hover {
+    background: var(--gold-deep);
+    color: var(--white);
+    border-bottom: none;
+  }
+
+  .newsletter-referral {
+    margin: 36px 0 24px 0;
+    padding: 28px 32px;
+    background: var(--white);
+    border: 2px solid var(--black);
+  }
+
+  .newsletter-referral .ref-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .newsletter-referral h4 {
+    font-family: var(--serif-display);
+    font-size: 22px;
+    color: var(--black);
+    font-weight: 600;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.2px;
+  }
+
+  .newsletter-referral p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  .newsletter-signoff {
+    margin: 40px 0 0 0;
+    padding: 28px 0 0 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .newsletter-signoff p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink);
+    margin-bottom: 14px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  .newsletter-signoff .sig {
+    margin-top: 24px;
+    font-family: var(--serif-display);
+    font-size: 22px;
+    color: var(--black);
+    font-weight: 600;
+    font-style: italic;
+  }
+
+  .newsletter-signoff .sig-detail {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 4px;
+    font-style: normal;
+  }
+
+  /* Metrics dashboard footer */
+  .newsletter-metrics {
+    margin: 0 -56px;
+    padding: 36px 56px;
+    background: var(--black);
+    color: var(--white);
+  }
+
+  .newsletter-metrics .metrics-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold-bright);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .newsletter-metrics h3 {
+    font-family: var(--serif-display);
+    font-size: 24px;
+    color: var(--white);
+    font-weight: 600;
+    margin: 0 0 24px 0;
+    letter-spacing: -0.3px;
+  }
+
+  .newsletter-metrics .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .newsletter-metrics .metric {
+    padding: 18px 18px 18px 0;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .newsletter-metrics .metric:nth-child(3n) { border-right: 0; }
+  .newsletter-metrics .metric:nth-last-child(-n+3) { border-bottom: 0; }
+
+  .newsletter-metrics .m-num {
+    font-family: var(--serif-display);
+    font-size: 32px;
+    color: var(--gold-bright);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.5px;
+  }
+
+  .newsletter-metrics .m-num em { font-style: normal; color: var(--white); }
+
+  .newsletter-metrics .m-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.65);
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .newsletter-foot {
+    padding: 24px 56px 40px 56px;
+    background: var(--black-soft);
+    color: rgba(255,255,255,0.55);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin: 0 -56px -1px -56px;
+    text-align: center;
+    line-height: 1.7;
+  }
+
+  .newsletter-foot a { color: var(--gold-bright); border-bottom: none; }
+
+  /* ============= EXPERT BLOCK ============= */
+  .expert-block {
+    margin: 32px 0;
+    padding: 28px 32px;
+    background: var(--paper);
+    border-left: 4px solid var(--black);
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .expert-block .expert-photo {
+    width: 90px;
+    height: 90px;
+    background: var(--black);
+    color: var(--gold-bright);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif-display);
+    font-size: 32px;
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: -1px;
+    border: 3px solid var(--gold);
+  }
+
+  .expert-block .expert-info .expert-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .expert-block .expert-info .expert-name {
+    font-family: var(--serif-display);
+    font-size: 26px;
+    color: var(--black);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 4px;
+    letter-spacing: -0.3px;
+  }
+
+  .expert-block .expert-info .expert-title {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+  }
+
+  .expert-block .expert-info .expert-piece {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 15px;
+    color: var(--ink);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .expert-block .expert-info .expert-piece strong {
+    color: var(--black);
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  /* ============= SCORECARD ============= */
+  .scorecard {
+    margin: 36px 0;
+    background: var(--white);
+    border: 2px solid var(--black);
+    overflow: hidden;
+  }
+
+  .scorecard-head {
+    background: var(--black);
+    color: var(--white);
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .scorecard-head .sc-title {
+    font-family: var(--serif-display);
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+  }
+
+  .scorecard-head .sc-sub {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold-bright);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .scorecard-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 2px solid var(--black);
+    background: var(--paper);
+  }
+
+  .scorecard-col {
+    padding: 18px 24px;
+    text-align: center;
+    border-right: 1px solid var(--line);
+  }
+  .scorecard-col:last-child { border-right: 0; }
+
+  .scorecard-col .sc-side {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .scorecard-col .sc-name {
+    font-family: var(--serif-display);
+    font-size: 22px;
+    color: var(--black);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.3px;
+  }
+
+  .scorecard-row {
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--line-soft);
+    align-items: center;
+    gap: 16px;
+  }
+
+  .scorecard-row:last-child { border-bottom: 0; }
+
+  .scorecard-row .category {
+    grid-column: 1 / 4;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .sc-bar-row {
+    grid-column: 1 / 4;
+    display: grid;
+    grid-template-columns: 1fr 50px 1fr;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .sc-bar-left, .sc-bar-right {
+    height: 24px;
+    background: var(--paper);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  .sc-bar-left { justify-content: flex-end; }
+  .sc-bar-right { justify-content: flex-start; }
+
+  .sc-bar-left .fill {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, var(--muted-light), var(--muted));
+  }
+
+  .sc-bar-right .fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, var(--gold), var(--gold-deep));
+  }
+
+  .sc-bar-left .num, .sc-bar-right .num {
+    position: relative;
+    z-index: 2;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--white);
+    font-weight: 700;
+    padding: 0 10px;
+    letter-spacing: 1px;
+  }
+
+  .sc-bar-mid {
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .sc-explanations {
+    grid-column: 1 / 4;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 8px;
+  }
+
+  .sc-explanations .exp {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .sc-explanations .exp.left { text-align: right; padding-right: 35px; }
+  .sc-explanations .exp.right { padding-left: 35px; }
+
+  .scorecard-total {
+    background: var(--black);
+    color: var(--white);
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .scorecard-total .total-side {
+    text-align: center;
+  }
+
+  .scorecard-total .total-num {
+    font-family: var(--serif-display);
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -1.5px;
+  }
+
+  .scorecard-total .total-num.muted {
+    color: var(--muted-light);
+  }
+
+  .scorecard-total .total-num.win {
+    color: var(--gold-bright);
+  }
+
+  .scorecard-total .total-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    margin-top: 4px;
+    font-weight: 600;
+  }
+
+  .scorecard-total .vs {
+    text-align: center;
+    font-family: var(--serif-display);
+    font-size: 24px;
+    color: var(--gold-bright);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .scorecard-verdict {
+    background: var(--gold-tint);
+    padding: 18px 24px;
+    border-top: 2px solid var(--gold);
+    text-align: center;
+    font-family: var(--serif-display);
+    font-size: 17px;
+    color: var(--black);
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: -0.2px;
+    line-height: 1.4;
+  }
+
+  .scorecard-verdict strong {
+    color: var(--gold-deep);
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  /* ============= OUTREACH LOG ============= */
+  .outreach-log {
+    margin: 36px 0;
+    background: var(--white);
+    border: 2px dashed var(--black);
+  }
+
+  .outreach-log-head {
+    background: var(--black);
+    color: var(--white);
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .outreach-log-head .ol-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--gold-bright);
+  }
+
+  .outreach-log-head .ol-status {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .outreach-log-head .ol-status.replied {
+    color: var(--gold-bright);
+    font-weight: 700;
+  }
+
+  .outreach-log-body {
+    padding: 24px;
+  }
+
+  .outreach-log-meta {
+    display: flex;
+    gap: 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line-soft);
+    margin-bottom: 18px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .outreach-log-meta strong {
+    color: var(--black);
+    font-weight: 600;
+  }
+
+  .email-quote {
+    background: var(--paper);
+    border-left: 3px solid var(--gold);
+    padding: 20px 24px;
+    margin: 0 0 18px 0;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink);
+    font-style: italic;
+  }
+
+  .email-quote .from {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .email-quote p {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: 14px !important;
+    margin-bottom: 10px !important;
+    color: var(--ink) !important;
+  }
+
+  .email-quote p:last-child { margin-bottom: 0 !important; }
+
+  .reply-block {
+    background: var(--paper);
+    padding: 16px 20px;
+    border-radius: 0;
+    border-left: 3px solid var(--muted);
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+  }
+
+  .reply-block strong {
+    color: var(--black);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 10px;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* ============= MEMBER SUBMISSION ============= */
+  .member-submit {
+    margin: 36px 0;
+    padding: 32px;
+    background: var(--gold-tint);
+    border: 2px solid var(--gold);
+    text-align: center;
+  }
+
+  .member-submit .ms-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .member-submit h4 {
+    font-family: var(--serif-display);
+    font-size: 26px;
+    color: var(--black);
+    font-weight: 600;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+
+  .member-submit p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink);
+    max-width: 50ch;
+    margin: 0 auto 18px auto;
+  }
+
+  .member-submit .submit-btn {
+    display: inline-block;
+    padding: 13px 28px;
+    background: var(--black);
+    color: var(--white);
+    text-decoration: none;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: none;
+    border-bottom: none;
+  }
+
+  .member-submit .submit-btn:hover {
+    background: var(--gold-deep);
+    border-bottom: none;
+  }
+
+  /* Archive preview */
+  .archive-preview {
+    margin: 32px 0;
+    background: var(--white);
+    border: 1px solid var(--line);
+  }
+
+  .archive-preview .archive-head {
+    background: var(--paper);
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .archive-preview .archive-title {
+    font-family: var(--serif-display);
+    font-size: 18px;
+    color: var(--black);
+    font-weight: 600;
+  }
+
+  .archive-preview .archive-search {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .archive-preview .archive-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .archive-preview .archive-list li {
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--line-soft);
+    display: grid;
+    grid-template-columns: 60px 1fr 140px 100px;
+    gap: 14px;
+    align-items: center;
+  }
+  .archive-preview .archive-list li:last-child { border-bottom: 0; }
+
+  .archive-preview .archive-list .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold-deep);
+    letter-spacing: 1.5px;
+    font-weight: 600;
+  }
+
+  .archive-preview .archive-list .title-text {
+    font-family: var(--serif-display);
+    font-size: 15px;
+    color: var(--black);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  .archive-preview .archive-list .expert-name {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink);
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
+
+  .archive-preview .archive-list .reply-status {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: right;
+    font-weight: 600;
+  }
+
+  .archive-preview .archive-list .reply-status.pending { color: var(--muted); }
+  .archive-preview .archive-list .reply-status.no-reply { color: #B8201F; }
+  .archive-preview .archive-list .reply-status.replied { color: var(--gold-deep); }
+  .archive-preview .archive-list .reply-status.scheduled { color: var(--muted-light); }
 
   /* Selection */
   ::selection { background: var(--gold); color: var(--white); }
@@ -1182,32 +2171,15 @@
   <!-- ============= SIDEBAR ============= -->
   <aside class="sidebar">
     <div class="brand">
-      <div class="brand-mark">
-        <svg viewBox="0 0 70 80" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="gd" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#D4AF37"/>
-              <stop offset="100%" stop-color="#B8941F"/>
-            </linearGradient>
-          </defs>
-          <path d="M 35 2 L 65 12 L 65 45 Q 65 65 35 78 Q 5 65 5 45 L 5 12 Z" fill="#0F2638" stroke="#D4AF37" stroke-width="1.5"/>
-          <path d="M 35 12 L 55 20 L 55 42 Q 55 58 35 68 Q 15 58 15 42 L 15 20 Z" fill="none" stroke="url(#gd)" stroke-width="1.5"/>
-          <rect x="32" y="22" width="6" height="38" fill="url(#gd)"/>
-          <rect x="28" y="20" width="14" height="4" fill="url(#gd)"/>
-          <rect x="30" y="58" width="10" height="3" fill="url(#gd)"/>
-        </svg>
-        <div>
-          <div class="brand-name">TOTEM LCG</div>
-          <div class="brand-tag">Strategic Wireframe</div>
-        </div>
-      </div>
+      <img src="logo.png" class="brand-logo" alt="Totem LC Group" id="brand-logo-img">
+      <div class="brand-tag">Strategic Wireframe</div>
     </div>
 
     <div class="doc-meta">
       <strong>FOR PARTNERS</strong>
-      Zak · David · Justus<br><br>
+      Zak · David · Justus
       <strong>FROM</strong>
-      JJ Gilmore<br><br>
+      JJ Gilmore
       <strong>STATUS</strong>
       Internal preview
     </div>
@@ -1218,14 +2190,14 @@
       <li><a href="#" data-page="1"><span class="nav-num">01</span>Thesis</a></li>
       <li><a href="#" data-page="2"><span class="nav-num">02</span>The Reframe</a></li>
       <li><a href="#" data-page="3"><span class="nav-num">03</span>Proof Stack</a></li>
-      <li><a href="#" data-page="4"><span class="nav-num">04</span>Competitive Landscape</a></li>
+      <li><a href="#" data-page="4"><span class="nav-num">04</span>The Comparison</a></li>
       <li><a href="#" data-page="5"><span class="nav-num">05</span>Wealth Preservation Blueprint</a></li>
       <li><a href="#" data-page="6"><span class="nav-num">06</span>The Story Engine</a></li>
       <li><a href="#" data-page="7"><span class="nav-num">07</span>What I Need From You</a></li>
     </ul>
 
     <div class="sidebar-foot">
-      <strong>WIREFRAME v1</strong>
+      <strong>WIREFRAME v2</strong>
       May 2026<br>
       Internal use only.<br>
       Not for distribution.
@@ -1242,12 +2214,12 @@
           <div class="hero-stamp">Internal · For Partners · May 2026</div>
 
           <h1 class="hero-title">
-            What I've been<br>
-            building <em>quietly.</em>
+            The Totem<br>
+            <em>foundation.</em>
           </h1>
 
           <p class="hero-sub">
-            Six months of research, fact-checking, and category construction. A strategic wireframe for the next 12 months at Totem LCG. <strong>This is the work, the direction, and the entrance into a market we will create.</strong>
+            Who we are. What we offer. The newsletter that proves it. <strong>The foundation I'm proposing for our 2026 build, opened for partner review.</strong>
           </p>
 
           <div class="hero-meta">
@@ -1317,21 +2289,21 @@
         </p>
 
         <p>
-          The first thing the market is saying: <strong>asset prices are stretched.</strong> The Buffett Indicator, which compares total stock market value to U.S. GDP, sat at 230% as of December 31, 2025 and 227% in April 2026. Warren Buffett historically called readings approaching 200% a sign of "playing with fire." The Shiller CAPE ratio, which smooths earnings over a 10-year window, was at 36.48 in April 2026 — territory only seen before the dot-com peak and the 2021 bubble.
+          The first thing the market is saying: <strong>asset prices are stretched.</strong> As Zak laid out in his excellent May 2026 Market Perspective, current valuation conditions reflect a level of dislocation not seen in prior cycles, including the periods preceding the dot-com correction, the 2008 financial crisis, and the 2020 liquidity event. The Buffett Indicator, which compares total stock market value to U.S. GDP, sat at 230% as of December 31, 2025 and 227% in April 2026. Warren Buffett historically called readings approaching 200% a sign of "playing with fire." The Shiller CAPE ratio, which smooths earnings over a 10-year window, was at 36.48 in April 2026, territory only seen before the dot-com peak and the 2021 bubble.
         </p>
 
         <p>
-          The second thing the market is saying: <strong>portfolio balances look strong.</strong> The S&amp;P 500 rose 211.3% from May 2016 to March 2026. Investors see rising 401k statements and feel rich. Most do not realize that M2 money supply rose 77.2% over the same period, meaning a meaningful portion of that gain came from monetary expansion, not durable value creation.
+          The second thing the market is saying: <strong>portfolio balances look strong.</strong> The S&amp;P 500 rose 211.3% from May 2016 to March 2026. Investors see rising 401k statements and feel rich. As Zak named directly in his market perspective, much of the gain reflects monetary expansion rather than value creation. M2 money supply rose 77.2% over the same period, meaning a meaningful portion of that gain came from monetary expansion, not durable value creation.
         </p>
 
         <h2>The collision</h2>
 
         <p>
-          Investors feel wealthy because their balances have grown. The growth has been real in nominal terms. But the same investors are exposed to elevated valuations, monetary distortion, and the assumption that public-market liquidity equals safety. <strong>Liquidity is not protection. It just means you can sell quickly.</strong>
+          Investors feel wealthy because their balances have grown. The growth has been real in nominal terms. But the same investors are exposed to elevated valuations, monetary distortion, and the assumption that public-market liquidity equals safety. <strong>Liquidity is not protection. It means you sell quickly.</strong>
         </p>
 
         <p>
-          State Street's 2026 alternatives outlook described stock markets near all-time highs, elevated valuations of risky assets, record concentration within key equity indices, and high equity-bond correlations. Institutional capital is already moving. Family offices are increasing alternatives allocations. The retail investor has not caught up yet.
+          State Street's 2026 alternatives outlook described stock markets near all-time highs, elevated valuations of risky assets, record concentration within key equity indices, and high equity-bond correlations. Zak's piece points to the same dynamic: institutional capital is already moving, family offices are increasing alternatives allocations, and the retail investor has not caught up yet.
         </p>
 
         <div class="callout">
@@ -1345,7 +2317,7 @@
         <h2>Why this is the moment</h2>
 
         <p>
-          Three conditions are converging that make this the right time to define a new category, not later:
+          Three conditions converging now make this the right time to define a new category, not later:
         </p>
 
         <div class="stat-grid stat-grid-3">
@@ -1373,11 +2345,11 @@
 
         <div class="pull-quote">
           The reason no one knows about this is because nothing exists with this type of asset class. We are building a brand new one.
-          <span class="attribution">— JJ, on the foundational insight</span>
+          <span class="attribution">Totem Founders, on the foundational insight</span>
         </div>
 
         <p class="small">
-          Sources: Current Market Valuation; Fortune (April 2026); YCharts (Shiller CAPE); FRED (S&amp;P 500 series, M2 series); State Street Global Advisors 2026 Alternatives Outlook.
+          Sources: Zak's May 2026 Market Perspective; Current Market Valuation; Fortune (April 2026); YCharts (Shiller CAPE); FRED (S&amp;P 500 series, M2 series); State Street Global Advisors 2026 Alternatives Outlook.
         </p>
       </div>
 
@@ -1401,14 +2373,14 @@
         <h2 class="first">The problem with how we have been positioning</h2>
 
         <p>
-          When we say "alternative investment," we put ourselves in a category investors already have a model for. That model includes hedge funds, private equity, REITs, commodity ETFs, and crypto. All of those compete on yield, complexity, accreditation, and risk tolerance. None of them win the conversation we are actually trying to have.
+          When we say "alternative investment," we put ourselves in a category investors already have a model for. That model includes hedge funds, private equity, REITs, commodity ETFs, and crypto. All of those compete on yield, complexity, accreditation, and risk tolerance. None of them win the conversation we are trying to have.
         </p>
 
         <p>
           The conversation we are trying to have is not "should you replace your hedge fund with Totem." The conversation is <strong>"why is your CD, your 401k, your stocks, and your real estate uninsured against loss of either principal or return."</strong>
         </p>
 
-        <h2>The category we are actually building</h2>
+        <h2>The category we are building</h2>
 
         <div class="callout callout-gold">
           <div class="callout-eyebrow">The category claim</div>
@@ -1458,7 +2430,7 @@
           <div class="proof-card">
             <div class="pc-num">01</div>
             <h4>It tells the story instantly</h4>
-            <p>"Commerce-backed" tells the prospect that real business activity is happening behind their capital. It is not synthetic. It is not market sentiment. It is goods moving to buyers.</p>
+            <p>"Commerce-backed" tells the prospect real business activity is happening behind their capital. It is not synthetic. It is not market sentiment. It is goods moving to buyers.</p>
           </div>
           <div class="proof-card">
             <div class="pc-num">02</div>
@@ -1541,7 +2513,7 @@
           <div class="callout-eyebrow">The anchor</div>
           <h2>Amazon's #1 minority business enterprise supplier holds an exclusive right of first refusal with Totem.</h2>
           <p>
-            This is the relationship that started Totem in 2020 and continues to anchor it. The vendor began with hand sanitizer and PPE during COVID. Today, the vendor has delivered millions of dollars of inventory to Amazon, just landed another multi-million-dollar contract, and holds quarterly meetings at Amazon's corporate headquarters because of what we are doing together.
+            This is the relationship that started Totem in 2020 and continues to anchor it. The vendor began with hand sanitizer and PPE during COVID. Today, the vendor has delivered millions of dollars of inventory to Amazon, recently landed another multi-million-dollar contract, and holds quarterly meetings at Amazon's corporate headquarters because of what we are doing together.
           </p>
           <p>
             <strong>The right of first refusal means Totem sees every transaction first.</strong> Other capital sources see what we pass on. We do not.
@@ -1593,7 +2565,7 @@
             <div class="stat-label"><strong>Origination fee per cycle.</strong> Fixed, contractual, paid at settlement. Not market-dependent. Not negotiable.</div>
           </div>
           <div class="stat-cell">
-            <div class="stat-num">90 to 100</div>
+            <div class="stat-num">90<em>-</em>100</div>
             <div class="stat-label"><strong>Day cycle, fixed.</strong> Not "approximately." Not "expected." The cycle is engineered into the structure of the transaction.</div>
           </div>
         </div>
@@ -1616,14 +2588,14 @@
       <div class="page-nav">
         <button class="page-nav-btn" onclick="goPage(2)">← 02 Reframe</button>
         <div class="page-nav-spacer"></div>
-        <button class="page-nav-btn next" onclick="goPage(4)">04 Competitive Landscape →</button>
+        <button class="page-nav-btn next" onclick="goPage(4)">04 The Comparison →</button>
       </div>
     </section>
 
     <!-- ============= PAGE 4: COMPETITIVE LANDSCAPE ============= -->
     <section class="page" id="page-4">
       <div class="container-wide">
-        <div class="eyebrow">Section 04 · Competitive Landscape</div>
+        <div class="eyebrow">Section 04 · The Comparison</div>
         <h1 class="display">The investment universe.</h1>
 
         <p class="lead">
@@ -1642,7 +2614,7 @@
               <th>Category</th>
               <th>100% Principal Insured</th>
               <th>100% Returns Insured</th>
-              <th>What is actually protected</th>
+              <th>What is protected</th>
             </tr>
           </thead>
           <tbody>
@@ -1751,7 +2723,7 @@
 
         <div class="universe">
 
-          <!-- CAT 1: CASH / CDs / TREASURIES -->
+          <!-- CAT 1 -->
           <div class="universe-cat">
             <div class="universe-cat-header">
               <div><span class="cat-num">CAT 01</span><span class="cat-name">Cash, CDs, Money Markets, Treasury Bills</span></div>
@@ -1760,56 +2732,14 @@
             <div class="universe-cat-body">
               <table>
                 <thead>
-                  <tr>
-                    <th>Product</th>
-                    <th>What creates the return</th>
-                    <th>Principal protection</th>
-                    <th>Return protection</th>
-                    <th>Cycle / lockup</th>
-                    <th>Verification path</th>
-                  </tr>
+                  <tr><th>Product</th><th>What creates the return</th><th>Principal protection</th><th>Return protection</th><th>Cycle / lockup</th><th>Verification path</th></tr>
                 </thead>
                 <tbody>
-                  <tr class="totem-line">
-                    <td>Totem LCG</td>
-                    <td>5% origination fee on financed Fortune 100 purchase orders</td>
-                    <td>100% via Allianz + first-position guarantee</td>
-                    <td>100% of fee insured under same structure</td>
-                    <td>90 to 100 day cycle, fixed</td>
-                    <td>Live partner verification call before capital moves</td>
-                  </tr>
-                  <tr>
-                    <td>Bank CD</td>
-                    <td>Bank interest paid for committing deposits</td>
-                    <td>FDIC up to $250K per depositor per bank</td>
-                    <td>None beyond stated rate</td>
-                    <td>Fixed term, early withdrawal penalty</td>
-                    <td>Bank disclosures, FDIC lookup</td>
-                  </tr>
-                  <tr>
-                    <td>High-yield savings</td>
-                    <td>Variable bank interest</td>
-                    <td>FDIC within limits</td>
-                    <td>None, rate can reset</td>
-                    <td>Liquid, rate adjustable</td>
-                    <td>Bank disclosures</td>
-                  </tr>
-                  <tr>
-                    <td>Treasury bills</td>
-                    <td>Discount or interest from U.S. government debt</td>
-                    <td>U.S. government backing at maturity</td>
-                    <td>Fixed if held to maturity, market risk if sold</td>
-                    <td>4 to 52 weeks</td>
-                    <td>TreasuryDirect, broker statements</td>
-                  </tr>
-                  <tr>
-                    <td>Money market fund</td>
-                    <td>Short-term instruments held by fund</td>
-                    <td>None, not FDIC insured</td>
-                    <td>None, yield floats</td>
-                    <td>Daily redemption typically</td>
-                    <td>Fund prospectus</td>
-                  </tr>
+                  <tr class="totem-line"><td>Totem LCG</td><td>5% origination fee on financed Fortune 100 purchase orders</td><td>100% via Allianz + first-position guarantee</td><td>100% of fee insured under same structure</td><td>90 to 100 day cycle, fixed</td><td>Live partner verification call before capital moves</td></tr>
+                  <tr><td>Bank CD</td><td>Bank interest paid for committing deposits</td><td>FDIC up to $250K per depositor per bank</td><td>None beyond stated rate</td><td>Fixed term, early withdrawal penalty</td><td>Bank disclosures, FDIC lookup</td></tr>
+                  <tr><td>High-yield savings</td><td>Variable bank interest</td><td>FDIC within limits</td><td>None, rate resets</td><td>Liquid, rate adjustable</td><td>Bank disclosures</td></tr>
+                  <tr><td>Treasury bills</td><td>Discount or interest from U.S. government debt</td><td>U.S. government backing at maturity</td><td>Fixed if held to maturity, market risk if sold</td><td>4 to 52 weeks</td><td>TreasuryDirect, broker statements</td></tr>
+                  <tr><td>Money market fund</td><td>Short-term instruments held by fund</td><td>None, not FDIC insured</td><td>None, yield floats</td><td>Daily redemption typically</td><td>Fund prospectus</td></tr>
                 </tbody>
               </table>
               <div class="position">
@@ -1819,7 +2749,7 @@
             </div>
           </div>
 
-          <!-- CAT 2: RETIREMENT -->
+          <!-- CAT 2 -->
           <div class="universe-cat">
             <div class="universe-cat-header">
               <div><span class="cat-num">CAT 02</span><span class="cat-name">Retirement Accounts (Wrappers)</span></div>
@@ -1828,66 +2758,24 @@
             <div class="universe-cat-body">
               <table>
                 <thead>
-                  <tr>
-                    <th>Product</th>
-                    <th>What creates the return</th>
-                    <th>Principal protection</th>
-                    <th>Return protection</th>
-                    <th>Cycle / lockup</th>
-                    <th>Verification path</th>
-                  </tr>
+                  <tr><th>Product</th><th>What creates the return</th><th>Principal protection</th><th>Return protection</th><th>Cycle / lockup</th><th>Verification path</th></tr>
                 </thead>
                 <tbody>
-                  <tr class="totem-line">
-                    <td>Totem LCG</td>
-                    <td>Commerce-backed transaction repayment</td>
-                    <td>100% Allianz + guarantee</td>
-                    <td>100% on origination fee</td>
-                    <td>90 to 100 days</td>
-                    <td>Partner call</td>
-                  </tr>
-                  <tr>
-                    <td>401(k) / 403(b) / 457</td>
-                    <td>Underlying mutual funds, ETFs, target-date funds</td>
-                    <td>None, fully market exposed</td>
-                    <td>None</td>
-                    <td>Restricted; 10% penalty before 59½</td>
-                    <td>Plan documents, holdings statement</td>
-                  </tr>
-                  <tr>
-                    <td>Traditional IRA</td>
-                    <td>Securities, interest, dividends inside wrapper</td>
-                    <td>None, depends on holdings</td>
-                    <td>None</td>
-                    <td>Restricted; 10% penalty before 59½</td>
-                    <td>Custodian statements</td>
-                  </tr>
-                  <tr>
-                    <td>Roth IRA</td>
-                    <td>Same as traditional, after-tax basis</td>
-                    <td>None, depends on holdings</td>
-                    <td>None</td>
-                    <td>Contribution withdrawals flexible; earnings restricted</td>
-                    <td>Custodian statements</td>
-                  </tr>
-                  <tr>
-                    <td>Self-directed IRA</td>
-                    <td>Real estate, notes, private placements, alternative assets</td>
-                    <td>None, depends on asset</td>
-                    <td>None unless documented per asset</td>
-                    <td>Retirement rules + asset-level lockup</td>
-                    <td>Custodian + asset-level documents</td>
-                  </tr>
+                  <tr class="totem-line"><td>Totem LCG</td><td>Commerce-backed transaction repayment</td><td>100% Allianz + guarantee</td><td>100% on origination fee</td><td>90 to 100 days</td><td>Partner call</td></tr>
+                  <tr><td>401(k) / 403(b) / 457</td><td>Underlying mutual funds, ETFs, target-date funds</td><td>None, fully market exposed</td><td>None</td><td>Restricted; 10% penalty before 59½</td><td>Plan documents, holdings statement</td></tr>
+                  <tr><td>Traditional IRA</td><td>Securities, interest, dividends inside wrapper</td><td>None, depends on holdings</td><td>None</td><td>Restricted; 10% penalty before 59½</td><td>Custodian statements</td></tr>
+                  <tr><td>Roth IRA</td><td>Same as traditional, after-tax basis</td><td>None, depends on holdings</td><td>None</td><td>Contribution withdrawals flexible; earnings restricted</td><td>Custodian statements</td></tr>
+                  <tr><td>Self-directed IRA</td><td>Real estate, notes, private placements, alternative assets</td><td>None, depends on asset</td><td>None unless documented per asset</td><td>Retirement rules + asset-level lockup</td><td>Custodian + asset-level documents</td></tr>
                 </tbody>
               </table>
               <div class="position">
                 <strong>Totem position</strong>
-                Totem loses on tax-deferred compounding. Totem wins on liquidity, protection, and capital flexibility. <em>The reframe: do not replace retirement planning. Build a separate opportunity-capital bucket. The 401k holds the long-term wrapper. Totem holds the productive capital.</em> Self-directed IRAs are the bridge. Capital can flow into Totem inside a self-directed IRA structure.
+                Totem loses on tax-deferred compounding. Totem wins on liquidity, protection, and capital flexibility. <em>The reframe: do not replace retirement planning. Build a separate opportunity-capital bucket. The 401k holds the long-term wrapper. Totem holds the productive capital.</em> Self-directed IRAs are the bridge. Capital flows into Totem inside a self-directed IRA structure.
               </div>
             </div>
           </div>
 
-          <!-- CAT 3: PUBLIC EQUITIES -->
+          <!-- CAT 3 -->
           <div class="universe-cat">
             <div class="universe-cat-header">
               <div><span class="cat-num">CAT 03</span><span class="cat-name">Public Equities (Stocks, Index Funds, ETFs)</span></div>
@@ -1896,66 +2784,24 @@
             <div class="universe-cat-body">
               <table>
                 <thead>
-                  <tr>
-                    <th>Product</th>
-                    <th>What creates the return</th>
-                    <th>Principal protection</th>
-                    <th>Return protection</th>
-                    <th>Cycle / lockup</th>
-                    <th>Verification path</th>
-                  </tr>
+                  <tr><th>Product</th><th>What creates the return</th><th>Principal protection</th><th>Return protection</th><th>Cycle / lockup</th><th>Verification path</th></tr>
                 </thead>
                 <tbody>
-                  <tr class="totem-line">
-                    <td>Totem LCG</td>
-                    <td>Commerce-backed transaction repayment</td>
-                    <td>100% Allianz + guarantee</td>
-                    <td>100% on origination fee</td>
-                    <td>90 to 100 days</td>
-                    <td>Partner call</td>
-                  </tr>
-                  <tr>
-                    <td>Individual stocks</td>
-                    <td>Capital appreciation + dividends</td>
-                    <td>None</td>
-                    <td>None</td>
-                    <td>Liquid, but selling at loss possible</td>
-                    <td>Public filings, market price</td>
-                  </tr>
-                  <tr>
-                    <td>Broad-market index ETF</td>
-                    <td>Index exposure + dividends</td>
-                    <td>None</td>
-                    <td>None</td>
-                    <td>Liquid intraday</td>
-                    <td>Fund prospectus, holdings</td>
-                  </tr>
-                  <tr>
-                    <td>Dividend stocks</td>
-                    <td>Dividends + appreciation</td>
-                    <td>None</td>
-                    <td>Dividends are not contractual</td>
-                    <td>Liquid intraday</td>
-                    <td>Public filings</td>
-                  </tr>
-                  <tr>
-                    <td>Mutual funds / target-date funds</td>
-                    <td>Portfolio gains, dividends, interest</td>
-                    <td>None</td>
-                    <td>None</td>
-                    <td>NAV redemption, daily</td>
-                    <td>Fund prospectus</td>
-                  </tr>
+                  <tr class="totem-line"><td>Totem LCG</td><td>Commerce-backed transaction repayment</td><td>100% Allianz + guarantee</td><td>100% on origination fee</td><td>90 to 100 days</td><td>Partner call</td></tr>
+                  <tr><td>Individual stocks</td><td>Capital appreciation + dividends</td><td>None</td><td>None</td><td>Liquid, but selling at loss possible</td><td>Public filings, market price</td></tr>
+                  <tr><td>Broad-market index ETF</td><td>Index exposure + dividends</td><td>None</td><td>None</td><td>Liquid intraday</td><td>Fund prospectus, holdings</td></tr>
+                  <tr><td>Dividend stocks</td><td>Dividends + appreciation</td><td>None</td><td>Dividends are not contractual</td><td>Liquid intraday</td><td>Public filings</td></tr>
+                  <tr><td>Mutual funds / target-date funds</td><td>Portfolio gains, dividends, interest</td><td>None</td><td>None</td><td>NAV redemption, daily</td><td>Fund prospectus</td></tr>
                 </tbody>
               </table>
               <div class="position">
                 <strong>Totem position</strong>
-                Totem loses on daily liquidity and SIPC familiarity. Totem wins on protection, defined return, and decoupling from market sentiment. <em>The reframe: liquidity is not protection. You can sell quickly. That does not mean you can sell without loss. Totem's 90-day cycle is shorter than most investors' actual holding periods.</em>
+                Totem loses on daily liquidity and SIPC familiarity. Totem wins on protection, defined return, and decoupling from market sentiment. <em>The reframe: liquidity is not protection. You sell quickly. The selling does not happen without loss. Totem's 90-day cycle is shorter than most investors' actual holding periods.</em>
               </div>
             </div>
           </div>
 
-          <!-- CAT 4: FUNDS / ETFs (extended) -->
+          <!-- CAT 4 -->
           <div class="universe-cat">
             <div class="universe-cat-header">
               <div><span class="cat-num">CAT 04</span><span class="cat-name">Funds and Exchange-Traded Products</span></div>
@@ -1981,7 +2827,7 @@
             </div>
           </div>
 
-          <!-- CAT 5: BONDS -->
+          <!-- CAT 5 -->
           <div class="universe-cat">
             <div class="universe-cat-header">
               <div><span class="cat-num">CAT 05</span><span class="cat-name">Bonds and Fixed Income</span></div>
@@ -2007,7 +2853,7 @@
             </div>
           </div>
 
-          <!-- CAT 6: REAL ESTATE -->
+          <!-- CAT 6 -->
           <div class="universe-cat">
             <div class="universe-cat-header">
               <div><span class="cat-num">CAT 06</span><span class="cat-name">Real Estate</span></div>
@@ -2033,7 +2879,7 @@
             </div>
           </div>
 
-          <!-- CAT 7: ANNUITIES -->
+          <!-- CAT 7 -->
           <div class="universe-cat">
             <div class="universe-cat-header">
               <div><span class="cat-num">CAT 07</span><span class="cat-name">Annuities and Insurance Products</span></div>
@@ -2059,7 +2905,7 @@
             </div>
           </div>
 
-          <!-- CAT 8: PRIVATE CREDIT -->
+          <!-- CAT 8 -->
           <div class="universe-cat">
             <div class="universe-cat-header">
               <div><span class="cat-num">CAT 08</span><span class="cat-name">Private Credit and Direct Lending</span></div>
@@ -2080,12 +2926,12 @@
               </table>
               <div class="position">
                 <strong>Totem position</strong>
-                Private credit is the closest conceptual neighbor. The Cliffwater CDLI returns 9.53% annualized. Totem returns 5% per 90 days, equivalent to roughly 20% annual. <em>The reframe: private credit is pooled and opaque. Totem is transaction-specific and verifiable. The prospect can review the actual purchase order, the buyer relationship, and the insurance policy before any capital moves.</em>
+                Private credit is the closest conceptual neighbor. The Cliffwater CDLI returns 9.53% annualized. Totem returns 5% per 90 days, equivalent to roughly 20% annual. <em>The reframe: private credit is pooled and opaque. Totem is transaction-specific and verifiable. The prospect reviews the actual purchase order, the buyer relationship, and the insurance policy before any capital moves.</em>
               </div>
             </div>
           </div>
 
-          <!-- CAT 9: PRIVATE EQUITY -->
+          <!-- CAT 9 -->
           <div class="universe-cat">
             <div class="universe-cat-header">
               <div><span class="cat-num">CAT 09</span><span class="cat-name">Private Equity, Venture, Reg D Placements</span></div>
@@ -2111,7 +2957,7 @@
             </div>
           </div>
 
-          <!-- CAT 10: COMMODITIES -->
+          <!-- CAT 10 -->
           <div class="universe-cat">
             <div class="universe-cat-header">
               <div><span class="cat-num">CAT 10</span><span class="cat-name">Commodities, Precious Metals, Futures</span></div>
@@ -2137,7 +2983,7 @@
             </div>
           </div>
 
-          <!-- CAT 11: CRYPTO -->
+          <!-- CAT 11 -->
           <div class="universe-cat">
             <div class="universe-cat-header">
               <div><span class="cat-num">CAT 11</span><span class="cat-name">Crypto and Digital Assets</span></div>
@@ -2157,12 +3003,12 @@
               </table>
               <div class="position">
                 <strong>Totem position</strong>
-                Crypto sells the same emotion as Totem: this is new, the legacy system has problems, take a chance. The difference is that crypto has zero protection and a history of platform failure. <em>The reframe: unfamiliar is not unsafe. But unfamiliar must be verified. Totem invites verification. Crypto platforms ask for trust without it.</em>
+                Crypto sells the same emotion as Totem: this is new, the legacy system has problems, take a chance. The difference: crypto has zero protection and a history of platform failure. <em>The reframe: unfamiliar is not unsafe. But unfamiliar must be verified. Totem invites verification. Crypto platforms ask for trust without it.</em>
               </div>
             </div>
           </div>
 
-          <!-- CAT 12: COLLECTIBLES -->
+          <!-- CAT 12 -->
           <div class="universe-cat">
             <div class="universe-cat-header">
               <div><span class="cat-num">CAT 12</span><span class="cat-name">Collectibles and Hard Assets</span></div>
@@ -2199,7 +3045,7 @@
           <div class="proof-card">
             <div class="pc-num">LOSS 01</div>
             <h4>Daily liquidity (vs. public stocks)</h4>
-            <p>Totem capital is committed for 90 to 100 days. Stocks can be sold in seconds. <strong>The reframe:</strong> 90 days is shorter than most investors actually hold their positions. Liquidity matters less than protection at exit.</p>
+            <p>Totem capital is committed for 90 to 100 days. Stocks sell in seconds. <strong>The reframe:</strong> 90 days is shorter than most investors hold their positions. Liquidity matters less than protection at exit.</p>
           </div>
           <div class="proof-card">
             <div class="pc-num">LOSS 02</div>
@@ -2239,7 +3085,7 @@
         <h2 class="first">Why a framework, not a pitch</h2>
 
         <p>
-          Prospects do not buy from people who pitch. Prospects buy from people who teach them how to think. The Wealth Preservation Blueprint is the teaching tool. The job of every Totem prospect-facing asset is to leave the reader with a framework they can use even if they never buy.
+          Prospects do not buy from people who pitch. Prospects buy from people who teach them how to think. The Wealth Preservation Blueprint is the teaching tool. The job of every Totem prospect-facing asset is to leave the reader with a framework they keep using even if they never buy.
         </p>
 
         <p>
@@ -2265,7 +3111,7 @@
             <div class="num">03</div>
             <div>
               <h4>What protects the return?</h4>
-              <p>This is the question almost no other investment can answer. Stocks have no protected return. CDs cap returns at deposit terms. Annuities have caps and surrender penalties. Totem insures the 5% origination fee under the same Allianz structure that protects principal. Both legs covered.</p>
+              <p>This is the question almost no other investment answers. Stocks have no protected return. CDs cap returns at deposit terms. Annuities have caps and surrender penalties. Totem insures the 5% origination fee under the same Allianz structure that protects principal. Both legs covered.</p>
             </div>
           </div>
           <div class="blueprint-q">
@@ -2278,13 +3124,404 @@
           <div class="blueprint-q">
             <div class="num">05</div>
             <div>
-              <h4>Can the counterparty be verified?</h4>
+              <h4>Is the counterparty verifiable?</h4>
               <p>This is the close. Totem invites verification. We will put any qualified prospect on the phone with our partners to walk through the buyer relationship, the vendor history, the insurance policy, the joint account structure, and the repayment path. No other investment in the universe ends with that offer.</p>
             </div>
           </div>
         </div>
 
+        <h2>The Totem Challenge</h2>
+
+        <p class="lead">
+          We have searched the web, the communities, the platforms, the funds, and the newsletters. We have not found a single investment product that protects 100 percent of principal AND 100 percent of returns under one insurance policy. We are stating that publicly because if it exists, we want to know.
+        </p>
+
+        <p>
+          The Totem Challenge is what makes that search ongoing. Every week, we take one named expert's analysis and run it against the same seven-question scorecard applied to Totem. We score honestly. The expert wins on some categories. Totem wins on the total. Then we send the comparison directly to the expert, quote the email in the issue, and tell members what came back. Sometimes a reply lands. Sometimes silence. Either way, members see the full exchange.
+        </p>
+
+        <p>
+          The format gives readers three things at once. Education on whatever the expert is currently writing about. A scorecard that compares both options on objective terms. And the chase. Did Pompliano reply? Did Bilello? Did the Apollo direct lending team weigh in? The answer to those questions becomes part of the running editorial ledger.
+        </p>
+
+        <h3>Issue No. 01, mocked up below</h3>
+
+        <p>
+          What follows is the first issue of The Totem Challenge, formatted as it will appear in the member's inbox. The voice, structure, scorecard, outreach log, and rhythm are what every issue should hit.
+        </p>
+
+        <!-- ============= NEWSLETTER MOCKUP ============= -->
+        <div class="newsletter-frame">
+          <div class="newsletter">
+
+            <!-- MASTHEAD -->
+            <div class="newsletter-masthead">
+              <div>
+                <div class="title">The Totem <em>Challenge</em></div>
+              </div>
+              <div class="meta">
+                <strong>Issue No. 01</strong>
+                May 2026<br>
+                Weekly · Members &amp; Prospective Members
+              </div>
+            </div>
+
+            <!-- HEADLINE -->
+            <div class="newsletter-issue-num">May 2026 · The Pompliano Challenge</div>
+            <h1 class="newsletter-headline">Bitcoin or Totem? We ran the scorecard.</h1>
+            <p class="newsletter-deck">Anthony Pompliano made the case for Bitcoin in his recent letter on momentum and valuations. We applied the same seven-question scorecard to his pick and to Totem. Here is what came back.</p>
+            <div class="newsletter-byline"><strong>By Totem Partners</strong> · 9 min read · Sources cited inline · Email to Pompliano included verbatim</div>
+
+            <!-- EXPERT BLOCK -->
+            <div class="expert-block">
+              <div class="expert-photo">AP</div>
+              <div class="expert-info">
+                <div class="expert-label">This Week's Expert</div>
+                <div class="expert-name">Anthony Pompliano</div>
+                <div class="expert-title">Founder, Professional Capital Management · Host, The Pomp Podcast · 1.6M+ newsletter readers</div>
+                <div class="expert-piece">Challenged piece: <strong>"Why Bitcoin WINS No Matter What Happens to Inflation"</strong> and his recent letter on momentum, the Buffett Indicator, and where capital should be positioned in May 2026.</div>
+              </div>
+            </div>
+
+            <!-- BODY -->
+            <h3 class="section">What Pompliano is saying</h3>
+
+            <p>Pompliano opens with a sentence we have been thinking about since: <em>"Momentum begets momentum. Returns attract capital."</em> He walks through the Nasdaq 100 climbing for seventeen consecutive weeks, the second-highest reading in twenty years, and the historical pattern that follows. Markets are working. Capital is flowing.</p>
+
+            <p>His second point is the one that matters more. <strong>Valuations are stretched.</strong> The Shiller CAPE is in the high 30s. The Buffett Indicator is at 230 percent of GDP. Technology forward P/E is pushing 25x. Eighty-four percent of S&amp;P 500 companies are trading at premiums to their 5- and 10-year averages.</p>
+
+            <p>His answer for the practical capital allocator is Bitcoin. He argues Bitcoin wins regardless of inflation outcome. He argues long-term holder supply is going vertical. He argues scarcity plus monetary expansion creates an asymmetric setup. He is not wrong about the macro. The question is whether his answer is the strongest answer.</p>
+
+            <div class="chart-placeholder">
+              <div class="chart-label">Visual Reference</div>
+              <strong>Buffett Indicator: U.S. market cap to GDP</strong>
+              December 2025: 230%. April 2026: 227%. Historical "playing with fire" threshold: 200%.
+              <div class="mini-chart">
+                <svg viewBox="0 0 400 80" preserveAspectRatio="none">
+                  <polyline points="0,70 30,68 60,65 90,60 120,55 150,52 180,45 210,40 240,30 270,25 300,18 330,12 360,8 400,6" fill="none" stroke="#A6791A" stroke-width="2.5"/>
+                  <line x1="0" y1="35" x2="400" y2="35" stroke="#B5B0A6" stroke-width="1" stroke-dasharray="4,4"/>
+                </svg>
+              </div>
+              <div class="src">Source: Current Market Valuation; Fortune (April 2026)</div>
+            </div>
+
+            <h3 class="section">The scorecard</h3>
+
+            <p>We applied the Totem Wealth Preservation Blueprint to both options on the same seven categories. Each category scores 0 to 5. Total possible: 35. Honest scoring. Bitcoin wins on the categories where it genuinely beats Totem. Totem wins the total.</p>
+
+            <!-- ============= SCORECARD ============= -->
+            <div class="scorecard">
+              <div class="scorecard-head">
+                <div class="sc-title">The Totem Scorecard</div>
+                <div class="sc-sub">Issue No. 01 · 7 Categories · 35 Total</div>
+              </div>
+
+              <div class="scorecard-cols">
+                <div class="scorecard-col">
+                  <div class="sc-side">Pompliano's Pick</div>
+                  <div class="sc-name">Bitcoin</div>
+                </div>
+                <div class="scorecard-col">
+                  <div class="sc-side">The Totem Challenge</div>
+                  <div class="sc-name">Totem LCG</div>
+                </div>
+              </div>
+
+              <div class="scorecard-row">
+                <div class="category">Principal Protection</div>
+                <div class="sc-bar-row">
+                  <div class="sc-bar-left"><div class="fill" style="width: 20%;"></div><div class="num">1/5</div></div>
+                  <div class="sc-bar-mid">vs</div>
+                  <div class="sc-bar-right"><div class="fill" style="width: 100%;"></div><div class="num">5/5</div></div>
+                </div>
+                <div class="sc-explanations">
+                  <div class="exp left">No protection. Custody and platform risk. FTX, Celsius, Voyager precedents.</div>
+                  <div class="exp right">100% via Allianz trade credit insurance + first-position performance guarantee.</div>
+                </div>
+              </div>
+
+              <div class="scorecard-row">
+                <div class="category">Return Protection</div>
+                <div class="sc-bar-row">
+                  <div class="sc-bar-left"><div class="fill" style="width: 0%;"></div><div class="num">0/5</div></div>
+                  <div class="sc-bar-mid">vs</div>
+                  <div class="sc-bar-right"><div class="fill" style="width: 100%;"></div><div class="num">5/5</div></div>
+                </div>
+                <div class="sc-explanations">
+                  <div class="exp left">No protected return. Pure spot price exposure.</div>
+                  <div class="exp right">5% origination fee insured under same Allianz structure as principal.</div>
+                </div>
+              </div>
+
+              <div class="scorecard-row">
+                <div class="category">Cycle Clarity</div>
+                <div class="sc-bar-row">
+                  <div class="sc-bar-left"><div class="fill" style="width: 40%;"></div><div class="num">2/5</div></div>
+                  <div class="sc-bar-mid">vs</div>
+                  <div class="sc-bar-right"><div class="fill" style="width: 100%;"></div><div class="num">5/5</div></div>
+                </div>
+                <div class="sc-explanations">
+                  <div class="exp left">Liquid 24/7, but no defined return-of-capital event. Hold forever or sell at market.</div>
+                  <div class="exp right">90 to 100 day cycle, fixed and engineered into the structure.</div>
+                </div>
+              </div>
+
+              <div class="scorecard-row">
+                <div class="category">Verification Path</div>
+                <div class="sc-bar-row">
+                  <div class="sc-bar-left"><div class="fill" style="width: 40%;"></div><div class="num">2/5</div></div>
+                  <div class="sc-bar-mid">vs</div>
+                  <div class="sc-bar-right"><div class="fill" style="width: 100%;"></div><div class="num">5/5</div></div>
+                </div>
+                <div class="sc-explanations">
+                  <div class="exp left">On-chain transparency exists, but no human counterparty to verify against.</div>
+                  <div class="exp right">Live calls with Allianz broker, Fortune 100 buyer contacts, and Totem partners before capital moves.</div>
+                </div>
+              </div>
+
+              <div class="scorecard-row">
+                <div class="category">Accessibility</div>
+                <div class="sc-bar-row">
+                  <div class="sc-bar-left"><div class="fill" style="width: 100%;"></div><div class="num">5/5</div></div>
+                  <div class="sc-bar-mid">vs</div>
+                  <div class="sc-bar-right"><div class="fill" style="width: 60%;"></div><div class="num">3/5</div></div>
+                </div>
+                <div class="sc-explanations">
+                  <div class="exp left"><strong>Bitcoin wins.</strong> Anyone buys it. No accreditation. No minimums. Open to retail.</div>
+                  <div class="exp right">Qualified members only. Approved transaction-by-transaction. Higher barrier to entry.</div>
+                </div>
+              </div>
+
+              <div class="scorecard-row">
+                <div class="category">Tax Efficiency</div>
+                <div class="sc-bar-row">
+                  <div class="sc-bar-left"><div class="fill" style="width: 60%;"></div><div class="num">3/5</div></div>
+                  <div class="sc-bar-mid">vs</div>
+                  <div class="sc-bar-right"><div class="fill" style="width: 40%;"></div><div class="num">2/5</div></div>
+                </div>
+                <div class="sc-explanations">
+                  <div class="exp left"><strong>Bitcoin wins.</strong> Long-term capital gains treatment if held over 12 months.</div>
+                  <div class="exp right">Origination fees taxed as ordinary income. Self-directed IRA structure available.</div>
+                </div>
+              </div>
+
+              <div class="scorecard-row">
+                <div class="category">Track Record Transparency</div>
+                <div class="sc-bar-row">
+                  <div class="sc-bar-left"><div class="fill" style="width: 60%;"></div><div class="num">3/5</div></div>
+                  <div class="sc-bar-mid">vs</div>
+                  <div class="sc-bar-right"><div class="fill" style="width: 100%;"></div><div class="num">5/5</div></div>
+                </div>
+                <div class="sc-explanations">
+                  <div class="exp left">17 years of public price history, but no transaction-level performance data.</div>
+                  <div class="exp right">2,000+ transactions, 0.00% defaults, transaction-level visibility on every cycle.</div>
+                </div>
+              </div>
+
+              <div class="scorecard-total">
+                <div class="total-side">
+                  <div class="total-num muted">16</div>
+                  <div class="total-label">Bitcoin</div>
+                </div>
+                <div class="vs">vs</div>
+                <div class="total-side">
+                  <div class="total-num win">27</div>
+                  <div class="total-label">Totem LCG</div>
+                </div>
+              </div>
+
+              <div class="scorecard-verdict">
+                Bitcoin wins on accessibility and tax treatment. <strong>Totem wins the total, 27 to 16.</strong>
+              </div>
+            </div>
+
+            <h3 class="section">The challenge sentence</h3>
+
+            <p>Pompliano is right about Bitcoin as one answer for a stretched market. He is right about the macro setup. He is right about long-term holders not selling. The question we are putting to him is whether Bitcoin is the strongest answer for the practical capital allocator who needs documented, insured, short-cycle deployment.</p>
+
+            <div class="pull">If your goal is wealth preservation in the May 2026 environment, Totem covers more dimensions than Bitcoin does, by a margin we show with seven specific questions.</div>
+
+            <p>Bitcoin is a bet on monetary debasement and asymmetric upside. Totem is a contracted, insured commercial loan against verified Fortune 100 commerce. They are answering different versions of the same question. We sent Pompliano this exact comparison and asked for his thoughts.</p>
+
+            <!-- ============= OUTREACH LOG ============= -->
+            <div class="outreach-log">
+              <div class="outreach-log-head">
+                <div class="ol-title">⌖ The Outreach Log</div>
+                <div class="ol-status">Status: Awaiting reply · Day 1 of 14</div>
+              </div>
+              <div class="outreach-log-body">
+                <div class="outreach-log-meta">
+                  <div><strong>To:</strong> Anthony Pompliano</div>
+                  <div><strong>Sent:</strong> May 3, 2026</div>
+                  <div><strong>Channel:</strong> Direct email + LinkedIn</div>
+                </div>
+
+                <div class="email-quote">
+                  <span class="from">Subject: A 27-to-16 scorecard you might find interesting</span>
+                  <p>Anthony,</p>
+                  <p>We run a commercial funding program at Totem LC Group. We've been reading your letters with a lot of respect, especially your recent piece on momentum, the Buffett Indicator, and where capital should be positioned in May 2026.</p>
+                  <p>We agree with the macro setup. Where we differ is on the answer. You make the case for Bitcoin. We think the practical capital allocator who needs documented protection has a stronger option.</p>
+                  <p>We applied the same seven-question framework to Bitcoin and to our own program. Honest scoring. Bitcoin wins on accessibility and tax treatment. Totem wins on principal protection, return protection, cycle clarity, verification, and track record transparency. Total: 27 to 16, in our favor.</p>
+                  <p>The full comparison is attached. We would genuinely value your perspective. If we have any of it wrong, we want to know. If we are right, we would welcome the chance to put one of your readers on the phone with our Allianz broker, our Fortune 100 buyer contacts, and our partners.</p>
+                  <p>Either way, thank you for the work you do. Members of our community read you carefully.</p>
+                  <p>Respectfully,<br>The Totem Partners</p>
+                </div>
+
+                <div class="reply-block">
+                  <strong>Reply Status</strong>
+                  No reply received as of issue publication. We will update this log in Issue No. 02 and every subsequent issue until either a reply lands or 90 days pass without one. Members will see the full exchange when it arrives.
+                </div>
+              </div>
+            </div>
+
+            <!-- VERIFICATION CTA -->
+            <div class="newsletter-cta-card">
+              <div class="cta-label">Verification offered</div>
+              <h4>Don't take our word for it.</h4>
+              <p>This is the part of the newsletter that does not exist in any other investor letter we have read. We will put any qualified member or prospective member on the phone with the people behind every claim in this issue.</p>
+              <ul class="verify-list">
+                <li><strong>Our Allianz broker.</strong> Walk through the actual trade credit insurance policy, coverage endorsements, and claim path.</li>
+                <li><strong>Our buyer relationships.</strong> Speak directly with our verified Fortune 100 buyer contacts who confirm the purchase order flow.</li>
+                <li><strong>Our partners.</strong> The Totem leadership team will answer any structural question about the program, the joint accounts, the vendor relationships, and the repayment mechanics.</li>
+              </ul>
+              <a href="#" class="newsletter-cta-btn">Schedule a verification call →</a>
+            </div>
+
+            <!-- MEMBER SUBMISSION -->
+            <div class="member-submit">
+              <div class="ms-label">⌕ Member-Submitted Challenges</div>
+              <h4>Who should we challenge next?</h4>
+              <p>The Totem Challenge runs weekly. We pick the experts. But we want your input. If there is an investor, fund manager, newsletter writer, or market commentator you read regularly and want our internal team to run the scorecard against, send us the name and the piece.</p>
+              <p>We will work through the queue. Some submissions will become full issues. Others will earn a mention. All of them sharpen the conversation.</p>
+              <a href="#" class="submit-btn">Submit an Expert →</a>
+            </div>
+
+            <!-- REFERRAL -->
+            <div class="newsletter-referral">
+              <div class="ref-label">Members &amp; Referrals</div>
+              <h4>Bring someone you trust into the program.</h4>
+              <p>If this issue resonated with you, it will resonate with someone in your network. Totem has a referral program for members who introduce qualified investors to the program. Both sides earn together.</p>
+              <p>To learn how the program works and what qualifies as an introduction, reply to this email or reach out to your Totem partner directly.</p>
+            </div>
+
+            <!-- SIGNOFF -->
+            <div class="newsletter-signoff">
+              <p>Next week, the Bilello Challenge. Charlie Bilello has written extensively on technology valuations and the concentration risk inside the major equity indices. We are running the scorecard against the broad-market index ETF and sending him the comparison. We will publish the email and his reply, if any, in Issue No. 02.</p>
+              <p>Until then, the verification line is open.</p>
+              <div class="sig">Totem Partners</div>
+              <div class="sig-detail">Issue No. 01 · May 2026</div>
+            </div>
+
+            <!-- METRICS DASHBOARD -->
+            <div class="newsletter-metrics">
+              <div class="metrics-label">The running ledger</div>
+              <h3>Totem by the numbers, as of this issue.</h3>
+              <div class="metrics-grid">
+                <div class="metric">
+                  <div class="m-num">2,000<em>+</em></div>
+                  <div class="m-label">Completed transactions</div>
+                </div>
+                <div class="metric">
+                  <div class="m-num">0.00<em>%</em></div>
+                  <div class="m-label">Default &amp; realized loss rate</div>
+                </div>
+                <div class="metric">
+                  <div class="m-num">$2.9<em>M+</em></div>
+                  <div class="m-label">Member capital deployed (2025)</div>
+                </div>
+                <div class="metric">
+                  <div class="m-num">90<em>-</em>100</div>
+                  <div class="m-label">Day cycle, fixed</div>
+                </div>
+                <div class="metric">
+                  <div class="m-num">5<em>%</em></div>
+                  <div class="m-label">Origination fee per cycle</div>
+                </div>
+                <div class="metric">
+                  <div class="m-num">22.64<em>%</em></div>
+                  <div class="m-label">2025 unadjusted annual return</div>
+                </div>
+                <div class="metric">
+                  <div class="m-num">$4<em>M</em></div>
+                  <div class="m-label">Allianz coverage on Amazon</div>
+                </div>
+                <div class="metric">
+                  <div class="m-num">8</div>
+                  <div class="m-label">Verified Fortune 100 buyers</div>
+                </div>
+                <div class="metric">
+                  <div class="m-num">100<em>%</em></div>
+                  <div class="m-label">Principal &amp; returns insured</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="newsletter-foot">
+              TOTEM LC GROUP &nbsp;·&nbsp; <a href="#">totemlcg.com</a> &nbsp;·&nbsp; <a href="#">archive</a> &nbsp;·&nbsp; <a href="#">submit an expert</a> &nbsp;·&nbsp; <a href="#">unsubscribe</a><br>
+              This letter is informational. It does not constitute an offer to sell or solicit the purchase of any security or financial product.
+            </div>
+
+          </div>
+        </div>
+
+        <h3>The archive structure</h3>
+
+        <p>
+          Every issue lives in a searchable archive on totemlcg.com. Members pull any past challenge, any scorecard, any expert, any reply or non-reply. The archive is the library. The library is the proof.
+        </p>
+
+        <div class="archive-preview">
+          <div class="archive-head">
+            <div class="archive-title">The Totem Challenge Archive</div>
+            <div class="archive-search">⌕ Search by expert, topic, or issue</div>
+          </div>
+          <ul class="archive-list">
+            <li>
+              <div class="num">No. 01</div>
+              <div class="title-text">Bitcoin or Totem? We ran the scorecard.</div>
+              <div class="expert-name">Anthony Pompliano</div>
+              <div class="reply-status pending">Awaiting reply</div>
+            </li>
+            <li>
+              <div class="num">No. 02</div>
+              <div class="title-text">Is the broad-market index as safe as you think?</div>
+              <div class="expert-name">Charlie Bilello</div>
+              <div class="reply-status scheduled">Scheduled</div>
+            </li>
+            <li>
+              <div class="num">No. 03</div>
+              <div class="title-text">Long-term holders are not selling. But are they protected?</div>
+              <div class="expert-name">Frank Porter</div>
+              <div class="reply-status scheduled">Scheduled</div>
+            </li>
+            <li>
+              <div class="num">No. 04</div>
+              <div class="title-text">Semiconductor concentration vs. transaction-level commerce.</div>
+              <div class="expert-name">David Marlin</div>
+              <div class="reply-status scheduled">Scheduled</div>
+            </li>
+            <li>
+              <div class="num">No. 05</div>
+              <div class="title-text">Direct lending at 9.53%. Totem at 20%. Where does the risk live?</div>
+              <div class="expert-name">Apollo / Ares (TBD)</div>
+              <div class="reply-status scheduled">Scheduled</div>
+            </li>
+            <li>
+              <div class="num">No. 06</div>
+              <div class="title-text">An annuity industry voice on guaranteed returns.</div>
+              <div class="expert-name">TBD</div>
+              <div class="reply-status scheduled">Scheduled</div>
+            </li>
+          </ul>
+        </div>
+
+        <p class="small">
+          Archive grows weekly. By Q4 2026, the library contains roughly 30 issues, 30 expert challenges, 30 emails sent, and a public ledger of who replied and what they said. Every claim sourced. Every metric updated.
+        </p>
+
         <h2>The deliverable</h2>
+
+
 
         <p>
           The Wealth Preservation Blueprint becomes three assets:
@@ -2310,7 +3547,7 @@
       </div>
 
       <div class="page-nav">
-        <button class="page-nav-btn" onclick="goPage(4)">← 04 Competitive Landscape</button>
+        <button class="page-nav-btn" onclick="goPage(4)">← 04 The Comparison</button>
         <div class="page-nav-spacer"></div>
         <button class="page-nav-btn next" onclick="goPage(6)">06 The Story Engine →</button>
       </div>
@@ -2338,7 +3575,7 @@
           <div class="roadmap-item">
             <div class="phase">Phase 01 · Q1 2026</div>
             <h4>Establish the map</h4>
-            <p>Make the prospect smarter about where capital can go. Articles on the U.S. investment universe, the wrapper-vs-investment distinction, and the safety-vs-protection distinction. Outcome: prospect can explain the landscape better than their own advisor.</p>
+            <p>Make the prospect smarter about where capital goes. Articles on the U.S. investment universe, the wrapper-vs-investment distinction, and the safety-vs-protection distinction. Outcome: prospect explains the options better than their own advisor.</p>
           </div>
           <div class="roadmap-item">
             <div class="phase">Phase 02 · Q1 to Q2 2026</div>
@@ -2348,7 +3585,7 @@
           <div class="roadmap-item">
             <div class="phase">Phase 03 · Q2 to Q3 2026</div>
             <h4>Introduce Totem's category</h4>
-            <p>Commerce-backed private funding explained from scratch. The supply chain gap most investors never see. What purchase-order financing is. Why insurance layers matter. The due-diligence checklist for any private opportunity, applied to Totem. Outcome: prospect understands the category and can articulate it back.</p>
+            <p>Commerce-backed private funding explained from scratch. The supply chain gap most investors never see. What purchase-order financing is. Why insurance layers matter. The due-diligence checklist for any private opportunity, applied to Totem. Outcome: prospect understands the category and articulates it back.</p>
           </div>
           <div class="roadmap-item">
             <div class="phase">Phase 04 · Q3 to Q4 2026</div>
@@ -2419,10 +3656,7 @@
         <div class="partner-ask">
           <h2>David</h2>
           <p>
-            <strong>I need your read on the proof stack.</strong> Every claim in Section 03 is documented per our last conversation. If any of it has shifted, I want to know now, before we build anything prospect-facing on top of it. Specifically: the Allianz coverage endorsements, the buyer list, and the Amazon MBE relationship.
-          </p>
-          <p>
-            I also need you to flag any claim that could create regulatory exposure. The category is new. The language is sharp. Compliance has to hold up to scrutiny from anyone who asks the question.
+            I'd love your eyes on this end to end. Specifically your read on the Totem Challenge format, the brand voice, and how the category language will land with the audiences we talk to. If something feels off, please let me know. I'd also like to set a regular cadence with you to keep this moving, whatever rhythm works on your end, even if it's a simple thumbs up :)
           </p>
         </div>
 
@@ -2432,7 +3666,7 @@
             <strong>I need you to think about distribution.</strong> The 12-month content engine in Section 06 only works if we have a distribution plan that matches the depth of the work. Email lists, partner channels, paid acquisition, referral incentives, webinars, video.
           </p>
           <p>
-            What does our current footprint actually support? What needs to be built? And what is the right sequence so that we are not producing content the market never sees?
+            What does our current footprint support today? What needs to be built? And what is the right sequence so we are not producing content the market never sees?
           </p>
         </div>
 
@@ -2472,11 +3706,11 @@
         </p>
 
         <p>
-          <strong>The macro window is open.</strong> Buffett at 230% gives us the strongest urgency case we will have in years. We do not need to predict a crash. We just need to be the place capital moves to when investors stop trusting the curve.
+          <strong>The macro window is open.</strong> Buffett at 230%, which Zak walked through in his May 2026 Market Perspective, gives us the strongest urgency case we will have in years. We do not need to predict a crash. We need to be the place capital moves to when investors stop trusting the curve.
         </p>
 
         <p>
-          <strong>The competitive window is open.</strong> No one is using the language "commerce-backed private funding" yet. No one is making the 100% insurance claim with documentation behind it. We can name the category now, or someone else will name it for us in 18 months and we will spend the rest of our existence explaining why we are different.
+          <strong>The competitive window is open.</strong> No one is using the language "commerce-backed private funding" yet. No one is making the 100% insurance claim with documentation behind it. We name the category now, or someone else names it for us in 18 months and we will spend the rest of our existence explaining why we are different.
         </p>
 
         <p>
@@ -2486,15 +3720,17 @@
         <div class="partner-ask">
           <h2>The close</h2>
           <p>
-            None of this works without the three of you. The work in this document is mine. The strategy in this document is ours. Edit it hard. Push back where you should. Sharpen what is loose. <strong>Then let's go build.</strong>
+            The work in this document is a starting point and will evolve as we get feedback from each other and our members. This is something I've been looking forward to for some time and I'm excited to get it going.
+          </p>
+          <p>
+            <strong>Edit it hard. Push back where you should. Then let's go build.</strong>
           </p>
           <div class="sig">
             <div class="sig-block">
               <div class="name">JJ Gilmore</div>
-              <div class="role">Strategy &amp; Revenue Engineering</div>
             </div>
             <div class="sig-block" style="text-align: right;">
-              <div class="role">Wireframe v1</div>
+              <div class="role">Wireframe v2</div>
               <div class="role" style="margin-top: 4px;">May 2026</div>
             </div>
           </div>
@@ -2510,7 +3746,7 @@
 
     <footer class="site-foot">
       <div class="row">
-        <div><strong>TOTEM LC GROUP</strong> · Strategic Wireframe v1 · May 2026</div>
+        <div><strong>TOTEM LC GROUP</strong> · Strategic Wireframe v2 · May 2026</div>
         <div>For Zak, David, and Justus · Internal use only · Not for distribution</div>
       </div>
     </footer>
@@ -2519,6 +3755,10 @@
 </div>
 
 <script>
+  // Embed logo as base64 so the site is fully self-contained
+  const LOGO_B64 = "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";
+  document.getElementById('brand-logo-img').src = 'data:image/png;base64,' + LOGO_B64;
+
   function goPage(n) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-' + n).classList.add('active');
@@ -2535,14 +3775,12 @@
     });
   });
 
-  // Handle browser back/forward
   window.addEventListener('popstate', e => {
     if (e.state && typeof e.state.page === 'number') {
       goPage(e.state.page);
     }
   });
 
-  // Initial state from URL hash
   if (window.location.hash) {
     const n = parseInt(window.location.hash.replace('#', ''));
     if (!isNaN(n) && n >= 0 && n <= 7) goPage(n);
