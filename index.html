@@ -1107,15 +1107,465 @@
   /* ============= RESPONSIVE ============= */
   @media (max-width: 1100px) {
     .site { grid-template-columns: 1fr; }
-    .sidebar { position: relative; height: auto; }
+    .sidebar {
+      position: relative;
+      height: auto;
+      padding: 24px 24px 28px 24px;
+    }
+    .brand { margin-bottom: 20px; padding-bottom: 18px; }
+    .brand-logo { max-width: 160px; margin-bottom: 8px; }
+    .doc-meta { font-size: 11px; }
+    .doc-meta strong { margin-top: 10px; }
+    .nav-section-label { margin-top: 20px; }
+    .nav a { padding: 12px; font-size: 14px; }
+    .sidebar-foot { margin-top: 20px; padding-top: 16px; }
+
     .container, .container-wide, .hero { padding: 60px 32px; }
-    h1.display, .hero-title { font-size: 56px; }
+    h1.display, .hero-title { font-size: 56px; letter-spacing: -1.5px; }
     h1 { font-size: 40px; }
     h2 { font-size: 28px; }
     .stat-grid, .stat-grid-3, .stat-grid-4 { grid-template-columns: 1fr; }
+    .stat-cell { border-right: 0 !important; }
     .proof-grid { grid-template-columns: 1fr; }
     .hero-meta { grid-template-columns: 1fr 1fr; }
     .blueprint { padding: 32px; }
+  }
+
+  /* ============= TABLET (768px) ============= */
+  @media (max-width: 768px) {
+    .container, .container-wide, .hero { padding: 48px 24px; }
+
+    /* Hero */
+    .hero-title { font-size: 44px; letter-spacing: -1px; }
+    .hero-sub { font-size: 18px; margin-bottom: 36px; }
+    .hero-meta { grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 24px; }
+    .hero-meta-item { padding-right: 12px; }
+    .hero-meta-item:nth-child(2) { border-right: 0; }
+    .hero-meta-value { font-size: 18px; }
+    .hero-cta { flex-direction: column; align-items: flex-start; gap: 16px; margin-top: 40px; }
+    .hero-cta-btn { width: 100%; justify-content: center; padding: 16px 24px; }
+
+    /* Typography */
+    h1.display { font-size: 44px; }
+    h1 { font-size: 32px; }
+    h2 { font-size: 24px; margin-top: 48px; }
+    h2.first { margin-top: 0; }
+    p { font-size: 16px; }
+    p.lead { font-size: 19px; }
+
+    /* Big question */
+    .big-question { padding: 48px 20px; margin: 56px 0; }
+    .big-question .q { font-size: 30px; }
+
+    /* Callout */
+    .callout { padding: 36px 28px; margin: 48px 0; }
+    .callout h2 { font-size: 26px; }
+    .callout p { font-size: 16px; }
+
+    /* Pull quote */
+    .pull-quote { font-size: 22px; padding-left: 20px; margin: 48px 0; }
+
+    /* Stat cells */
+    .stat-cell { padding: 24px; }
+    .stat-num { font-size: 40px; }
+    .stat-num-small { font-size: 24px; }
+
+    /* Page nav */
+    .page-nav { padding: 32px 24px; flex-wrap: wrap; gap: 12px; }
+    .page-nav-btn { padding: 14px 18px; font-size: 12px; flex: 1; justify-content: center; min-width: 0; }
+    .page-nav-spacer { display: none; }
+
+    /* Universe category headers */
+    .universe-cat-header { flex-direction: column; align-items: flex-start; gap: 6px; padding: 16px 18px; }
+    .universe-cat-header .cat-name { font-size: 18px; }
+    .universe-cat-header .cat-meta { font-size: 10px; }
+
+    /* Tables - horizontal scroll */
+    .universe-cat-body { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .universe-cat-body table { min-width: 720px; }
+    .universe-cat-body td { font-size: 12px; padding: 10px; }
+    .universe-cat-body th { font-size: 9px; padding: 10px; }
+    .position { padding: 14px 18px; font-size: 12px; }
+
+    /* Insurance master table */
+    .table-wrap, table.insurance-tbl { display: block; }
+    table.insurance-tbl { overflow-x: auto; -webkit-overflow-scrolling: touch; min-width: 720px; }
+
+    /* Blueprint */
+    .blueprint { padding: 24px; }
+    .blueprint-q { grid-template-columns: 44px 1fr; gap: 16px; padding: 20px 0; }
+    .blueprint-q .num { font-size: 36px; }
+    .blueprint-q h4 { font-size: 20px; }
+
+    /* Roadmap */
+    .roadmap-item h4 { font-size: 19px; }
+
+    /* Partner asks */
+    .partner-ask { padding: 32px 24px; margin: 24px 0; }
+    .partner-ask h2 { font-size: 26px; }
+    .partner-ask p { font-size: 16px; }
+    .partner-ask .sig { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .partner-ask .sig-block:nth-child(2) { text-align: left !important; }
+    .partner-ask .sig-block .name { font-size: 24px; }
+
+    /* Footer */
+    footer.site-foot { padding: 24px; }
+    footer.site-foot .row { flex-direction: column; gap: 8px; }
+
+    /* Ticker */
+    .ticker { padding: 16px 24px; }
+
+    /* ===== Newsletter mockup ===== */
+    .newsletter-frame { padding: 48px 16px 24px 16px; margin: 40px -8px; }
+    .newsletter { padding: 32px 24px 0 24px; max-width: 100%; }
+
+    .newsletter-masthead { flex-direction: column; gap: 14px; align-items: flex-start; padding-bottom: 16px; margin-bottom: 28px; }
+    .newsletter-masthead .title { font-size: 30px; }
+    .newsletter-masthead .meta { text-align: left; }
+
+    .newsletter-headline { font-size: 30px; letter-spacing: -0.5px; }
+    .newsletter-deck { font-size: 16px; padding-bottom: 18px; margin-bottom: 24px; }
+    .newsletter-byline { font-size: 9px; }
+
+    .newsletter p { font-size: 17px; line-height: 1.6; }
+    .newsletter h3.section { font-size: 22px; margin: 28px 0 12px 0; }
+    .newsletter .pull { font-size: 22px; padding: 6px 0 6px 18px; margin: 24px 0; }
+    .newsletter .chart-placeholder { padding: 18px 20px; margin: 20px 0; }
+    .newsletter .chart-placeholder strong { font-size: 15px; }
+
+    /* Expert block */
+    .expert-block {
+      grid-template-columns: 64px 1fr;
+      gap: 16px;
+      padding: 20px 22px;
+    }
+    .expert-block .expert-photo { width: 64px; height: 64px; font-size: 24px; }
+    .expert-block .expert-info .expert-name { font-size: 22px; }
+    .expert-block .expert-info .expert-title { font-size: 11px; }
+    .expert-block .expert-info .expert-piece { font-size: 13px; }
+
+    /* The turn */
+    .newsletter-turn { padding: 24px 22px; margin: 32px 0 24px 0; }
+    .newsletter-turn .title { font-size: 22px; }
+    .newsletter-turn p { font-size: 15px; }
+
+    /* Scorecard - stack vertical on tablet */
+    .scorecard-head { padding: 14px 18px; flex-direction: column; align-items: flex-start; gap: 4px; }
+    .scorecard-head .sc-title { font-size: 17px; }
+    .scorecard-head .sc-sub { font-size: 9px; }
+    .scorecard-cols { grid-template-columns: 1fr 1fr; }
+    .scorecard-col { padding: 12px 14px; }
+    .scorecard-col .sc-name { font-size: 18px; }
+
+    .scorecard-row { padding: 14px 18px; }
+    .scorecard-row .category { font-size: 10px; margin-bottom: 6px; }
+    .sc-bar-row { grid-template-columns: 1fr 32px 1fr; gap: 8px; }
+    .sc-bar-left, .sc-bar-right { height: 22px; }
+    .sc-bar-left .num, .sc-bar-right .num { font-size: 10px; padding: 0 6px; }
+    .sc-bar-mid { font-size: 8px; }
+    .sc-explanations { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .sc-explanations .exp { font-size: 11px; }
+    .sc-explanations .exp.left { padding-right: 16px; }
+    .sc-explanations .exp.right { padding-left: 16px; }
+
+    .scorecard-total { padding: 18px; grid-template-columns: 1fr 32px 1fr; gap: 8px; }
+    .scorecard-total .total-num { font-size: 44px; }
+    .scorecard-total .total-label { font-size: 8px; }
+    .scorecard-total .vs { font-size: 18px; }
+    .scorecard-verdict { font-size: 15px; padding: 14px 18px; }
+
+    /* Outreach log */
+    .outreach-log-head { padding: 14px 18px; flex-direction: column; align-items: flex-start; gap: 4px; }
+    .outreach-log-head .ol-title { font-size: 10px; }
+    .outreach-log-head .ol-status { font-size: 9px; }
+    .outreach-log-body { padding: 18px; }
+    .outreach-log-meta { flex-direction: column; gap: 6px; padding-bottom: 12px; margin-bottom: 14px; }
+    .email-quote { padding: 16px 18px; font-size: 13px; }
+
+    /* CTA card */
+    .newsletter-cta-card { padding: 22px 22px; margin: 28px 0; }
+    .newsletter-cta-card h4 { font-size: 21px; }
+    .newsletter-cta-card .verify-list strong { display: block; min-width: 0; margin-bottom: 4px; }
+    .newsletter-cta-card .verify-list li { padding: 10px 0 10px 24px; font-size: 13px; }
+
+    /* Member submit */
+    .member-submit { padding: 24px 20px; }
+    .member-submit h4 { font-size: 22px; }
+    .member-submit p { font-size: 15px; }
+
+    /* Referral */
+    .newsletter-referral { padding: 22px 22px; }
+    .newsletter-referral h4 { font-size: 20px; }
+
+    /* Signoff */
+    .newsletter-signoff p { font-size: 16px; }
+    .newsletter-signoff .sig { font-size: 20px; }
+
+    /* Metrics dashboard */
+    .newsletter-metrics { margin: 0 -24px; padding: 28px 24px; }
+    .newsletter-metrics h3 { font-size: 20px; margin-bottom: 18px; }
+    .newsletter-metrics .metrics-grid { grid-template-columns: 1fr 1fr; }
+    .newsletter-metrics .metric:nth-child(2n) { border-right: 0; }
+    .newsletter-metrics .metric:nth-child(3n) { border-right: 1px solid rgba(255,255,255,0.08); }
+    .newsletter-metrics .metric:nth-last-child(-n+2) { border-bottom: 0; }
+    .newsletter-metrics .metric:nth-last-child(3) { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .newsletter-metrics .m-num { font-size: 26px; }
+    .newsletter-metrics .m-label { font-size: 8px; }
+
+    /* Newsletter foot */
+    .newsletter-foot { padding: 20px 24px 28px 24px; margin: 0 -24px -1px -24px; line-height: 1.8; }
+
+    /* Archive */
+    .archive-preview .archive-head { padding: 14px 18px; flex-direction: column; align-items: flex-start; gap: 4px; }
+    .archive-preview .archive-search { font-size: 9px; }
+    .archive-preview .archive-list li {
+      grid-template-columns: 50px 1fr;
+      gap: 10px;
+      padding: 14px 18px;
+    }
+    .archive-preview .archive-list .num { font-size: 10px; align-self: start; }
+    .archive-preview .archive-list .title-text { font-size: 14px; line-height: 1.35; }
+    .archive-preview .archive-list .expert-name {
+      grid-column: 2;
+      font-size: 9px;
+      color: var(--gold-deep);
+      margin-top: 4px;
+    }
+    .archive-preview .archive-list .reply-status {
+      grid-column: 2;
+      text-align: left;
+      font-size: 8px;
+      margin-top: 2px;
+    }
+  }
+
+  /* ============= PHONE (480px) ============= */
+  @media (max-width: 480px) {
+    .container, .container-wide, .hero { padding: 36px 18px; }
+
+    /* Hero */
+    .hero { min-height: auto; padding-top: 40px; padding-bottom: 40px; }
+    .hero-stamp { font-size: 9px; margin-bottom: 24px; gap: 10px; }
+    .hero-stamp::after { width: 40px; }
+    .hero-title { font-size: 36px; letter-spacing: -1px; margin-bottom: 24px; }
+    .hero-sub { font-size: 16px; margin-bottom: 28px; line-height: 1.5; }
+    .hero-meta { gap: 12px; padding-top: 18px; }
+    .hero-meta-label { font-size: 9px; margin-bottom: 4px; }
+    .hero-meta-value { font-size: 15px; }
+    .hero-cta { margin-top: 28px; }
+    .hero-cta-btn { padding: 14px 20px; font-size: 12px; letter-spacing: 1.5px; }
+    .hero-cta span { font-size: 11px; }
+
+    /* Page sections */
+    .eyebrow { font-size: 10px; margin-bottom: 18px; }
+    h1.display { font-size: 36px; letter-spacing: -1px; margin-bottom: 24px; }
+    h1 { font-size: 28px; }
+    h2 { font-size: 22px; margin-top: 40px; margin-bottom: 16px; }
+    h3 { font-size: 11px; margin-top: 28px; }
+    h4 { font-size: 19px; }
+    p { font-size: 15px; line-height: 1.65; margin-bottom: 16px; }
+    p.lead { font-size: 17px; line-height: 1.5; margin-bottom: 24px; }
+    .small { font-size: 12px; }
+
+    /* Big question */
+    .big-question { padding: 36px 16px; margin: 40px 0; }
+    .big-question .label { font-size: 10px; margin-bottom: 20px; }
+    .big-question .q { font-size: 22px; line-height: 1.25; }
+    .big-question .answer { font-size: 11px; margin-top: 24px; letter-spacing: 1.5px; }
+
+    /* Callout */
+    .callout { padding: 28px 22px; margin: 40px 0; }
+    .callout-eyebrow { font-size: 10px; margin-bottom: 14px; }
+    .callout h2 { font-size: 22px; line-height: 1.25; }
+    .callout p { font-size: 15px; }
+
+    /* Pull quote */
+    .pull-quote { font-size: 19px; line-height: 1.35; padding-left: 16px; margin: 36px 0; }
+    .pull-quote .attribution { font-size: 10px; margin-top: 12px; }
+
+    /* Stat */
+    .stat-cell { padding: 20px; }
+    .stat-num { font-size: 32px; }
+    .stat-num-small { font-size: 20px; }
+    .stat-label { font-size: 13px; }
+
+    /* Proof cards */
+    .proof-card { padding: 22px; }
+    .proof-card h4 { font-size: 18px; }
+    .proof-card p { font-size: 14px; }
+    .proof-card .pc-num { font-size: 10px; }
+
+    /* Page nav */
+    .page-nav { padding: 24px 18px; }
+    .page-nav-btn { padding: 12px 14px; font-size: 11px; gap: 6px; }
+
+    /* Universe categories */
+    .universe-cat-header { padding: 14px 16px; }
+    .universe-cat-header .cat-num { font-size: 10px; margin-right: 10px; }
+    .universe-cat-header .cat-name { font-size: 16px; }
+    .universe-cat-header .cat-meta { font-size: 9px; }
+
+    /* Roadmap */
+    .roadmap-item { padding: 18px 0 18px 22px; }
+    .roadmap-item::before { left: -7px; top: 24px; width: 10px; height: 10px; }
+    .roadmap-item .phase { font-size: 10px; }
+    .roadmap-item h4 { font-size: 18px; }
+    .roadmap-item p { font-size: 14px; }
+
+    /* Blueprint */
+    .blueprint { padding: 22px 18px; }
+    .blueprint-q { grid-template-columns: 36px 1fr; gap: 12px; padding: 18px 0; }
+    .blueprint-q .num { font-size: 30px; }
+    .blueprint-q h4 { font-size: 18px; }
+    .blueprint-q p { font-size: 14px; }
+
+    /* Partner asks */
+    .partner-ask { padding: 26px 22px; }
+    .partner-ask h2 { font-size: 22px; margin-bottom: 12px; }
+    .partner-ask p { font-size: 15px; line-height: 1.6; }
+    .partner-ask .sig { padding-top: 24px; margin-top: 32px; }
+    .partner-ask .sig-block .name { font-size: 22px; }
+    .partner-ask .sig-block .role { font-size: 10px; }
+
+    /* Footer */
+    footer.site-foot { padding: 20px 18px; font-size: 10px; }
+
+    /* Ticker */
+    .ticker { padding: 14px 18px; }
+    .ticker-item { font-size: 11px; gap: 10px; }
+
+    /* ===== Newsletter mockup ===== */
+    .newsletter-frame { padding: 40px 8px 16px 8px; margin: 32px -10px; }
+    .newsletter-frame::before { font-size: 9px; left: 16px; top: 12px; letter-spacing: 1.5px; }
+    .newsletter { padding: 24px 18px 0 18px; }
+
+    .newsletter-masthead { padding-bottom: 14px; margin-bottom: 22px; gap: 10px; }
+    .newsletter-masthead .title { font-size: 26px; }
+    .newsletter-masthead .meta { font-size: 9px; }
+
+    .newsletter-issue-num { font-size: 10px; margin-bottom: 12px; }
+    .newsletter-headline { font-size: 26px; line-height: 1.15; letter-spacing: -0.3px; margin-bottom: 10px; }
+    .newsletter-deck { font-size: 15px; padding-bottom: 16px; margin-bottom: 22px; }
+    .newsletter-byline { font-size: 9px; margin-bottom: 22px; }
+
+    .newsletter p { font-size: 16px; line-height: 1.6; margin-bottom: 18px; }
+    .newsletter h3.section { font-size: 19px; margin: 24px 0 10px 0; }
+    .newsletter .pull { font-size: 18px; padding-left: 14px; margin: 22px 0; }
+    .newsletter .chart-placeholder { padding: 16px 18px; margin: 18px 0; }
+    .newsletter .chart-placeholder strong { font-size: 14px; }
+    .newsletter .chart-placeholder .src { font-size: 9px; }
+    .mini-chart { height: 60px; }
+
+    /* Expert block - stack on phone */
+    .expert-block {
+      grid-template-columns: 1fr;
+      gap: 14px;
+      padding: 18px 20px;
+      text-align: left;
+    }
+    .expert-block .expert-photo { width: 56px; height: 56px; font-size: 22px; }
+    .expert-block .expert-info .expert-name { font-size: 20px; }
+    .expert-block .expert-info .expert-title { font-size: 10px; line-height: 1.5; }
+    .expert-block .expert-info .expert-piece { font-size: 12px; }
+
+    /* The turn */
+    .newsletter-turn { padding: 22px 20px; }
+    .newsletter-turn .title { font-size: 19px; }
+    .newsletter-turn p { font-size: 14px; }
+    .newsletter-turn .label { font-size: 9px; }
+
+    /* Scorecard - critical phone treatment */
+    .scorecard-head { padding: 12px 16px; }
+    .scorecard-head .sc-title { font-size: 15px; }
+    .scorecard-cols { grid-template-columns: 1fr 1fr; }
+    .scorecard-col { padding: 10px 8px; }
+    .scorecard-col .sc-side { font-size: 8px; letter-spacing: 1.5px; }
+    .scorecard-col .sc-name { font-size: 16px; }
+
+    .scorecard-row { padding: 12px 16px; }
+    .scorecard-row .category { font-size: 9px; letter-spacing: 1.5px; margin-bottom: 8px; }
+    .sc-bar-row { grid-template-columns: 1fr 24px 1fr; gap: 6px; }
+    .sc-bar-left, .sc-bar-right { height: 20px; }
+    .sc-bar-left .num, .sc-bar-right .num { font-size: 9px; padding: 0 5px; }
+    .sc-bar-mid { font-size: 7px; }
+    .sc-explanations { grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 6px; }
+    .sc-explanations .exp { font-size: 10px; line-height: 1.35; }
+    .sc-explanations .exp.left { padding-right: 8px; }
+    .sc-explanations .exp.right { padding-left: 8px; }
+
+    .scorecard-total { padding: 14px 16px; grid-template-columns: 1fr 28px 1fr; gap: 6px; }
+    .scorecard-total .total-num { font-size: 38px; letter-spacing: -1px; }
+    .scorecard-total .total-label { font-size: 8px; }
+    .scorecard-total .vs { font-size: 16px; }
+    .scorecard-verdict { font-size: 13px; padding: 12px 16px; line-height: 1.4; }
+
+    /* Outreach log */
+    .outreach-log-body { padding: 16px; }
+    .outreach-log-head { padding: 12px 16px; }
+    .outreach-log-meta { font-size: 9px; }
+    .email-quote { padding: 14px 16px; font-size: 12px; line-height: 1.55; }
+    .email-quote .from { font-size: 8px; margin-bottom: 6px; }
+    .reply-block { padding: 12px 16px; font-size: 10px; }
+    .reply-block strong { font-size: 9px; }
+
+    /* CTA cards */
+    .newsletter-cta-card { padding: 20px; margin: 24px 0; }
+    .newsletter-cta-card h4 { font-size: 19px; }
+    .newsletter-cta-card p { font-size: 14px; }
+    .newsletter-cta-card .verify-list li { padding: 10px 0 10px 22px; font-size: 12px; }
+    .newsletter-cta-card .verify-list strong { font-size: 11px; }
+    .newsletter-cta-btn, .submit-btn { padding: 12px 22px; font-size: 11px; }
+
+    /* Member submit */
+    .member-submit { padding: 22px 18px; }
+    .member-submit .ms-label { font-size: 9px; }
+    .member-submit h4 { font-size: 19px; }
+    .member-submit p { font-size: 14px; }
+
+    /* Referral */
+    .newsletter-referral { padding: 20px; }
+    .newsletter-referral h4 { font-size: 18px; }
+    .newsletter-referral p { font-size: 14px; }
+    .newsletter-referral .ref-label { font-size: 9px; }
+
+    /* Signoff */
+    .newsletter-signoff p { font-size: 15px; }
+    .newsletter-signoff .sig { font-size: 19px; margin-top: 18px; }
+    .newsletter-signoff .sig-detail { font-size: 9px; }
+
+    /* Metrics - 2 columns, 5 rows */
+    .newsletter-metrics { margin: 0 -18px; padding: 24px 18px; }
+    .newsletter-metrics h3 { font-size: 18px; margin-bottom: 14px; }
+    .newsletter-metrics .metrics-grid { grid-template-columns: 1fr 1fr; }
+    .newsletter-metrics .metric { padding: 14px 14px 14px 0; }
+    .newsletter-metrics .m-num { font-size: 22px; }
+    .newsletter-metrics .m-label { font-size: 8px; letter-spacing: 1px; line-height: 1.3; }
+
+    .newsletter-foot { padding: 18px 18px 24px 18px; margin: 0 -18px -1px -18px; font-size: 9px; }
+
+    /* Archive on phone - stacked */
+    .archive-preview .archive-head { padding: 12px 16px; }
+    .archive-preview .archive-title { font-size: 16px; }
+    .archive-preview .archive-list li { padding: 12px 16px; gap: 8px; }
+    .archive-preview .archive-list .num { font-size: 9px; }
+    .archive-preview .archive-list .title-text { font-size: 13px; }
+    .archive-preview .archive-list .expert-name { font-size: 8px; }
+    .archive-preview .archive-list .reply-status { font-size: 8px; }
+
+    /* Section name change visual */
+    .nav-section-label { font-size: 9px; }
+  }
+
+  /* ============= NARROW PHONE (360px) ============= */
+  @media (max-width: 360px) {
+    .container, .container-wide, .hero { padding: 32px 14px; }
+    .hero-title { font-size: 32px; }
+    h1.display { font-size: 32px; }
+    .scorecard-row { padding: 10px 12px; }
+    .sc-explanations .exp { font-size: 9px; }
+    .newsletter { padding: 20px 14px 0 14px; }
+    .newsletter-foot { padding: 14px 14px 20px 14px; margin: 0 -14px -1px -14px; }
+    .newsletter-metrics { margin: 0 -14px; padding: 20px 14px; }
   }
 
   /* ============= NEWSLETTER MOCKUP ============= */
