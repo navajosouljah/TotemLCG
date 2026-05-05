@@ -526,6 +526,164 @@
     margin-top: 16px;
   }
 
+  /* ============= HERO TAG (motto under H1) ============= */
+  .hero-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 32px;
+    padding-left: 16px;
+    border-left: 3px solid var(--gold);
+  }
+
+  /* ============= NOT SECTION (What Totem is not) ============= */
+  .not-section { margin: 72px 0; }
+  .not-section .source-cite {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .not-section h2 { margin-top: 0; }
+  .not-section h3.subhead {
+    font-family: var(--serif-display);
+    font-size: 26px;
+    color: var(--black);
+    font-weight: 600;
+    margin: 40px 0 16px 0;
+    line-height: 1.25;
+    letter-spacing: -0.3px;
+    text-transform: none;
+  }
+
+  .hero-quote {
+    margin: 40px 0 56px 0;
+    padding: 48px 56px;
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+    border-top: 4px solid var(--gold);
+    border-bottom: 4px solid var(--gold);
+  }
+  .hero-quote .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold-bright);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .hero-quote .motto {
+    font-family: var(--serif-display);
+    font-size: 56px;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    color: var(--white);
+    font-weight: 500;
+    font-style: italic;
+  }
+  .hero-quote .motto em {
+    color: var(--gold-bright);
+    font-style: italic;
+  }
+
+  /* Compare cards (PE/VC vs Totem) */
+  .compare-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 32px 0;
+  }
+  .compare-cell {
+    padding: 28px;
+    background: var(--white);
+    border: 1px solid var(--line);
+  }
+  .compare-cell.is-them {
+    border-top: 3px solid var(--muted);
+    background: var(--paper);
+  }
+  .compare-cell.is-us {
+    border-top: 3px solid var(--gold);
+    background: var(--white);
+  }
+  .compare-cell .cc-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--muted);
+  }
+  .compare-cell.is-us .cc-label { color: var(--gold-deep); }
+  .compare-cell .cc-name {
+    font-family: var(--serif-display);
+    font-size: 22px;
+    color: var(--black);
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .compare-cell p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 0;
+  }
+  .compare-cell strong { color: var(--black); }
+
+  /* Recovery waterfall block */
+  .waterfall-block {
+    margin: 48px 0;
+    padding: 36px 40px;
+    background: var(--paper);
+    border-left: 3px solid var(--gold);
+  }
+  .waterfall-block .wb-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .waterfall-block h4 {
+    font-family: var(--serif-display);
+    font-size: 24px;
+    color: var(--black);
+    font-weight: 600;
+    margin-bottom: 16px;
+    letter-spacing: -0.2px;
+  }
+  .waterfall-block p {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  .waterfall-block p:last-child { margin-bottom: 0; }
+
+  /* Historical analogs */
+  .analogs { margin: 56px 0; padding: 48px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .analogs-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 3px; color: var(--gold-deep); text-transform: uppercase; font-weight: 600; margin-bottom: 16px; }
+  .analogs h3 { font-family: var(--serif-display); font-size: 32px; color: var(--black); font-weight: 500; line-height: 1.2; letter-spacing: -0.4px; margin-bottom: 28px; }
+  .analogs p { font-size: 17px; line-height: 1.65; color: var(--ink-soft); margin-bottom: 18px; }
+  .analog-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+  .analog-card { background: var(--paper); padding: 28px; border-left: 3px solid var(--gold); }
+  .analog-card .ac-name { font-family: var(--serif-display); font-size: 22px; color: var(--black); font-weight: 600; margin-bottom: 6px; }
+  .analog-card .ac-year { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; color: var(--gold-deep); text-transform: uppercase; margin-bottom: 14px; font-weight: 600; }
+  .analog-card p { font-size: 14px; line-height: 1.55; color: var(--ink-soft); margin-bottom: 0; }
+  .analog-card .takeaway { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); font-family: var(--serif-display); font-size: 15px; color: var(--black); font-style: italic; font-weight: 500; line-height: 1.45; }
+
   /* ============= STAT BLOCKS ============= */
   .stat-grid {
     display: grid;
@@ -1337,6 +1495,28 @@
       font-size: 8px;
       margin-top: 2px;
     }
+
+    /* What Totem is not - tablet */
+    .hero-quote { padding: 36px 28px; }
+    .hero-quote .motto { font-size: 38px; }
+    .compare-row { grid-template-columns: 1fr; gap: 16px; }
+    .compare-cell { padding: 22px; }
+    .compare-cell .cc-name { font-size: 20px; }
+    .waterfall-block { padding: 26px 24px; }
+    .waterfall-block h4 { font-size: 21px; }
+    .waterfall-block p { font-size: 15px; }
+    .not-section h3.subhead { font-size: 22px; }
+
+    /* Analogs - tablet */
+    .analogs { margin: 40px 0; padding: 36px 0; }
+    .analogs h3 { font-size: 24px; }
+    .analog-cards { grid-template-columns: 1fr; gap: 16px; }
+    .analog-card { padding: 22px; }
+    .analog-card .ac-name { font-size: 20px; }
+    .analog-card .takeaway { font-size: 14px; }
+
+    /* Hero tag */
+    .hero-tag { font-size: 10px; letter-spacing: 2.5px; margin-bottom: 24px; }
   }
 
   /* ============= PHONE (480px) ============= */
@@ -1554,6 +1734,36 @@
 
     /* Section name change visual */
     .nav-section-label { font-size: 9px; }
+
+    /* What Totem is not - phone */
+    .hero-tag { font-size: 9px; padding-left: 12px; margin-bottom: 20px; }
+    .not-section { margin: 48px 0; }
+    .not-section .source-cite { font-size: 9px; }
+    .not-section h3.subhead { font-size: 20px; }
+    .hero-quote { padding: 28px 22px; margin: 28px 0 36px 0; }
+    .hero-quote .label { font-size: 9px; margin-bottom: 14px; }
+    .hero-quote .motto { font-size: 28px; line-height: 1.1; }
+    .compare-row { gap: 12px; margin: 24px 0; }
+    .compare-cell { padding: 18px; }
+    .compare-cell .cc-label { font-size: 9px; }
+    .compare-cell .cc-name { font-size: 18px; }
+    .compare-cell p { font-size: 13px; }
+    .waterfall-block { padding: 22px 20px; margin: 32px 0; }
+    .waterfall-block .wb-label { font-size: 9px; }
+    .waterfall-block h4 { font-size: 19px; }
+    .waterfall-block p { font-size: 14px; }
+
+    /* Analogs - phone */
+    .analogs { margin: 32px 0; padding: 28px 0; }
+    .analogs-eyebrow { font-size: 9px; }
+    .analogs h3 { font-size: 21px; margin-bottom: 18px; }
+    .analogs p { font-size: 15px; }
+    .analog-cards { margin-top: 22px; gap: 12px; }
+    .analog-card { padding: 18px; }
+    .analog-card .ac-name { font-size: 18px; }
+    .analog-card .ac-year { font-size: 9px; margin-bottom: 10px; }
+    .analog-card p { font-size: 13px; }
+    .analog-card .takeaway { font-size: 13px; }
   }
 
   /* ============= NARROW PHONE (360px) ============= */
@@ -1566,6 +1776,9 @@
     .newsletter { padding: 20px 14px 0 14px; }
     .newsletter-foot { padding: 14px 14px 20px 14px; margin: 0 -14px -1px -14px; }
     .newsletter-metrics { margin: 0 -14px; padding: 20px 14px; }
+    .hero-quote .motto { font-size: 24px; }
+    .hero-quote { padding: 22px 16px; }
+    .analogs h3 { font-size: 19px; }
   }
 
   /* ============= NEWSLETTER MOCKUP ============= */
@@ -2638,7 +2851,7 @@
     <ul class="nav" id="nav">
       <li><a href="#" data-page="0" class="active"><span class="nav-num">00</span>Cover</a></li>
       <li><a href="#" data-page="1"><span class="nav-num">01</span>Thesis</a></li>
-      <li><a href="#" data-page="2"><span class="nav-num">02</span>The Reframe</a></li>
+      <li><a href="#" data-page="2"><span class="nav-num">02</span>The Category</a></li>
       <li><a href="#" data-page="3"><span class="nav-num">03</span>Proof Stack</a></li>
       <li><a href="#" data-page="4"><span class="nav-num">04</span>The Comparison</a></li>
       <li><a href="#" data-page="5"><span class="nav-num">05</span>Wealth Preservation Blueprint</a></li>
@@ -2764,27 +2977,6 @@
           </p>
         </div>
 
-        <h2>Why this is the moment</h2>
-
-        <p>
-          Three conditions converging now make this the right time to define a new category, not later:
-        </p>
-
-        <div class="stat-grid stat-grid-3">
-          <div class="stat-cell">
-            <div class="stat-num">01</div>
-            <div class="stat-label"><strong>Macro fragility.</strong> Investors are starting to question whether their balances reflect strength or liquidity.</div>
-          </div>
-          <div class="stat-cell">
-            <div class="stat-num">02</div>
-            <div class="stat-label"><strong>Alternatives shift.</strong> Institutional capital is rotating toward documented, contracted, productive deployment.</div>
-          </div>
-          <div class="stat-cell">
-            <div class="stat-num">03</div>
-            <div class="stat-label"><strong>Track record.</strong> Totem has 2,000+ completed transactions and 0.00% defaults. The proof exists. The story does not yet.</div>
-          </div>
-        </div>
-
         <p>
           The work in this document is the strategic answer to the question above. We are not building a better CD or a better bond. We are building the first place where capital can be deployed into productive U.S. commerce with both principal and returns insured by the largest trade credit insurer in the world.
         </p>
@@ -2792,11 +2984,6 @@
         <p>
           That asset class did not exist before Totem. It is the reason prospects are skeptical. They are not skeptical of us specifically. <strong>They are skeptical of a category they have never heard of.</strong> The job over the next 12 months is to make the category real in their minds.
         </p>
-
-        <div class="pull-quote">
-          The reason no one knows about this is because nothing exists with this type of asset class. We are building a brand new one.
-          <span class="attribution">Totem Founders, on the foundational insight</span>
-        </div>
 
         <p class="small">
           Sources: Zak's May 2026 Market Perspective; Current Market Valuation; Fortune (April 2026); YCharts (Shiller CAPE); FRED (S&amp;P 500 series, M2 series); State Street Global Advisors 2026 Alternatives Outlook.
@@ -2806,31 +2993,46 @@
       <div class="page-nav">
         <button class="page-nav-btn" onclick="goPage(0)">← 00 Cover</button>
         <div class="page-nav-spacer"></div>
-        <button class="page-nav-btn next" onclick="goPage(2)">02 The Reframe →</button>
+        <button class="page-nav-btn next" onclick="goPage(2)">02 The Category →</button>
       </div>
     </section>
 
     <!-- ============= PAGE 2: THE REFRAME ============= -->
     <section class="page" id="page-2">
       <div class="container">
-        <div class="eyebrow">Section 02 · Strategic Reframe</div>
+        <div class="eyebrow">Section 02 · The Category</div>
         <h1 class="display">Totem is not an alternative investment.</h1>
+        <div class="hero-tag">Funding execution, not expectation</div>
 
         <p class="lead">
-          That sentence is the entire strategy. Once partners internalize it, every other decision in this document follows. Once prospects internalize it, every objection collapses.
+          That sentence is the entire strategy. Once partners and prospects internalize it, every other decision in this document follows. Every objection collapses.
         </p>
 
-        <h2 class="first">The problem with how we have been positioning</h2>
+        <h2 class="first">A category that does not have a name yet</h2>
 
         <p>
-          When we say "alternative investment," we put ourselves in a category investors already have a model for. That model includes hedge funds, private equity, REITs, commodity ETFs, and crypto. All of those compete on yield, complexity, accreditation, and risk tolerance. None of them win the conversation we are trying to have.
+          Every investment category that reshaped how capital moves started in the same place: invisible to the market, dismissed as niche, and quietly working for years before the world caught up. Index funds were called "Bogle's folly" for a decade. Private credit was treated as a backwater until Apollo and Ares built it into a 1.7 trillion dollar asset class. REITs sat dormant from 1960 until the 1990s before institutional money finally arrived. The structural truth in each case was the same the whole time. The story took longer to land than the math required.
         </p>
 
         <p>
-          The conversation we are trying to have is not "should you replace your hedge fund with Totem." The conversation is <strong>"why is your CD, your 401k, your stocks, and your real estate uninsured against loss of either principal or return."</strong>
+          Totem sits in that exact position right now. We have built a contracted, insured, transaction-level commercial loan category that nobody else has stitched together at scale. The team has 2,000-plus transactions through it. Over 3 million dollars of partner capital deployed. Zero defaults. Real Fortune 100 buyers paying real vendors on a 90-day clock with both principal and returns insured by Allianz. The category works. It does not have a household name yet.
         </p>
 
-        <h2>The category we are building</h2>
+        <p>
+          The work in front of us is not to fix what we are doing. The work is to tell the world about a category that has been quietly working for years. We are not the better version of something else. We are the first version of something new.
+        </p>
+
+        <h2>Why "alternative investment" does not fit</h2>
+
+        <p>
+          When we say "alternative investment," we put ourselves in a category investors already have a model for. That model includes hedge funds, private equity, REITs, commodity ETFs, and crypto. All of those compete on yield, complexity, accreditation, and risk tolerance. None of them sit where Totem sits.
+        </p>
+
+        <p>
+          The conversation we are positioned to have is not "should you replace your hedge fund with Totem." The conversation is <strong>"why is your CD, your 401k, your stocks, and your real estate uninsured against loss of either principal or return."</strong> That question has never been asked at scale by anyone who has been able to answer it credibly. We can answer it.
+        </p>
+
+        <h2>The category claim</h2>
 
         <div class="callout callout-gold">
           <div class="callout-eyebrow">The category claim</div>
@@ -2840,24 +3042,110 @@
           </p>
         </div>
 
-        <h2>What this category replaces</h2>
+        <!-- WHAT TOTEM IS NOT -->
+        <div class="not-section">
+          <div class="source-cite">From Zak's article on Totem's structural position</div>
+          <h2>What Totem is not</h2>
+
+          <p>
+            Totem LCG operates in a fundamentally different corner of capital than traditional private equity. PE firms typically underwrite an equity thesis, ownership in an operating company, where value is realized through growth, margin expansion, multiple expansion, or exit optionality. Totem, by contrast, funds the execution of specific, guaranteed purchase orders for goods committed by large, creditworthy buyers, with performance economically insured. In this context, Totem is not pricing an uncertain enterprise value story. It is financing a contracted transaction with bounded fulfillment risk, anchored to the underlying buyer obligation rather than a long-term performance option.
+          </p>
+
+          <div class="hero-quote">
+            <div class="label">The structural distinction</div>
+            <div class="motto">Funding <em>execution,</em><br>not expectation.</div>
+          </div>
+
+          <p>
+            In effect, Totem funds execution while traditional capital funds derivative-like expectation. PE and venture returns are contingent on future operating performance, valuation optionality, and exit outcomes. Totem's returns are structured around the monetization of a specific, insured transaction. The result is a model that is closer to <strong>specialty trade finance or insured purchase-order funding</strong>: capital deployed against a documented commercial obligation, with risk mitigated by insurance and economics tied to fulfillment, not to speculative enterprise-value appreciation.
+          </p>
+
+          <h3 class="subhead">Private credit is not a peer. It is a different product.</h3>
+
+          <p>
+            Private credit, like private equity and venture capital, operates in a similarly expectation-driven space, where investors fund a forward-looking business or cash-flow story rather than a defined, executed transaction. Private credit typically structures cash-flow-based lending or unitranche facilities whose returns depend on the borrower's future operating performance and credit profile. In practice, many private credit portfolios have experienced elevated defaults as those projections fail to materialize. The product is an expectation of success.
+          </p>
+
+          <p>
+            Totem, by contrast, is not underwriting a credit-risk or cash-flow story. It is financing a specific, insured delivery obligation. The economics are not aligned with the expectation-based, principal-at-risk model of private credit.
+          </p>
+
+          <div class="compare-row">
+            <div class="compare-cell is-them">
+              <div class="cc-label">Expectation-based capital</div>
+              <div class="cc-name">PE / VC / Private Credit</div>
+              <p>Returns contingent on future operating performance, valuation optionality, exit outcomes, or borrower cash flow. The thesis is a forecast. The investor pays today for a result that may or may not materialize. Defaults track the gap between expectation and reality.</p>
+            </div>
+            <div class="compare-cell is-us">
+              <div class="cc-label">Execution-based capital</div>
+              <div class="cc-name">Totem LCG</div>
+              <p>Returns structured around the monetization of a specific, contracted, insured transaction. The buyer obligation is the anchor, not a forecast. Risk is bounded to fulfillment. Insurance covers the gap. The economics are tied to delivery, not to enterprise-value appreciation.</p>
+            </div>
+          </div>
+
+          <div class="waterfall-block">
+            <div class="wb-label">Capital stack and recovery</div>
+            <h4>Where Totem sits if anything goes wrong</h4>
+            <p>
+              Within its program structure, Totem's capital deployment is based on a contractual right to repayment and a defined return tied directly to the financed transaction. It is not a residual claim against the vendor's general assets.
+            </p>
+            <p>
+              As a matter of financial and credit design, Totem's recovery waterfall is structured so its repayment and agreed profit share are sourced from the transaction proceeds. Any third-party creditor lien rights typically attach only to assets or receivables that remain the vendor's after Totem's contractual entitlements are satisfied. In practice, this means creditors only encumber funds that are due to the vendor, not amounts that have been contractually allocated to Totem under the program. The capital-stack structure puts Totem's claim ahead of vendor-level secured claims.
+            </p>
+          </div>
+        </div>
+
+        <!-- HISTORICAL ANALOGS -->
+        <div class="analogs">
+          <div class="analogs-eyebrow">The reverse benchmark</div>
+          <h3>Categories that ended up reshaping investing always looked invisible first.</h3>
+          <p>
+            The pattern is the same every time. A structural truth exists. The math works. The capital is already moving in small ways. But the broader market has not named the category yet, so most allocators cannot see it. By the time they see it, the early movers have already compounded.
+          </p>
+
+          <div class="analog-cards">
+            <div class="analog-card">
+              <div class="ac-name">Index Funds</div>
+              <div class="ac-year">1976 to 1991 · 15 years to take hold</div>
+              <p>
+                Jack Bogle launched the first retail index fund in 1976. Wall Street called it "Bogle's folly." The idea that you matched the market instead of beating it was treated as either obvious or insulting. Today, index funds hold trillions and are the default allocation for most retail capital.
+              </p>
+              <div class="takeaway">
+                The category did not exist until someone named it.
+              </div>
+            </div>
+
+            <div class="analog-card">
+              <div class="ac-name">Private Credit</div>
+              <div class="ac-year">2008 to 2024 · 16 years to scale</div>
+              <p>
+                After the 2008 financial crisis, banks pulled back from middle-market lending. Apollo, Ares, and Blackstone Credit stepped in. For a decade, allocators called it niche. By 2024, private credit had grown into a 1.7 trillion dollar asset class and was treated as a core institutional allocation.
+              </p>
+              <div class="takeaway">
+                The structural truth was the same the whole time.
+              </div>
+            </div>
+          </div>
+
+          <p style="margin-top: 32px;">
+            Totem fits the same pattern. The structural truth is that contracted, insured, short-cycle commercial deployment exists and works. The proof is the 2,000-plus transactions and the zero default rate. The only thing missing is the name and the story. That is what the next 12 months produce.
+          </p>
+        </div>
+
+        <h2>What capital this category serves</h2>
 
         <p>
-          This is the part we have been getting wrong. We have been competing for the 5% of capital that is actively shopping for short-cycle PO finance. That market is small. Most of it does not exist.
+          The capital sitting in CDs, 401ks, brokerage accounts, savings accounts, real estate equity, and idle cash has never been asked the 100 percent insurance question. Not because it is the wrong question. Because nobody has been positioned to ask it credibly. We are positioned. The proof is built. The work is to bring the question to the capital that has not heard it yet.
         </p>
 
         <p>
-          The actual market is <strong>100% of the capital currently sitting in CDs, 401ks, brokerage accounts, savings accounts, real estate equity, and idle cash.</strong> The job is to convince capital to leave its current category and move into ours.
-        </p>
-
-        <p>
-          That is a much bigger market. It is also a much harder sale. Investors are scared of the unfamiliar. They are not wrong to be. The job is not to overpower their skepticism. The job is to walk them through the structure, name our buyers, hand them the phone with our partners, and let them verify it themselves.
+          Investors are reasonable to be cautious about the unfamiliar. The job is not to overpower their skepticism. The job is to walk them through the structure, name our buyers, hand them the phone with our partners and our Allianz broker, and let them verify it themselves. The skepticism that used to be the obstacle becomes the strongest part of the close. Once a prospect verifies independently, they stop being skeptical and start telling other people.
         </p>
 
         <h2>The 100% insurance question</h2>
 
         <p>
-          This is the single sentence that makes the case stronger than any spreadsheet. We will use it as the test against every option in Section 04:
+          This is the single sentence that makes the case stronger than any spreadsheet. We use it as the test against every option in Section 04:
         </p>
 
         <div class="big-question">
@@ -2869,11 +3157,11 @@
         <h2>What we name the category</h2>
 
         <p>
-          The language we have been using is "purchase order finance" or "PO funding." Both are accurate. Neither is sticky.
+          The language we use internally is "purchase order finance" or "PO funding." Both are technically accurate. Neither carries the weight the category needs externally. Bogle did not call his product "low-cost mutual fund." He called it an index fund. Apollo did not call its product "non-bank lending." It called it private credit. The naming is the whole game.
         </p>
 
         <p>
-          The language we will use going forward is <strong>commerce-backed private funding.</strong> Three reasons:
+          The language all of us have become accustomed to using is <strong>commerce-backed private funding.</strong> Three reasons it works:
         </p>
 
         <div class="proof-grid">
@@ -2895,7 +3183,7 @@
         </div>
 
         <div class="pull-quote">
-          We are not trying to build a better version of something that already exists. We are trying to make people stop and ask: how did I never hear about this before?
+          We are not building a better version of something that already exists. We are building the first version of something new, and the work is to make people stop and ask: how did I never hear about this before?
         </div>
       </div>
 
@@ -3036,7 +3324,7 @@
       </div>
 
       <div class="page-nav">
-        <button class="page-nav-btn" onclick="goPage(2)">← 02 Reframe</button>
+        <button class="page-nav-btn" onclick="goPage(2)">← 02 The Category</button>
         <div class="page-nav-spacer"></div>
         <button class="page-nav-btn next" onclick="goPage(4)">04 The Comparison →</button>
       </div>
