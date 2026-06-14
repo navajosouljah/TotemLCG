@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Pulse — Totem LC Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #FCFBFA;
+    color: #1F1D1B;
+    font-family: 'Figtree', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .memo {
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 32px 20px 48px;
+  }
+  .masthead-org {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #908C88;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .masthead-rule {
+    border: none;
+    height: 1px;
+    background: #A37B2C;
+    margin-bottom: 10px;
+  }
+  .masthead-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1F1D1B;
+    margin-bottom: 2px;
+  }
+  .masthead-date {
+    font-size: 12px;
+    font-weight: 400;
+    color: #908C88;
+    margin-bottom: 28px;
+  }
+  .section-rule {
+    border: none;
+    height: 1px;
+    background: #E8E6E3;
+    margin-bottom: 28px;
+  }
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1F1D1B;
+    margin-bottom: 6px;
+  }
+  .section-intro {
+    font-style: italic;
+    font-size: 14px;
+    color: #908C88;
+    margin-bottom: 12px;
+  }
+  .bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .bullet-list li {
+    padding-left: 16px;
+    position: relative;
+    margin-bottom: 8px;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .bullet-list li::before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+  }
+  .narrative {
+    font-size: 15px;
+    line-height: 1.65;
+    color: #1F1D1B;
+    margin-bottom: 8px;
+  }
+  .data-line {
+    margin-bottom: 6px;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .data-label {
+    font-weight: 600;
+  }
+  .up-green { color: #4A7A5F; }
+  .down-green { color: #4A7A5F; }
+  .up-red { color: #8B4040; }
+  .down-red { color: #8B4040; }
+  .bottom-line-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #A37B2C;
+    margin-top: 14px;
+    margin-bottom: 6px;
+  }
+  .bottom-line-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .bottom-line-list li {
+    padding-left: 16px;
+    position: relative;
+    margin-bottom: 8px;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .bottom-line-list li::before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+    color: #A37B2C;
+  }
+  .section-spacer {
+    height: 28px;
+  }
+  .footer {
+    margin-top: 28px;
+    padding-top: 28px;
+    border-top: 1px solid #E8E6E3;
+  }
+  .footer-org {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #908C88;
+    margin-bottom: 8px;
+  }
+  .footer-legal {
+    font-size: 12px;
+    color: #908C88;
+    line-height: 1.5;
+  }
+  @media (max-width: 620px) {
+    .memo { padding: 24px 16px 40px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="memo">
+
+  <!-- MASTHEAD -->
+  <div class="masthead-org">TOTEM LC GROUP</div>
+  <hr class="masthead-rule">
+  <div class="masthead-title">Market Pulse</div>
+  <div class="masthead-date">{{ date_str }}</div>
+
+  {%- if news %}
+  <!-- THIS WEEK IN THE NEWS -->
+  <hr class="section-rule">
+  <div class="section-title">This Week in the News</div>
+  <div class="section-intro">{{ news_intro }}</div>
+  <ul class="bullet-list">
+    {%- for item in news %}
+    <li><span class="data-label">{{ item.label }}:</span> {{ item.text }}</li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+
+  {%- if quick_read %}
+  <!-- THE QUICK READ -->
+  <div class="section-spacer"></div>
+  <hr class="section-rule">
+  <div class="section-title">The Quick Read</div>
+  {%- for para in quick_read %}
+  <p class="narrative">{{ para }}</p>
+  {%- endfor %}
+  {%- endif %}
+
+  {%- for section in sections %}
+  <!-- {{ section.title | upper }} -->
+  <div class="section-spacer"></div>
+  <hr class="section-rule">
+  <div class="section-title">{{ section.title }}</div>
+  {%- if section.intro %}
+  <div class="section-intro">{{ section.intro }}</div>
+  {%- endif %}
+  {%- for line in section.lines %}
+  <div class="data-line"><span class="data-label">{{ line.label }}:</span> {{ line.value }}{% if line.change %} <span class="{{ line.cls }}">{{ line.change }}</span>{% endif %}</div>
+  {%- endfor %}
+  {%- if section.bottom_line %}
+  <div class="bottom-line-label">BOTTOM LINE</div>
+  <ul class="bottom-line-list">
+    {%- for bullet in section.bottom_line %}
+    <li>{{ bullet }}</li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+  {%- endfor %}
+
+  {%- if events %}
+  <!-- UPCOMING EVENTS -->
+  <div class="section-spacer"></div>
+  <hr class="section-rule">
+  <div class="section-title">Upcoming Events</div>
+  {%- if events_intro %}
+  <div class="section-intro">{{ events_intro }}</div>
+  {%- endif %}
+  {%- for ev in events %}
+  <div class="data-line"><span class="data-label">{{ ev.date }}</span> &mdash; {{ ev.text }}</div>
+  {%- endfor %}
+  {%- endif %}
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-org">TOTEM LC GROUP &bull; MARKET PULSE</div>
+    <div class="footer-legal">{{ footer_legal }}</div>
+  </div>
+
+</div>
+
+</body>
+</html>
