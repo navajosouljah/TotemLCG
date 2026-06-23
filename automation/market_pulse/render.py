@@ -4,7 +4,7 @@ from __future__ import annotations
 import logging
 from pathlib import Path
 
-from jinja2 import Environment, FileSystemLoader, select_autoescape
+from jinja2 import Environment, FileSystemLoader
 
 from . import config
 
@@ -129,9 +129,11 @@ def build_context(*, date_str, live, overrides, narrative, footer_legal) -> dict
 
 
 def render_html(context: dict) -> str:
+    # autoescape=True (not select_autoescape, whose extension check misses the
+    # ".html.j2" suffix and would leave data-supplied & / < unescaped).
     env = Environment(
         loader=FileSystemLoader(str(TEMPLATE_DIR)),
-        autoescape=select_autoescape(["html"]),
+        autoescape=True,
         trim_blocks=False,
         lstrip_blocks=False,
     )
