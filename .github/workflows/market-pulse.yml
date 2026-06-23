@@ -1,12 +1,12 @@
 name: Market Pulse
 
-# Runs every weekday morning at 8 AM ET (12:00 UTC, which is 8 AM EDT / 7 AM EST).
+# Runs every weekday morning at 6 AM ET (10:00 UTC = 6 AM EDT / 5 AM EST).
 # Friday run adds --friday flag for the Totem Challenge step.
 # Can also be triggered manually from the Actions tab.
 
 on:
   schedule:
-    - cron: '0 12 * * 1-5'
+    - cron: '0 10 * * 1-5'
   workflow_dispatch:
     inputs:
       friday:
