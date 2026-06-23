@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Totem Challenge — Target Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #FCFBFA; color: #1F1D1B; font-family: 'Figtree', sans-serif; font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .memo { max-width: 620px; margin: 0 auto; padding: 32px 20px 48px; }
+  .masthead-org { font-size: 11px; font-weight: 600; letter-spacing: 4px; color: #908C88; text-transform: uppercase; margin-bottom: 10px; }
+  .masthead-rule { border: none; height: 1px; background: #A37B2C; margin-bottom: 10px; }
+  .masthead-title { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+  .masthead-date { font-size: 12px; color: #908C88; margin-bottom: 24px; }
+  .rec { background: #FDF8E9; border: 1px solid #E8DFC4; border-radius: 8px; padding: 12px 16px; margin-bottom: 24px; font-size: 14px; }
+  .rec .label { font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #A37B2C; display: block; margin-bottom: 4px; }
+  .card { border-top: 1px solid #E8E6E3; padding: 18px 0; }
+  .card .rank { font-size: 12px; font-weight: 700; color: #A37B2C; }
+  .card h2 { font-size: 18px; font-weight: 700; margin: 2px 0 2px; }
+  .card .title { font-size: 13px; font-style: italic; color: #908C88; margin-bottom: 10px; }
+  .card .row { margin-bottom: 8px; }
+  .card .k { font-weight: 600; }
+  .badge { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #4A7A5F; background: #EAF2EC; border-radius: 4px; padding: 2px 7px; margin-right: 6px; }
+  .badge.alt { color: #1A3A52; background: #E7EEF4; }
+  .score { font-size: 12px; color: #908C88; }
+  .sources { font-size: 13px; margin-top: 6px; }
+  .sources a { color: #A37B2C; }
+  .footer { margin-top: 28px; padding-top: 20px; border-top: 1px solid #E8E6E3; font-size: 12px; color: #908C88; }
+</style>
+</head>
+<body>
+<div class="memo">
+  <div class="masthead-org">TOTEM LC GROUP</div>
+  <hr class="masthead-rule">
+  <div class="masthead-title">The Totem Challenge — Weekly Target Brief</div>
+  <div class="masthead-date">Week of {{ week_of }}</div>
+
+  {%- if brief.recommended %}
+  <div class="rec"><span class="label">Recommended target</span>{{ brief.recommended }}</div>
+  {%- endif %}
+
+  {%- for c in brief.candidates %}
+  <div class="card">
+    <div class="rank">#{{ loop.index }}</div>
+    <h2>{{ c.name }}</h2>
+    <div class="title">{{ c.title }}</div>
+    <div class="row">
+      {%- if c.category == 'champions_alternative' %}<span class="badge alt">Champions alternative</span>
+      {%- else %}<span class="badge">Notable claim</span>{% endif %}
+      <span class="score">notability {{ c.notability }}/10</span>
+    </div>
+    <div class="row"><span class="k">Claim:</span> {{ c.claim }}</div>
+    <div class="row"><span class="k">Totem angle:</span> {{ c.totem_angle }}</div>
+    {%- if c.sources %}
+    <div class="sources"><span class="k">Sources:</span>
+      {%- for s in c.sources %} <a href="{{ s.url }}">{{ s.title }}</a>{% if not loop.last %} ·{% endif %}{% endfor %}
+    </div>
+    {%- endif %}
+  </div>
+  {%- endfor %}
+
+  <div class="footer">Generated for editorial review. Not yet approved or published — pick a target, then mark it covered. Claims and sources are auto-collected from the web and should be verified before publication.</div>
+</div>
+</body>
+</html>

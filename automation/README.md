@@ -1,4 +1,27 @@
-# Market Pulse — newsletter automation
+# Totem LC Group — newsletter automation
+
+This folder holds two automations:
+
+1. **Market Pulse** (`generate.py` + `market_pulse/`) — the weekly markets memo, below.
+2. **The Totem Challenge target finder** (`totem_challenge/find_targets.py`) — every
+   Wednesday, web-searches the week's most notable challenge-worthy finance figures
+   and writes a ranked **Target Brief** (HTML + Markdown) to `output/` for editorial
+   review. Targets are notable/contrarian finance claims *and* champions of competing
+   vehicles (index funds, T-bills, private credit) that Totem can be positioned
+   against. Already-covered names live in `totem_challenge/data/done.yaml`
+   (seed: Jamie Dimon, Charlie Bilello) and are excluded.
+
+   ```bash
+   export ANTHROPIC_API_KEY=...        # required (uses Claude's web_search tool)
+   python totem_challenge/find_targets.py --count 4
+   python totem_challenge/find_targets.py --mark "Jeffrey Gundlach"   # mark covered
+   ```
+   Scheduled weekly via `.github/workflows/totem-challenge-targets.yml` (Wednesdays).
+   The brief is committed for review; nothing publishes automatically.
+
+---
+
+# Market Pulse — markets memo
 
 Regenerates the Totem LC Group **Market Pulse** weekly markets memo. It fetches
 live market data from free APIs, merges in the hand-curated stats that no free
