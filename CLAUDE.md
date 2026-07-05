@@ -87,6 +87,29 @@ isn't ending soon."
 **Bad (restatement, no so-what):** "The 30-year mortgage rate is 6.9%, up from
 last week."
 
+## Skills & subagents
+
+Authored helpers live in `.claude/`. Use them; don't reinvent their rules inline.
+
+- **`house-style`** skill — voice, output formats, and compliance do-nots for any
+  reader-facing copy. Load it before drafting or editing an issue.
+- **`fact-check`** skill — the gate a claim passes before it ships: verify an
+  attributed quote or a market figure against a live primary source. Run it on
+  every Totem Challenge target and every stated number.
+- **`claim-verifier`** subagent (`.claude/agents/`) — runs the fact-check
+  discipline autonomously on one claim; fan out one per candidate to vet a whole
+  target brief in parallel.
+
+## Working conventions
+
+- Develop on a feature branch; open a **draft** PR — never commit straight to the
+  default branch. Vercel builds a preview per PR.
+- Before committing a generator change, run the offline smoke test
+  (`python generate.py --no-fetch --no-narrative`) and confirm it still reproduces
+  the seeded baseline.
+- Automated jobs commit only `automation/output/`. Human edits go to source
+  (`overrides.yaml`, templates, `config.py`), never to `output/`.
+
 ## Layout
 
 ```
@@ -99,7 +122,8 @@ automation/
   output/                     # generated issues (do not hand-edit)
   README.md                   # detailed automation docs
 .github/workflows/            # Monday + Wednesday scheduled jobs
-.claude/skills/               # authored skills (see house-style)
+.claude/skills/               # house-style, fact-check
+.claude/agents/               # claim-verifier subagent
 ```
 
 See `automation/README.md` for the full data-source map, setup, and

@@ -51,7 +51,17 @@ concrete; never generic ("a smarter way to invest").
 5. **Return only the requested artifact** in the exact format — no preamble,
    no "Here's your copy", no markdown fences unless the format calls for them.
 
+## The so-what test
+
+Before any sentence ships, ask: **"So what — what does this change for the
+reader's money or decisions?"** If the sentence only restates a number already in
+the table, it fails. The so-what is the second half of the sentence, after the
+number: *the number* → *what it means*. Every Bottom Line and Quick Read line must
+pass this test.
+
 ## Output formats
+
+Match these shapes exactly. Lengths are ceilings, not targets — shorter is better.
 
 **Bottom Line bullets** — 2–4 per section, each one sentence, each a so-what:
 ```
@@ -65,6 +75,24 @@ the table:
 _Rates drifted higher again as the market gave up on a near-term cut._
 ```
 
+**Quick Read paragraph** — 2–4 sentences, ≤55 words, plain text. Opens with the
+week's single most important move, closes with the so-what for an ordinary
+investor. No bullet, no heading:
+```
+The Fed held again and the market finally stopped pricing a summer cut. Two-year
+yields pushed back toward 4.8%, and mortgage rates followed. If you're waiting to
+refinance, this isn't the week — and it may not be the quarter.
+```
+
+**News headline item** — a `label` (≤8-word noun phrase, no verb-of-being) plus a
+2–3 sentence `text` that explains why it matters:
+```
+label: "Oil slips under $70"
+text:  "WTI closed the week below $70 for the first time since spring. Traders
+        read it as softening demand more than added supply. Cheap gas now, but a
+        demand signal worth watching."
+```
+
 **Totem Challenge angle** — 1–2 sentences, target's fear → Totem's answer:
 ```
 Gundlach is warning on private-credit opacity and marks nobody can verify.
@@ -72,8 +100,22 @@ Totem's contracted, Allianz-insured, transaction-level PO structure is the
 answer to exactly that: every dollar tied to a named Fortune 100 receivable.
 ```
 
-**Market Pulse JSON** (when generating the full narrative programmatically) —
-match the schema in `narrative.py` exactly; return only the JSON object.
+**Market Pulse JSON** (full narrative, generated programmatically) — return ONLY
+the JSON object, no fences. This is the canonical shape (source of truth is
+`SYSTEM_PROMPT` in `automation/market_pulse/narrative.py` — if the two disagree,
+narrative.py wins and this block must be updated to match):
+```json
+{
+  "news_intro": "one short italic sentence",
+  "news": [{"label": "Headline phrase", "text": "2-3 sentence explanation"}],
+  "quick_read": ["paragraph", "..."],
+  "sections": {
+    "<section_id>": {"intro": "one italic sentence", "bottom_line": ["bullet", "..."]}
+  }
+}
+```
+Section ids you must cover: `stocks, rates, savings, energy, commodities, crop,
+realestate, household, crypto, world`.
 
 ## Do-nots (compliance — hard stops)
 
