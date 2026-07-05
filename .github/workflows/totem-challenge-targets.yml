@@ -1,7 +1,22 @@
 name: Totem Challenge Target Finder
 
-# Every Wednesday, research the week's most notable challenge-worthy finance
-# figures and commit a Target Brief (HTML + Markdown) for editorial review.
+# ─────────────────────────────────────────────────────────────────────────────
+# WHAT THIS DOES
+#   Every Wednesday, web-searches the week's most notable, challenge-worthy
+#   finance figures and commits a ranked Target Brief (HTML + Markdown) to
+#   automation/output/ for editorial review. Also runnable on demand.
+#
+# GUARANTEES / DO-NOTS
+#   - This job REQUIRES ANTHROPIC_API_KEY (the finder uses Claude's web_search
+#     tool). Without it, find_targets.py exits non-zero and the run fails loudly
+#     — that is intended, not a bug to paper over.
+#   - It only WRITES A BRIEF FOR REVIEW. It never marks a target "done", never
+#     edits data/done.yaml, and never publishes anything. A human picks the
+#     target and marks it covered.
+#   - Commits ONLY automation/output/. Never `git add -A`.
+#   - Runs on the default branch only.
+# ─────────────────────────────────────────────────────────────────────────────
+
 on:
   schedule:
     - cron: "0 13 * * 3"   # Wednesdays 13:00 UTC
@@ -19,9 +34,14 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: totem-challenge
+  cancel-in-progress: false
+
 jobs:
   find-targets:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     defaults:
       run:
         working-directory: automation
@@ -29,16 +49,27 @@ jobs:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+
+      - name: Check required secret
+        run: |
+          if [ -z "${ANTHROPIC_API_KEY}" ]; then
+            echo "::error::ANTHROPIC_API_KEY is not set. Add it as an Actions secret — the target finder cannot run without web search."
+            exit 1
+          fi
+
       - name: Install dependencies
         run: pip install -r requirements.txt
+
       - name: Find targets
         run: |
           python totem_challenge/find_targets.py \
             ${{ github.event.inputs.date && format('--date {0}', github.event.inputs.date) || '' }} \
             --count ${{ github.event.inputs.count || '4' }}
+
       - name: Commit brief
         run: |
           git config user.name "github-actions[bot]"
@@ -46,7 +77,11 @@ jobs:
           git add output/
           if git diff --cached --quiet; then
             echo "No new brief to commit."
-          else
-            git commit -m "Totem Challenge: target brief $(date -u +%Y-%m-%d)"
-            git push
+            exit 0
           fi
+          git commit -m "Totem Challenge: target brief $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push && exit 0
+            echo "push attempt $i failed; retrying" && sleep $((2 ** i))
+          done
+          echo "::error::could not push target brief after retries" && exit 1

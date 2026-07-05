@@ -19,6 +19,38 @@ This folder holds two automations:
    Scheduled weekly via `.github/workflows/totem-challenge-targets.yml` (Wednesdays).
    The brief is committed for review; nothing publishes automatically.
 
+   **What a brief looks like** — `output/totem_challenge_targets_<date>.{html,md}`, a
+   ranked list. Each candidate carries: `name`, `title`, the specific recent
+   `claim` (with what/when), a one-line `totem_angle` (how Totem's insured PO
+   structure answers it), a `category` (`notable_claim` or `champions_alternative`),
+   a `notability` 1–10, and live `sources`. Example top entry:
+
+   > **#1 Jeffrey Gundlach** — DoubleLine CEO · notable claim · 9/10
+   > **Claim:** Publicly warning on private-credit opacity and unrealized losses (this week).
+   > **Totem angle:** Totem's contracted, Allianz-insured, transaction-level PO structure is a direct answer to exactly the opacity he's flagging.
+   > **Sources:** [link], [link]
+
+## Guardrails (read before running or publishing)
+
+**Do**
+- Keep the manual figures in `overrides.yaml` current — they're the numbers no
+  free feed exposes, and stale ones are the #1 source of a wrong issue.
+- Review every generated issue/brief in `output/` before it goes out. These are
+  drafts, not sends.
+- Add a Totem Challenge name to `done.yaml` **only after** it actually ships.
+
+**Don't**
+- **Never invent numbers, tickers, quotes, or events.** If a live feed is down,
+  fall back to `overrides.yaml` or leave it — do not fabricate.
+- **Never publish a Totem Challenge target without verifying the claim and its
+  source URL by hand.** We name real people; a misquote is a legal/reputational
+  problem, not a typo.
+- **Never commit secrets.** API keys live in env vars / Actions secrets only.
+- **Never hand-edit files in `output/`** — they're regenerated and your edits are
+  lost. Change the source (`overrides.yaml`, templates, config) instead.
+- Nothing in `automation/` sends email or posts anywhere. Publishing is a
+  separate, human step.
+
 ---
 
 # Market Pulse — markets memo
@@ -97,6 +129,19 @@ June 2, 2026 issue — a good smoke test.
 demand, committing the rendered issue to `automation/output/`. Add
 `FRED_API_KEY`, `ANTHROPIC_API_KEY`, and optionally `COINGECKO_API_KEY` as repo
 **Actions secrets**.
+
+## Troubleshooting
+
+| Symptom | Cause / fix |
+| --- | --- |
+| Rates section shows fallback values | `FRED_API_KEY` missing or FRED unreachable → set the key, or accept the `overrides.yaml` fallback. |
+| Prose is generic / from overrides | `ANTHROPIC_API_KEY` missing or `anthropic` not installed → set the key and `pip install anthropic`, or you ran `--no-narrative`. |
+| A live number looks stale | Stooq/CoinGecko throttled or returned nothing; the fetch is best-effort and falls back. Re-run, or update `overrides.yaml`. |
+| Totem Challenge job fails immediately | `ANTHROPIC_API_KEY` not set — this tool has no offline mode by design. |
+| Same target keeps appearing | It isn't in `done.yaml` yet. Run `find_targets.py --mark "Name"` after you publish. |
+| PDF step fails | `playwright install chromium` not run, or no headless deps on the box. |
+
+To reproduce a known-good baseline offline: `python generate.py --no-fetch --no-narrative`.
 
 ## Layout
 
