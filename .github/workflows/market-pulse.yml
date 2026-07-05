@@ -1,0 +1,60 @@
+name: Market Pulse
+
+# Runs every weekday morning at 6 AM ET (10:00 UTC = 6 AM EDT / 5 AM EST).
+# Friday run adds --friday flag for the Totem Challenge step.
+# Can also be triggered manually from the Actions tab.
+
+on:
+  schedule:
+    - cron: '0 10 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      friday:
+        description: 'Force Friday mode (market pulse + Totem Challenge)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scripts/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Run market pulse update
+        run: |
+          WEEKDAY=$(date -u +%u)   # 1=Mon … 5=Fri
+          FORCE_FRIDAY="${{ inputs.friday }}"
+          if [ "$WEEKDAY" = "5" ] || [ "$FORCE_FRIDAY" = "true" ]; then
+            python scripts/update_market_pulse.py --friday
+          else
+            python scripts/update_market_pulse.py
+          fi
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name  "market-pulse[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "Nothing changed — skipping commit."
+          else
+            git commit -m "chore: market pulse — $(date -u +'%b %d, %Y')"
+            git push origin main
+          fi
