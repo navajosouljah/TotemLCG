@@ -1,0 +1,8 @@
+# The Totem Challenge — targets already covered.
+# The weekly finder excludes anyone listed here. Add a name after the team
+# actually publishes an issue against them (use `--mark "Name"` or edit by hand).
+done:
+  - name: "Jamie Dimon"
+    note: "JPMorgan CEO — private credit 'worse than people think' (annual letter, 2026)"
+  - name: "Charlie Bilello"
+    note: "Markets data commentator — 'peak mania' / SpaceX valuation, CPI takes"

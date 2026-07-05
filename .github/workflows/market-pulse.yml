@@ -1,0 +1,81 @@
+name: Market Pulse Newsletter
+
+# ─────────────────────────────────────────────────────────────────────────────
+# WHAT THIS DOES
+#   Builds the weekly "Market Pulse" issue every Monday and commits the rendered
+#   HTML + PDF to automation/output/. Also runnable on demand from the Actions
+#   tab (optionally for a back-dated week).
+#
+# GUARANTEES / DO-NOTS
+#   - Runs on the default branch only (that's where the schedule fires). Never
+#     add a step that pushes to a contributor's feature branch.
+#   - Commits ONLY automation/output/. Never `git add -A` — overrides.yaml and
+#     source are human-owned and must not be auto-committed.
+#   - No secrets are ever echoed. Keys come from Actions secrets; generate.py
+#     degrades gracefully when one is missing (falls back to overrides.yaml).
+#   - Idempotent: if the render is byte-identical to what's already committed,
+#     the job commits nothing and exits clean.
+# ─────────────────────────────────────────────────────────────────────────────
+
+on:
+  schedule:
+    - cron: "0 11 * * 1"   # Mondays 11:00 UTC
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Reference date (YYYY-MM-DD); blank = today"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+# Never let a manual run and the Monday cron push over each other.
+concurrency:
+  group: market-pulse
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15          # a hung data fetch must fail, not idle for hours
+    defaults:
+      run:
+        working-directory: automation
+    env:
+      FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install playwright
+          playwright install --with-deps chromium
+
+      - name: Generate newsletter
+        run: |
+          python generate.py --pdf ${{ github.event.inputs.date && format('--date {0}', github.event.inputs.date) || '' }}
+
+      - name: Commit output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "Market Pulse: weekly issue $(date -u +%Y-%m-%d)"
+          # Rebase-then-push with backoff so a racing commit doesn't fail the run.
+          for i in 1 2 3 4; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push && exit 0
+            echo "push attempt $i failed; retrying" && sleep $((2 ** i))
+          done
+          echo "::error::could not push rendered issue after retries" && exit 1

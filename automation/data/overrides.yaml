@@ -1,0 +1,179 @@
+# Market Pulse — manual data & narrative fallbacks
+# -------------------------------------------------
+# Anything a free API can't provide lives here, plus narrative fallbacks used
+# when no ANTHROPIC_API_KEY is set. Seeded with the Week of June 2, 2026 issue
+# so `python generate.py --no-fetch --no-narrative` reproduces the sample.
+#
+# Each editor only needs to refresh:
+#   * sections.<id>.lines        (manual stats: real estate, household, crop, savings, gas, world)
+#   * sections.<id>.metric_fallbacks  (only used if a live API is unreachable)
+#   * events / events_intro
+# Live-fetched sections (stocks, rates yields, energy oil, commodities, crypto)
+# auto-populate; their intro/bottom_line are written by the LLM when enabled.
+
+news_intro: "A few headlines every investor should have on their radar right now."
+news:
+  - label: "SpaceX IPO set to be the largest in history"
+    text: "The SpaceX–xAI merger heads to Nasdaq on June 12 at a $1.8–2 trillion valuation, aiming to raise up to $75 billion. Road show kicks off June 4. Elon Musk retains 85% voting control through dual-class shares."
+  - label: "Iran peace talks collapse, oil spikes"
+    text: "Iran walked away from negotiations after Israel expanded strikes in Lebanon. Brent crude surged past $97 as the Strait of Hormuz blockade — now in its fourth month — continues to choke ~20% of global oil trade."
+  - label: "S&P 500 closes above 7,600 for the first time"
+    text: "Nine consecutive positive weeks through May 30. Tech surged 19.8% in May alone, led by Nvidia, Dell (+10%), and HP (+8%). 85% of S&P 500 firms beat earnings estimates this quarter."
+  - label: "Eurozone inflation jumps to 3.2%"
+    text: "Energy costs from the Middle East conflict are hitting Europe harder than the US. The ECB is now expected to hike 25bps on June 11 — diverging from the Fed's hold-steady stance."
+
+quick_read:
+  - "Stocks are at all-time highs on a narrow AI rally, but credit card delinquencies just hit the highest level since 2011 (13.1%), the savings rate remains pinned at 2.6%, crypto dumped 5% overnight, and oil is back above $96 on a four-month Strait of Hormuz blockade. Bonds remain the quiet winner as the Fed holds steady. Drought is worsening across cattle country and the corn belt, setting up higher food prices into 2027."
+  - "The S&P 500 cleared 7,600 for the first time on Monday, capping a historic nine-week win streak fueled almost entirely by mega-cap AI names. Tech gained nearly 20% in May alone. But small caps are only barely participating, and the VIX at 16 still signals complacency about real risks underneath. The SpaceX IPO on June 12 will test just how much appetite the market has for risk at these valuations."
+  - "The bond market is telling a different story. The Fed held at 3.50–3.75% for the third straight meeting, the yield curve has normalized, and the 30-year is knocking on 5%. For investors looking for income with less downside risk than equities, fixed income is increasingly attractive. Meanwhile, oil prices are re-accelerating — Brent near $97 and WTI at $96 — as Iran peace talks collapsed and the Hormuz chokepoint remains closed."
+  - "Housing distress continues to build. Foreclosure filings rose 26% year-over-year in Q1 and bank repossessions surged 42% in April. FHA delinquencies are spiking as pandemic-era forbearance expires. Consumer balance sheets are stretched: credit card delinquencies at 13.1%, subprime auto defaults at a 32-year high, and nearly half of BNPL users paying late — all while the savings rate sits at levels not seen since 2008."
+  - "Commodities are mixed but the food story is quietly intensifying. Gold pulled back to $4,457 on profit-taking, but drought across the Southern Plains is forcing cattle herd liquidation and threatening corn yields. In crypto, a sharp Tuesday selloff took Bitcoin below $68K and Solana down to $77, reinforcing that digital assets are not leading risk appetite this cycle."
+
+events_intro: "Jobs, CPI, SpaceX IPO, ECB, and the Fed — all in the next two weeks. Any single miss could reprice markets."
+events:
+  - {date: "Jun 4",     text: "SpaceX IPO road show begins."}
+  - {date: "Jun 5",     text: "May jobs report (nonfarm payrolls). Sets the tone for the FOMC."}
+  - {date: "Jun 9",     text: "May existing-home sales (NAR)."}
+  - {date: "Jun 10",    text: "May CPI report. Critical read before the Fed decision."}
+  - {date: "Jun 11",    text: "ECB rate decision (25bps hike expected); US PPI release."}
+  - {date: "Jun 12",    text: "SpaceX IPO — Nasdaq listing (ticker: SPCX)."}
+  - {date: "Jun 16–17", text: "FOMC decision (hold expected) + updated dot plot. Bank of Japan also in focus."}
+  - {date: "Ongoing",   text: "Strait of Hormuz blockade — the biggest swing factor for oil and inflation."}
+
+sections:
+  stocks:
+    intro: "All three major indices at record highs entering June, but the rally remains narrow and AI-dependent."
+    bottom_line:
+      - "The S&P above 7,600 for the first time caps nine consecutive positive weeks. Tech alone was up 19.8% in May. That kind of concentration in one sector makes the index look healthier than it is."
+      - "Small caps finally caught a bid (+0.90%) but are still dramatically lagging large caps on the year. This divergence is a classic late-cycle signal that the rally is not broad-based."
+      - "VIX ticking up to 16 is still low by historical standards. The market is not pricing in the SpaceX IPO liquidity drain, the Hormuz closure, or the consumer credit deterioration building underneath."
+    metric_fallbacks:
+      sp500:   {label: "S&P 500",                value: "7,610",  change: "+0.13%", cls: up-green}
+      dow:     {label: "Dow Jones",              value: "51,308", change: "+0.45%", cls: up-green}
+      nasdaq:  {label: "Nasdaq",                 value: "27,094", change: "+0.03%", cls: up-green}
+      russell: {label: "Russell 2000 (small caps)", value: "2,932", change: "+0.90%", cls: up-green}
+      vix:     {label: "Fear gauge (VIX)",       value: "16.03",  change: "+1.65%", cls: up-red}
+
+  rates:
+    intro: "Fed on hold, curve normalized, and the 30-year is testing 5% — a level that could rattle rate-sensitive assets."
+    lines:
+      - {label: "Fed policy rate", value: "3.50–3.75% (held 3 consecutive meetings)"}
+    bottom_line:
+      - "The yield curve is normalized at +42bps (10Y minus 2Y) after a prolonged inversion. Constructive for lending, but the 30-year at 4.97% is one bad auction away from breaching 5% — a psychologically important level."
+      - "Mortgages at 6.53% are 36bps cheaper than a year ago but still punishing for affordability. The June 16–17 FOMC meeting is the next catalyst. The Fed is expected to hold, but the dot plot update could shift rate-cut expectations."
+      - "A policy lean focused on cheap credit for small business makes bonds more attractive and equities more vulnerable to repricing."
+    metric_fallbacks:
+      ust2:       {label: "2-year Treasury",  value: "4.03%"}
+      ust10:      {label: "10-year Treasury", value: "4.45%"}
+      ust30:      {label: "30-year Treasury", value: "4.97%"}
+      mortgage30: {label: "30-year mortgage (avg.)", value: "6.53%"}
+
+  savings:
+    intro: "Cash is still paying well — if you shop around. Most savers are not."
+    lines:
+      - {label: "National avg 1-yr CD", value: "1.98%"}
+      - {label: "Best online banks",    value: "4.11% (Popular Direct)"}
+      - {label: "Best credit unions",   value: "5.00% (A+ Federal CU, up to $1K)"}
+    bottom_line:
+      - "The gap between the national average CD (1.98%) and the best available (5.00%) is over 300bps. Most savers are leaving real money on the table at big banks that have no incentive to raise deposit rates."
+      - "With the Fed likely to hold or eventually cut, today's top rates are a window. Locking in 4%+ for 12 months is a reasonable defensive move for cash you do not need immediately."
+
+  energy:
+    intro: "Oil re-accelerating as Iran talks collapse and the Hormuz blockade enters its fourth month."
+    lines:
+      - {label: "National gas avg / gallon", value: "$4.26"}
+      - {label: "California gas",            value: "$5.99"}
+      - {label: "Cheapest state (Indiana)", value: "$3.59"}
+    bottom_line:
+      - "Oil is back above $95 after Iran peace talks collapsed. The Strait of Hormuz has been effectively blockaded since late February, choking ~20% of global oil trade. Until that reopens, crude has a floor."
+      - "National pump prices dipped slightly to $4.26 from recent highs, but California at $5.99 shows how quickly structural bottlenecks can push a region toward $6. The $2.40 spread is driven by refinery capacity and state regulation — it is not going away."
+      - "US energy policy still points toward medium-term supply relief, but that relief is quarters away, not weeks."
+    metric_fallbacks:
+      wti:   {label: "WTI oil / barrel",   value: "$95.68", change: "+4.00%", cls: up-red}
+      brent: {label: "Brent oil / barrel", value: "$96.89", change: "+2.40%", cls: up-red}
+
+  commodities:
+    intro: "Gold pulling back from highs, copper holding on demand, and drought is the sleeper story in agriculture."
+    bottom_line:
+      - "Gold at $4,457 pulled back modestly on profit-taking but remains near records. Central bank buying and persistent geopolitical risk keep the structural bid intact. Silver's retreat from $89 to $75 is sharper — the industrial demand story is still there but speculative froth has cooled."
+      - "Copper at $6.59 (+36% YoY) continues to signal real industrial demand. AI data center buildout and electrification are structural tailwinds that have not peaked."
+      - "Cattle near $240/cwt is extreme. Drought-driven herd liquidation means cheaper beef now but a supply crunch and higher prices through 2027. 25% of corn fields are already in drought — one bad weather week could ignite a speculative rally."
+    metric_fallbacks:
+      gold:     {label: "Gold / oz",          value: "$4,457", change: "−0.70%", cls: down-red}
+      silver:   {label: "Silver / oz",        value: "$74.74", change: "−0.50%", cls: down-red}
+      copper:   {label: "Copper / lb",        value: "$6.59",  change: "+0.50%", cls: up-green}
+      corn:     {label: "Corn / bushel",      value: "$4.41",  change: "−0.80%", cls: down-red}
+      soybeans: {label: "Soybeans / bushel",  value: "$11.65", change: "−1.40%", cls: down-red}
+      cattle:   {label: "Cattle / lb (live)", value: "$2.40",  change: "+0.40%", cls: up-red}
+
+  crop:
+    intro: "Drought deepening across cattle country and the corn belt. Winter wheat in historically poor shape."
+    lines:
+      - {label: "Winter wheat",   value: "49% headed; 37% rated poor-to-very-poor (drought damage severe)."}
+      - {label: "Corn",          value: "25% of fields in drought; summer heat and dryness the main risk ahead."}
+      - {label: "Southern Plains", value: "Harvest underway in TX and OK but yields already reduced by drought and late-season freeze damage."}
+      - {label: "Pasture",       value: "Dry conditions across cattle country driving accelerated herd liquidation."}
+    bottom_line:
+      - "37% of winter wheat rated poor-to-very-poor is alarming and points to higher flour and bread prices later this year. This is one of the worst ratings in recent memory."
+      - "Drought across the Southern Plains is forcing ranchers to sell cattle they cannot afford to feed. Cheaper beef now, but the supply crunch on the other side will be painful for consumers."
+      - "Corn drought risk remains the sleeper story. If summer heat materializes as forecast, grain markets could spike hard and add to grocery-price pressure."
+
+  realestate:
+    intro: "Foreclosures accelerating, FHA distress spiking, and the market remains frozen at 6.5% mortgage rates."
+    lines:
+      - {label: "Foreclosure filings Q1 (vs. last yr)", value: "", change: "+26%", cls: up-red}
+      - {label: "Bank repossessions / REOs, April (vs. last yr)", value: "", change: "+42%", cls: up-red}
+      - {label: "April foreclosure filings", value: "42,430", change: "−8% MoM", cls: down-green}
+      - {label: "Mortgage delinquency rate", value: "4.44%", change: "+40bps YoY", cls: up-red}
+      - {label: "FHA delinquency (vs. last yr)", value: "", change: "+126bps", cls: up-red}
+      - {label: "Existing-home sales (annual pace)", value: "4.02M (+0.2% MoM)"}
+      - {label: "Median home price", value: "$396,173", change: "+2.4% YoY", cls: up-green}
+      - {label: "Listings cutting price", value: "~21%"}
+      - {label: "30-year mortgage rate", value: "6.53%"}
+    bottom_line:
+      - "Foreclosures up 26% YoY in Q1 with REOs surging 42% in April. The distress pipeline is accelerating as pandemic-era FHA forbearance programs have fully expired."
+      - "4.02M existing home sales pace is historically frozen. Normal is 5–5.5M. At 6.53% mortgage rates, sellers and buyers remain in a standoff with no catalyst for resolution before the Fed acts."
+      - "FHA delinquencies spiking 126bps YoY is the canary. These are the most vulnerable borrowers — lower income, lower equity, higher DTI — and they are falling behind fast."
+      - "Prices are still up 2.4% YoY nationally, but that masks regional divergence. Sun Belt markets (Austin, Dallas, Phoenix, San Antonio) are in outright buyer's markets with aggressive price cuts."
+
+  household:
+    intro: "A 2.6% savings rate, record debt, credit card delinquencies at the highest level since 2011, and stress signals everywhere."
+    lines:
+      - {label: "Total household debt", value: "$18.8 trillion (record)"}
+      - {label: "Credit card debt", value: "$1.25 trillion", change: "+5.9% YoY", cls: up-red}
+      - {label: "Credit card delinquency (90+ days)", value: "13.1%", change: "(highest since 2011)", cls: up-red}
+      - {label: "Avg. credit card APR", value: "22.17% (record)"}
+      - {label: "Avg. new-car payment", value: "~$758 / mo (avg. loan term: 69 months)"}
+      - {label: "Subprime auto 60+ days late", value: "6.9% (32-yr record)"}
+      - {label: "Buy-now-pay-later users paying late", value: "47%"}
+      - {label: "Personal savings rate", value: "2.6% (lowest since 2008)"}
+    bottom_line:
+      - "Credit card delinquencies at 13.1% — the highest since 2011 — with a 22.17% average APR is a punishing combination. Borrowers who fall behind compound debt at rates that make recovery nearly impossible."
+      - "$18.8 trillion in household debt at a 2.6% savings rate is the definition of running on fumes. Every prior reading of the savings rate this low preceded a market downturn."
+      - "Subprime auto delinquencies at a 32-year high and nearly half of BNPL users paying late signals real stress below the surface of record stock prices. This is not a healthy consumer."
+      - "The Q1 dip in credit card balances ($1.25T from $1.28T in Q4) is seasonal, not structural. Year-over-year balances are still up 5.9% and delinquencies are accelerating."
+
+  crypto:
+    intro: "Sharp Tuesday selloff across the board. Bitcoin back below $68K, altcoins hit harder."
+    bottom_line:
+      - "Bitcoin dumped 5.5% on Tuesday, falling back below $68K after months of consolidation. Needs a clear catalyst — ETF flow acceleration, macro liquidity injection, or regulatory clarity — to break out of this range."
+      - "ETH at $1,925 and Solana at $77 are well off their prior-cycle highs. Neither is leading risk appetite right now."
+      - "Crypto is not leading the risk-on trade this cycle — equities are. That tells you speculative animal spirits are more selective and institutional than 2021."
+    metric_fallbacks:
+      btc: {label: "Bitcoin (BTC)",  value: "$67,562", change: "−5.50%", cls: down-red}
+      eth: {label: "Ethereum (ETH)", value: "$1,925",  change: "−3.00%", cls: down-red}
+      sol: {label: "Solana",         value: "$76.97",  change: "−4.50%", cls: down-red}
+      xrp: {label: "XRP",            value: "$1.24",   change: "−4.60%", cls: down-red}
+
+  world:
+    intro: "Japan surging to new records, Europe diverging from the Fed, China stuck, EM near 52-week highs."
+    lines:
+      - {label: "Europe", value: "STOXX 600 near resistance. ECB expected to hike 25bps June 11 as Iran-driven energy inflation pushes eurozone CPI to 3.2%. FTSE 100 at 10,374."}
+      - {label: "Emerging", value: "MSCI EM near 52-week highs. Taiwan and Korea (semiconductor/AI exposure) leading. TSMC alone is ~12% of the index — concentration risk is extreme."}
+    bottom_line:
+      - "Japan is the standout global market but the rally depends on yen weakness and AI/semiconductor demand — both of which could reverse quickly if the BoJ tightens or global tech spending slows."
+      - "The ECB hiking while the Fed holds is a meaningful divergence. European equities face a headwind that US markets do not. Watch how the euro responds after June 11."
+      - "China is going nowhere. The structural headwinds are not lifting, and Chinese markets remain isolated from the AI mega-trend driving returns everywhere else."
+    metric_fallbacks:
+      nikkei:   {label: "Japan", value: "68,462", change: "+2.60%", cls: up-green}
+      shanghai: {label: "China", value: "4,098",  change: "+0.60%", cls: up-green}

@@ -1,0 +1,7 @@
+requests>=2.31
+PyYAML>=6.0
+Jinja2>=3.1
+# Optional: editorial narrative via Claude. Omit to use overrides.yaml text.
+anthropic>=0.40
+# Optional: PDF output (also run `playwright install chromium`).
+# playwright>=1.44
