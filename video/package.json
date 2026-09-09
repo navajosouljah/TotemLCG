@@ -1,0 +1,16 @@
+{
+  "name": "totem-vendor-financing-video",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Totem explainer video: how a vendor's purchase order gets funded by Totem members. Isolated Remotion project; not part of the static site deployment.",
+  "scripts": {
+    "render": "remotion render src/index.ts TotemVendorFinancing out/totem-vendor-financing.mp4",
+    "studio": "remotion studio"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.245",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.245"
+  }
+}
