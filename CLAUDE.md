@@ -15,26 +15,35 @@ Vercel deploys automatically on every push to `main` — no manual deploy step.
 | 0 — Cover | `#page-0` | Market Pulse ticker, hero statement |
 | 1 — Thesis | `#page-1` | Buffett Indicator, CAPE, S&P 500, M2 narrative |
 | 2 — Category | `#page-2` | The Totem reframe ("not an alternative investment") |
-| 3 — Product | `#page-3` | Structure, Allianz insurance, return mechanics |
-| 4 — Proof | `#page-4` | Transaction history, 0.00% default rate, 90-day cycle data |
-| 5 — Closer | `#page-5` | Wealth Preservation Blueprint, six-question scorecard |
-| 6 — Newsletter | `#page-6` | The Totem Challenge mockup |
+| 3 — Proof Stack | `#page-3` | Structure, Allianz insurance, return mechanics |
+| 4 — Comparison | `#page-4` | Transaction history, 0.00% default rate, 90-day cycle data |
+| 5 — Blueprint | `#page-5` | Wealth Preservation Blueprint, six-question scorecard, The Totem Challenge mockup |
+| 6 — Story Engine | `#page-6` | 12-month content strategy |
+| 7 — The Ask | `#page-7` | Partner asks, signature |
 
-Navigation is handled by `goPage(n)` in the JavaScript block at the bottom of the file. Never touch `goPage()` — it controls all page transitions and keyboard navigation.
+Navigation is a sticky top bar (`header.topbar`) containing `#nav`. `goPage(n)` in the JavaScript block at the bottom of the file drives all page transitions and requires `#nav` to contain all 8 `a[data-page="0".."7"]` anchors. Never touch `goPage()`.
 
 ## CSS variables
 
-Color and spacing tokens live at the top of the `<style>` block, inside `:root { }`. Key variables:
+Color and spacing tokens live at the top of the `<style>` block, inside `:root { }`. The visual language is Mogul-style (mogul.club): warm cream backgrounds, dark green-black ink, gold accents, rounded cards, pill buttons. Key variables:
 
 ```css
---gold:       #A6791A
---gold-deep:  #7A550E
---gold-tint:  #F5EDD9
---ink:        #1C1A17
---white:      #FAF8F4
+--black:      #0A1F15   /* all dark surfaces (green-black ink) */
+--gold:       #C9961A
+--gold-bright:#D4A017   /* pill CTA background */
+--gold-deep:  #A6791A
+--warm-white: #F9F3EF   /* hero / topbar cream */
+--paper:      #F5F2EB   /* tinted panels */
+--line:       #EBE6DA
+--ink:        #0A1F15
+--muted:      #667085
+--display:    'Inter Tight'        /* headlines, 600, tight tracking */
+--serif-display: 'Instrument Serif' /* italic <em> accents, quotes, newsletter masthead — 400 only, never bold */
+--sans:       'Inter'
+--radius-card / --radius-lg / --radius-pill, --shadow-card / --shadow-lift
 ```
 
-Color changes always go here, never inline. Never rename a CSS variable — it will silently break every element that references it.
+Color changes always go here, never inline. Never rename a CSS variable — it will silently break every element that references it. Instrument Serif ships weight 400 only; setting a heavier weight on a serif element fake-bolds it.
 
 ## The Market Pulse ticker
 
@@ -78,7 +87,7 @@ If a source fails, that value is skipped and the existing HTML value is kept. Th
 
 ## The Totem Challenge
 
-Weekly newsletter series in Page 6. Each issue: one named expert, a walkthrough of their analysis, a six-question scorecard comparing their recommended product to Totem, the outreach email sent verbatim, and their reply or silence.
+Weekly newsletter series in Page 5. Each issue: one named expert, a walkthrough of their analysis, a six-question scorecard comparing their recommended product to Totem, the outreach email sent verbatim, and their reply or silence.
 
 Issue No. 01 (Pompliano, May 2026) is the format template, starting at `<!-- ============= NEWSLETTER MOCKUP ============= -->` in the file.
 
